@@ -51,3 +51,7 @@ DoMiSo-guangyu/
 DoMiSo-yihuan/
 domiso-web/
 third_party/
+
+# Keep the Domiso AutoHotkey compiler toolchain so Windows builds work after clone.
+!Domiso/ahk_compiler/
+!Domiso/ahk_compiler/**
