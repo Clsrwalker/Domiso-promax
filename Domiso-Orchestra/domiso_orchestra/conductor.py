@@ -221,6 +221,17 @@ class OrchestraRoom:
         async with self.lock:
             return [track_id for track_id, assigned in self.assignments.items() if assigned == client_id]
 
+    async def clients_missing_loaded_tracks(self, client_ids: List[str]) -> List[str]:
+        missing = []
+        async with self.lock:
+            for client_id in client_ids:
+                session = self.clients.get(client_id)
+                expected = {track_id for track_id, assigned in self.assignments.items() if assigned == client_id}
+                loaded = set(session.loaded_tracks) if session else set()
+                if expected and not expected.issubset(loaded):
+                    missing.append(client_id)
+        return missing
+
 
 room = OrchestraRoom()
 app = FastAPI(title="Domiso Orchestra Conductor", version="0.1.0")
@@ -818,6 +829,9 @@ async def start(payload: Dict[str, object]) -> Dict[str, object]:
     start_position_ms = max(0, min(duration_ms, requested_position_ms))
     if not_ready and not force:
         raise HTTPException(409, f"clients not ready: {', '.join(not_ready)}")
+    not_loaded = await room.clients_missing_loaded_tracks(client_ids)
+    if not_loaded and not force:
+        raise HTTPException(409, f"clients missing loaded tracks; click Prepare / Load Tracks first: {', '.join(not_loaded)}")
     start_at = server_time_ms() + delay_ms
     for client_id in client_ids:
         async with room.lock:
