@@ -1,0 +1,27 @@
+Title: Genshin Impact Luna Iv Knights Of Favonius Anthem (auto highlight_dense)
+Source: Genshin_Impact_Luna_IV_Knights_Of_Favonius_Anthem.mid
+Info: tempo 152, duration~83.7s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w08:+2, w09-w09:+5, w10-w12:+0
+Info: highlight_windows=w00,w02,w06,w12 (fragment-only recognizable hooks/climax)
+
+bpm=152
+
+; Voice A Melody
+bpm=152
+5 5/ 4/ 5/ 6/ 5 2 4/ 6/ +1- +2 7-- 5 5/ 4/ 5/ 6/ 0-- 3-- 2 2/ 4/ 5/ 6/ 5 2 4/ 6/ +1- +2 +1/ 7 7/ 5/ 6 6/ +1 +2 0-- 3-- 2
+2/ 4/ 5/ 6/ 5 2 4/ 6/ +1- +2 +1/ 7 7/ 5/ 6 6/ +1 +2 0-- 5--- 5- 2-- 5 5/ 6/ +1/ +2/ +1 5 6/ +2/ +4- +5
+
+rollback=9999
+
+; Voice B Harmony
+bpm=152
+2 2/ 0 0/ -5-- 1-- 2--- 2/ 0--- 0/ -5--- -5--- -5 1-- -5-- 2 0--- 0 -5--- -5--- -5 1-- -5-- 2 0--- 0 -5-- 1-- 5-- +1 +1/
+0/ 1 0 1- 4--
+
+rollback=9999
+
+; Voice C Bass
+bpm=152
+-2--- -2- -4-- -2--- -2- 0-- -3-- -2--- -2- -4-- -2-- -4-- 0-- -3-- -2--- -2- -4-- -2-- -4-- 0-- -5-- -1 0- -2 0- -1 -5-
+-1 -5- -4--

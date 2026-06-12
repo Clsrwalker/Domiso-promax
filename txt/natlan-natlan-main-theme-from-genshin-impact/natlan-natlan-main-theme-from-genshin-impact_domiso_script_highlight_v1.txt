@@ -1,0 +1,33 @@
+Title: Natlan Natlan Main Theme From Genshin Impact (auto highlight_dense)
+Source: natlan-natlan-main-theme-from-genshin-impact.mid
+Info: tempo 60, duration~274.1s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w00:+7, w01-w12:+6, w13-w29:+8
+Info: highlight_windows=w00,w03,w05,w29 (fragment-only recognizable hooks/climax)
+
+bpm=60
+
+; Voice A Melody
+bpm=60
++2--- 4-- 5--- 4-- -6/ 5 4/ 3/ 6/ -7/ 2 2/. 1// -6/ 0--- 5 5// 4// 2/ -1/ 3 3/ 4/ 2/ 3-- -3/ 7 6/ 5// 4// 2/ -6/ +1 +1/.
+7// 5/ -4/ 6--- 6- 6/ 7-- 0---
+bpm=120
+7 6-- 7 6-- 7 6-- 7 6-- 7 6-- 7 6-- 0--- +2-- -1-- 5- 4/ 5 5/ 4 5--- 5--- -1//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=60
+6--- 1-- -5--- 1 0- -2 6/. -2// -1 0 4/. 0// -6 0--- 7/. -3// -6 0 5/. 0// -2 -1 +1- 0 +3/. 0// -2 0 +1/. 0// -5 0 +4 0
++4 0 +4- -7-- 0---
+bpm=120
+-7 0-- -7 0-- -7 0-- -5 0-- -4 0-- -4 0--- 0-- +4-- 0-- +1- +2/ +3/ +4 +2 +1--- +1--- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=60
+-5--- -4-- -5--- -1-- -2- -1/ -6/ -7- -6 0--- -3 -2 -1- -2 -1-- -3- -2 -6- -5 -4--- -4-- -3-- 0---
+bpm=120
+-7 -6 0 0/ -6/ -7 -6 0 0/ -6/ -7 -6 0 0/ -6/ -5 -4 0 0/ -4- -4/ 0 0/ -4 -4/ -5 0 0/ -5/ 0--- 0 -6 0 -1--- -1--- -1---
+-1-- 0 -1//

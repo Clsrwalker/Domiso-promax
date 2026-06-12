@@ -1,0 +1,31 @@
+Title: Call Of Silence Animenz Arr Attack On Titan Hiroyuki Sawano (auto highlight_dense)
+Source: call-of-silence-animenz-arr-attack-on-titan-hiroyuki-sawano.mid
+Info: tempo 62, duration~350.1s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w22:+3
+Info: highlight_windows=w00,w53,w56,w58 (fragment-only recognizable hooks/climax)
+
+bpm=62
+
+; Voice A Melody
+bpm=62
+6/ +1- +1/ +7- 0
+bpm=64
+7// 6 6// 5// 7/ 6/. 7/ 6/ 5// 7 7/. 0 +2/ +1// +4// +6/ +3 +1// +2 +2// 7// +3 +2/ +3// 0 +2/ +1/ +2/ +3 +1// +2 +3/
++2/ +3/ +2/.
+
+rollback=9999
+
+; Voice B Harmony
+bpm=62
+0 2 +2 2- 0
+bpm=64
+0 7/. 0 0// +1/. 0 0// +1/. 0- 0// +7/. 0 0// +7- +1 0--- +7 +1 +5
+
+rollback=9999
+
+; Voice C Bass
+bpm=62
+0 -4- -5- 0
+bpm=64
+3// 0 0/. -5 0--- 0/ 2/ 5 -6 1 0/ 3/ 4 0 0/ 1/ 2 -4 -6 0/ 1/ 4

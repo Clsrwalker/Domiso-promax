@@ -1,0 +1,206 @@
+Title: One Piece We Are Misc Cartoons (auto sky_melodylock_human)
+Source: one-piece-we-are-misc-cartoons.mid
+Info: tempo 165, duration~65.5s, grid 1/16
+Info: profile=sky_melodylock_human, Sky 15-key melodylock human: keep the hook centered, then add subtle breath, lag and rubato
+Info: dynamic transpose windows(4 bars): w00-w07:+6, w08-w11:+4
+Info: Sky 15-key layout C4-C6 -> Y U I O P / H J K L ; / N M , . /
+Info: humanize=on mode=lite, rubato+/-1bpm gradual, breath=27, lag=3, pocket=0, release=0
+Info: speed_guard lead_pruned=0, support_pruned=0, input_budget_dropped=5, peak_clusters/s=4.0
+
+bpm=165
+
+; Voice A Melody
+bpm=165
+6 +1 7- 6 6/ 7/ 6/. 0// 7 6 +1 7- 6 6/ 7// 0// 6 7 6 +1 7- 6 6// 0// 7/ 6 7 6 +1 7 7/
+bpm=164
+7/ 6 6// 0// 7 7/ +3 +6/.
+bpm=165
+0//
+bpm=164
+6 +3 +6//
+bpm=165
++6/. +7- +7/.
+bpm=164
++7// +6/ +7//
+bpm=165
+0//
+bpm=164
++2 +2//
+bpm=165
++2// +6 +6/.
+bpm=164
++6/
+bpm=165
+0// 2- 3/. 0// +3 +6/. 0//
+bpm=164
+6 +3/
+bpm=165
++3/ +6 +7
+bpm=164
++7/.
+bpm=165
+0// +2 +2/. 0//
+bpm=164
++7/ +6/ +7//
+bpm=165
++7// +6 +6/.
+bpm=164
++6/
+bpm=165
+0//
+bpm=164
+2- 3- 6 +1 7 7/. 0// 6 6/ 7/ 6 7 6 +1 7/
+bpm=165
+7 7// 0// 6 6/ 7/ 6 7 6 +1 7 7/. 0// 6 6/ 7/ 6 7 6 +1 7 7/. 0// 6 6/ 7 7/ +3 +3/
+bpm=164
++3/ +2 +1/. 0// 7 6-- 6/.
+bpm=165
+0//
+bpm=164
++5 +4 +3 +2 +3--- +3/. 0// +2 +1/
+bpm=165
++1/ 7 6-- 7/. 0// +1--- +2--- +2/. 0// +1 7/
+bpm=164
+7/ 6 5-- 5/.
+bpm=165
+0//
+bpm=164
++5- +6 +4 +5--- +5 +5/. 0// +4 +3 +2 7 +3/
+bpm=165
++3 +3/ +1 +1/. 0// 7 6 5--- 5/. 0// 7 6- 5 5/ 6/ 5 6/. 0// 5 7 6- 5/.
+bpm=164
+5/. 6/ 5/. 0// 6 5---
+bpm=165
+0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=165
+0--- 0--- 0--- 0--- 0--- 0--- 0-- 0/
+bpm=164
+0--- 0 0//
+bpm=165
+0//
+bpm=164
+0- 0//
+bpm=165
+0-- 0/
+bpm=164
+0
+bpm=165
+0//
+bpm=164
+0 0//
+bpm=165
+0-
+bpm=164
+0/
+bpm=165
+0--- 0 0//
+bpm=164
+0 0/
+bpm=165
+0- 0/
+bpm=164
+0/.
+bpm=165
+0- 0//
+bpm=164
+0 0//
+bpm=165
+0-
+bpm=164
+0/
+bpm=165
+0//
+bpm=164
+0--- 0--- 0--- 0- 0/
+bpm=165
+0--- 0--- 0--- 0--- 0--- 0-
+bpm=164
+0--- 0-- 0//
+bpm=165
+0//
+bpm=164
+0--- 0--- 0- 0/
+bpm=165
+0--- 0--- 0--- 0---
+bpm=164
+0--- 0 0//
+bpm=165
+0//
+bpm=164
+0--- 0--- 0--- 0- 0/
+bpm=165
+0--- 0--- 0--- 0--- 0--- 0- 0//
+bpm=164
+0--- 0-- 0//
+bpm=165
+0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=165
+0 6--- 6 0 6 0 6--- 6 0 6 0 6--- 6 0-- 6- 6/
+bpm=164
+6--- 6 6//
+bpm=165
+6//
+bpm=164
+0 6 6//
+bpm=165
+6/. 3- 3/.
+bpm=164
+3
+bpm=165
+3//
+bpm=164
+5 5//
+bpm=165
+5-
+bpm=164
+5/
+bpm=165
+5// 0-- 3 6
+bpm=164
+0 6/
+bpm=165
+6 6/ 3
+bpm=164
+3/.
+bpm=165
+3- 3//
+bpm=164
+5 5//
+bpm=165
+5-
+bpm=164
+5/
+bpm=165
+5//
+bpm=164
+0--- 0 6--- 6 0 6 0 6 6/
+bpm=165
+6-- 6/ 0 6 0 6--- 6 0 6 0 6--- 6-- 6/
+bpm=164
+6--- 6-- 6//
+bpm=165
+6//
+bpm=164
+5--- 6--- 6- 6/
+bpm=165
+6--- 6 6/ 4--- 5--- 5- 5/
+bpm=164
+5--- 5 5//
+bpm=165
+5//
+bpm=164
+0--- 3--- 1- 0- 7- 5/
+bpm=165
+5 5/ 1- 2- 0--- 0 5--- 5 0 5 0 5-- 5/.
+bpm=164
+5 5// 0 5--- 5
+bpm=165
+0//

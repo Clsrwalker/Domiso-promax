@@ -1,0 +1,30 @@
+Title: Deemo Pianoboy The Truth That You Leave (auto highlight_dense)
+Source: deemo-pianoboy-the-truth-that-you-leave.mid
+Info: tempo 127, duration~222.2s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w21:+2, w22-w28:+0
+Info: highlight_windows=w00,w10,w18,w24 (fragment-only recognizable hooks/climax)
+
+bpm=127
+
+; Voice A Melody
+bpm=127
+5/ -6/ 1/ 5 -6/ 1/ 5 -6/ 1/ 5 -6 1--- 1 2 3 4 6/ +5/ 6/ +1/ +5 6/ +1/ +5/ 0--- +1// +3- +3/. +5- 4- +1- 5--- 5 5/ +2 +1
++1/ 6--- 6-- 0--- +1// +3- +3/. +5- 4- +1- 5--- 5 5/ +2 +1 +1/ 6--- 6-- 0--- -7 -7/ 3 3/ 5--- 5--- 5-- 5/ +1 +3- 7-- 7/
+6--
+
+rollback=9999
+
+; Voice B Harmony
+bpm=127
+0--- 0--- 0--- 0--- 0--- 0--- 0-- +1/. 0 0// +1/. 0 0// -4 0 +2/. 0 0// -5 1 +1/. 0- 0// 6 +5/. 0 0// -6 0 +1/. 0 0// -4
+0--- 0-- +1/. 0 0// +1/. 0 0// -4 0 +2/. 0 0// -5 1 +1/. 0- 0// 6 +5/. 0 0// -6 0 +1/. 0 0// -4 0--- -3/. 0 0// -5/. 0//
++5/. 0 0// +1/. 0 0// -4 0 +2/. 0 0// -5 -6/. 0// +3/. 0- 0// +7 +7/ 0 0/ -3 0 +1/. 0 0// -4
+
+rollback=9999
+
+; Voice C Bass
+bpm=127
+-4--- 0/ -2/ -5- 0 0/ -3/ 0-- 0/ -3/ 0-- -4 -4/ -6/ 0 -4 0--- 0--- -4 -4/ -6/ 0 -4 -5 -5/ -7/ 0 -5 -1 1/ 3/ 0 -1 -6 -6/
+1/ 0 -6 -4 -4/ -6/ 0 -4 0--- 0--- -4 -4/ -6/ 0 -4 -5 -5/ -7/ 0 -5 -1 1/ 3/ 0 -1 -6 -6/ 1/ 0 -6 -4 -4/ -6/ 0 -4 0--- -3 0
+-5- -4 -4/ -6/ 0 -4 -5 -5/ -7/ 0 -5 -6 -6/ 1/ 0 -6 -3 0/ -5/ 0 -3 -4 -4/ -6/ 0 -4

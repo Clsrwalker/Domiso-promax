@@ -1,0 +1,25 @@
+Title: All Of Me Violin (auto highlight_pop)
+Source: all-of-me-violin.mid
+Info: tempo 120, duration~264.0s, grid 1/16
+Info: profile=highlight_pop, hook/climax fragments with singable lead and stable support
+Info: dynamic transpose windows(4 bars): w00-w32:+4
+Info: highlight_windows=w00,w14,w21 (fragment-only recognizable hooks/climax)
+
+bpm=120
+
+; Voice A Melody
+bpm=120
++2/ +3--- +3/ +1-- +3- +3/ +2/ +3 +3/ +2/ +1/ 6- 6/ +3- +4- 0--- +2- +3/ +2 +2/ 6- +3- +3/ +2/ +3 +3/ +2/ +1-- +3- +5/
++4/ +3 +3/ +2/ +1/ 6- 6/ +3- 0--- 3--- 2 3/ 2 2/ 1/ 2/ 1- 3- 2-- 1/ 2/ 1 1/ 3 4/ 5/ +1- 7- 6/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---

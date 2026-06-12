@@ -1,0 +1,24 @@
+Title: Waltz In A Minorchopin (auto highlight_pop)
+Source: waltz-in-a-minorchopin.mid
+Info: tempo 120, duration~120.0s, grid 1/16
+Info: profile=highlight_pop, hook/climax fragments with singable lead and stable support
+Info: dynamic transpose windows(4 bars): w00-w06:+0, w07-w11:-2, w12-w14:+0
+Info: highlight_windows=w00,w16,w58 (fragment-only recognizable hooks/climax)
+
+bpm=120
+
+; Voice A Melody
+bpm=120
+3 6/ 7/ +1- +2/ +3/ 0 +7/. +1/ +7/ +6// +3/ +7/ +6- +3 0 +5/ +4/ +3/ +2/ +1/ +2/ +3/ +4 +3/ +4/ +3/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+0- 3- 0- 2 0 1- 0 2 0-- 4 0- +2/. 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+0 -6-- -2 0 -3 -6 -3--- 0- -2 -6 0 -3-

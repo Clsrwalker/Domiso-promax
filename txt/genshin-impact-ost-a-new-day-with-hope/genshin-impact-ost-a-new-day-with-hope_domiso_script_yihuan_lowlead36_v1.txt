@@ -1,0 +1,35 @@
+Title: Genshin Impact Ost A New Day With Hope (auto yihuan_lowlead36)
+Source: genshin-impact-ost-a-new-day-with-hope.mid
+Info: tempo 102, duration~100.9s, grid 1/16
+Info: profile=yihuan_lowlead36, Yihuan 36-key lowlead36: low-row lead, exact semitones, sparse anti-mud support
+Info: original-key strategy: no semitone transpose, octave-fold only; windows: w00-w10:+0
+Info: lead register strategy: Voice A prefers Yihuan low row C3-B3 (Z X C V B N M); octave moves only
+Info: lowlead smoothing -> lead_ornaments_dropped=0, support_pruned=39
+Info: Yihuan 36-key chromatic layout -> naturals Q W E R T Y U / A S D F G H J / Z X C V B N M; semitones: Shift raises, Ctrl lowers
+
+bpm=102
+
+; Voice A Melody
+bpm=102
+1/ 2/ -5/ -1/ -2/ -4/ -1/ -2/ -3- -1/ -2/ -5/ -1/ -2/ -4/ -1/ -2/ -3- -1/ -2/ -5/ -1/ -2/ -4/ -1/ -2/ -3- -1/ -2/ -5/
+-1/ -2/ -4/ -1/ -2/ -3- -1/ -2/ -5/ -1/ -2/ -4/ -1/ -2/ -3- -1/ -2/ -3--- -3/. 0// -1/ -2/ -5/ -1/ -2/ -4/ -1/ -2/ -3-
+-1/ -2/ -5/ -1/ -2/ -4/ -1/ -2/ -3- -1/ -2/ -5/ -1/ -2/ -4/ -1/ -2/ -3- -1/ -2/ -3- -1- -1/. 0// -7/ -1 -5/ -1/ -5/ -7/
+-1 -5 -5/ -7/ -1 -5/ -1/ -5/ -7/ -1 -5 -5/ -1/ -2/ -3/ -1/ -2/ -5/ -1/ -2/ -3- -1/ -2/ -3--- -3/. 0// -7/ -1 -5/ -1/ -5/
+-7/ -1 -5 -5/ -7/ -1 -5/ -1/ -5/ -7/ -1 -5 -5/ -1/ -2/ -3/ -1/ -2/ -5/ -1/ -2/ -3- -1/ -2/ -3/ -1/ -2/ -5/ -1/ -2/ -3-
+-1/ -2/ -5- -1/ -2/ -5--- -5-- -5/. 0// -1--- -1 -1/. 0// -3--- -3 -3/. 0// -5- -5/. 0// -6--- -6--- -6/ 0/ 1--- 1 1/.
+0// -3--- -3 -3/. 0// -5--- -5- -7--- -7--- -7 -7/ 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=102
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 7- 7/. 0--- 0--- 0 0// 3--- 3 3/. 0// 3--- 3 3/. 0// 2--- 2- 0--- 0--- 0
+0/.
+
+rollback=9999
+
+; Voice C Bass
+bpm=102
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- -3--- -3 -3/. 0--- 0--- 0--- 0--- 0--- 0-

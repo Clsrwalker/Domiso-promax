@@ -1,0 +1,27 @@
+Title: Hun Dunbugi Jon Yakitory (auto highlight_pop)
+Source: hun-dunbugi-jon-yakitory.mid
+Info: tempo 120, duration~146.0s, grid 1/16
+Info: profile=highlight_pop, hook/climax fragments with singable lead and stable support
+Info: dynamic transpose windows(4 bars): w00-w15:+0, w16-w18:-1
+Info: highlight_windows=w00,w11,w16 (fragment-only recognizable hooks/climax)
+
+bpm=120
+
+; Voice A Melody
+bpm=120
+6- 6/ 3/ 6/ 7/ +1- +1/ 7/ +1/ +2 +2/ +3 6/ 0/ 5/ +2 +3 6/ -3/ 5 5/ 6- 6/ 3/ 6/ 7/ 0--- 2/ 1/ 2/ 3/ -6 -1 -4/ -6/ 3- 2/
+1/ 2/ 1/ 2/ 1/ 2/ 1/ 2/ 4/ 3 0 -6 -3/ -5/ -6 +6- +5// 6// 0/ 6- 6/ 3/ 6/ 7/ 0--- 7 0/ +1/ 7/ 6/ 5 -6/ +1/ -6/ +1/ -6/
++1/ -6/ +1/ 1/ 5/ 1/ 5/ 1/ 5/ 1/ 5/ -4/ 6/ -4/ 6/ -4/ 6/ -4/ 6/ -3/ 5/ -3/ 5/ -3/ 5/ -3/ 5/ -6/ +1/ -6/ +1/ -6/ +1/ -6/
++1/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0-- 3 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+-6--- 1--- -4--- 0--- -6--- 0--- -1-- 0-- -4- -5--- -6- 0- -6 0- -3 -6--- 0--- -3--- 0--- 0--- 0--- 0--- 0---

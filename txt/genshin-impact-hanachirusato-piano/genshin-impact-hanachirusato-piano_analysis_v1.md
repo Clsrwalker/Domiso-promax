@@ -1,0 +1,24 @@
+# Analysis: genshin-impact-hanachirusato-piano.mid
+
+## Metrics
+- note_count: 229
+- duration_s: 88.38006756756756
+- tempo0: 74
+- tempo_events: 1
+- time_sig: 1/4
+- max_poly: 5
+- bar_density_mean: 2.2450980392156863
+- bar_density_p90: 4.0
+- tracks: 2
+- pitch_min: 40
+- pitch_max: 93
+
+## Recommended Profile
+- pop_ballad
+- reason: default balanced
+
+## Manual Arrangement Checklist
+- keep melody singable first, avoid forced leap
+- ornaments source-derived only
+- keep bass harmonic roots at section edges
+- check parser syntax and playable ratio after edits

@@ -1,0 +1,25 @@
+Title: 能不能给我一首歌的时间 Zhou Jie Lun (auto highlight_dense)
+Source: 能不能给我一首歌的时间-zhou-jie-lun.mid
+Info: tempo 59, duration~248.9s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w11:-1, w12-w15:-2
+Info: highlight_windows=w00,w40,w53,w56 (fragment-only recognizable hooks/climax)
+
+bpm=59
+
+; Voice A Melody
+bpm=59
+3/ 5/ 3 3/. 5// +4 +4// +3// +2/ 0 +1 +1// +2// +3// +4// +5- +6/ +3// +4/ +5/. 0 +2/. 5// +3// +5/ +3// +2/ +1 +1/ +2/
++1/ 2// 5/ 6// 0 +2/. 5// +3/ +2/ +1/. 1-- 1//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=59
+0 +3 +3/. 0--- 0 0// +2/. 0 0// +1/. 0- 0// 5/. 0// -1/ -5/ 5/. 0// 1/. 0// -3/. 0- 0// 4/. 0 0// -1/. 0 0// -7/. 0 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=59
+0 -6 0 -3 0- -1 0/ 2/ -2 0/ -5 -5/ 0- -5 -1/ -2/ -6- -3 -7 0 -5- -1 -1/ -6/ -7-

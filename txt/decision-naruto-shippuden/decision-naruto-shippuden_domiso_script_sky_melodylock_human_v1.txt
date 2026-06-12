@@ -1,0 +1,242 @@
+Title: Decision Naruto Shippuden (auto sky_melodylock_human)
+Source: decision-naruto-shippuden.mid
+Info: tempo 60, duration~180.0s, grid 1/16
+Info: profile=sky_melodylock_human, Sky 15-key melodylock human: keep the hook centered, then add subtle breath, lag and rubato
+Info: dynamic transpose windows(4 bars): w00-w03:+7, w04-w11:+5
+Info: Sky 15-key layout C4-C6 -> Y U I O P / H J K L ; / N M , . /
+Info: humanize=on mode=lite, rubato+/-1bpm gradual, breath=23, lag=0, pocket=0, release=0
+Info: speed_guard lead_pruned=0, support_pruned=0, input_budget_dropped=0, peak_clusters/s=3.0
+
+bpm=60
+
+; Voice A Melody
+bpm=60
+0
+bpm=59
+6 7 +1//
+bpm=60
++1- +1// +2/ 7
+bpm=59
+7
+bpm=60
+0
+bpm=59
+6/. 0// 7 +1- +1/ +2/ +3//
+bpm=60
++3 +3/. +2/. 0// 7 5 6/ 7/ +1 +2 +3/
+bpm=59
++3 +3// 0// +4
+bpm=60
+6 +2 +1-- 7
+bpm=59
+7
+bpm=60
+0
+bpm=59
+6/. 0// 7 +1//
+bpm=60
++1- +1// +2/ 7
+bpm=59
+7
+bpm=60
+0
+bpm=59
+6/. 0// 7 +1- +1/ +2/ +3//
+bpm=60
++3 +3/. +2/. 0// 7 5 6/ 7/ +1 +2 +3/
+bpm=59
++3 +3// 0// +4
+bpm=60
+6 +2 +1--- +1/. 0// 6 6/
+bpm=59
+6 6/
+bpm=60
+0
+bpm=59
+++1 ++1/ +7/ +6 +3/ +6// 0// +7/ +6/ +5-- ++1 ++1//
+bpm=60
+++1// +7/ +6/. 0// +3/ +6/ +7/ ++1/ +5-- +4/ +5/ +6 +6/. 0// +2/ +6/ ++1/ +7/ +6- +6//
+bpm=59
++6 +6/. +7/. 0// +3 +2/.
+bpm=60
+0//
+bpm=59
+++1- +7 +7//
+bpm=60
++7/. +6--- +6/
+bpm=59
++6 +6/
+bpm=60
+0/
+bpm=59
++1// 0// 7 6 6/ 7/ +1 +1/ +2/ +3/ +5/ +3 +3/. 0// +2/ +1/ +2 +2/ +3/ 7 5 6- 6/
+bpm=60
+6// 0// +1/ 7/ 6 6/ 7/ +1 +1/ +2/ +3/ +5/ +3 +3/. 0// +2/ +1/ +2 +2/ +3/ 7 5 6- 6/. 0// +1/ +2/ +3- +2 7 +1/ 7/ 6 6/.
+bpm=59
+0// +1/ +2/ +3 +5- +3/ +7/ ++1 +7/. 0// +6/.
+bpm=60
+0//
+bpm=59
++1/ +2/ +3- +2 7 +1/ 7/ 6 6/. 0// +1//
+bpm=60
++1// +2/ +3 +5- +3/ +7/ ++1-- ++1/. 0// +7---
+bpm=59
++6---
+bpm=60
+0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=60
+0
+bpm=59
+0- 0//
+bpm=60
+0-- 0/.
+bpm=59
+0
+bpm=60
+0
+bpm=59
+0--- 0 0//
+bpm=60
+0--- 0--- 0//
+bpm=59
+0- 0/
+bpm=60
+0--- 0-
+bpm=59
+0
+bpm=60
+0
+bpm=59
+0- 0//
+bpm=60
+0-- 0/.
+bpm=59
+0
+bpm=60
+0
+bpm=59
+0--- 0 0//
+bpm=60
+0--- 0--- 0//
+bpm=59
+0- 0/
+bpm=60
+0--- 0--- 0/
+bpm=59
+0 0/
+bpm=60
+0
+bpm=59
+0--- 0--- 0 0//
+bpm=60
+0--- 0--- 0--- 0-
+bpm=59
+0--- 0/
+bpm=60
+0//
+bpm=59
+0-- 0//
+bpm=60
+0--- 0 0//
+bpm=59
+0 0/
+bpm=60
+0/
+bpm=59
+0--- 0--- 0--- 0---
+bpm=60
+0--- 0--- 0--- 0--- 0--- 0--- 0//
+bpm=59
+0--- 0---
+bpm=60
+0//
+bpm=59
+0--- 0--- 0//
+bpm=60
+0--- 0--- 0--- 0/.
+bpm=59
+0---
+bpm=60
+0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=60
+0
+bpm=59
+0- 0//
+bpm=60
+0-- 0/.
+bpm=59
+0
+bpm=60
+0
+bpm=59
+0--- 0 0//
+bpm=60
+0--- 0--- 0//
+bpm=59
+0- 0/
+bpm=60
+0--- 0-
+bpm=59
+0
+bpm=60
+0
+bpm=59
+0- 0//
+bpm=60
+0-- 0/.
+bpm=59
+0
+bpm=60
+0
+bpm=59
+0--- 0 0//
+bpm=60
+0--- 0--- 0//
+bpm=59
+0- 0/
+bpm=60
+0--- 0--- 0/
+bpm=59
+0 0/
+bpm=60
+0
+bpm=59
+0--- 0--- 0 0//
+bpm=60
+0--- 0--- 0--- 0-
+bpm=59
+0--- 0/
+bpm=60
+0//
+bpm=59
+0-- 0//
+bpm=60
+0--- 0 0//
+bpm=59
+0 0/
+bpm=60
+0/
+bpm=59
+0--- 0--- 0--- 0---
+bpm=60
+0--- 0--- 0--- 0--- 0--- 0--- 0//
+bpm=59
+0--- 0---
+bpm=60
+0//
+bpm=59
+0--- 0--- 0//
+bpm=60
+0--- 0--- 0--- 0/.
+bpm=59
+0---
+bpm=60
+0//

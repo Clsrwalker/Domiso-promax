@@ -1,0 +1,31 @@
+Title: Decision Naruto Shippuden (auto guitar_balanced)
+Source: decision-naruto-shippuden.mid
+Info: tempo 60, duration~180.0s, grid 1/16
+Info: profile=guitar_balanced, guitar timbre friendly balanced support with clean mid-low bed
+Info: top_chord_mode=pad (single-note mapping prefers lower+middle rows)
+Info: chord_pads_from_bass=0
+Info: guitar_style_windows(4 bars): w00-w02:arpeggio, w03-w05:folk_strum, w06-w06:arpeggio, w07-w09:lead_mix, w10-w11:arpeggio
+Info: dynamic transpose windows(4 bars): w00-w03:-5, w04-w11:-7
+
+bpm=60
+
+; Voice A Melody
+bpm=60
+0 6 7 1- 1/ 2/ 7- 0 6 7 1- 1/ 2/ 3- 2 7 5 6/ 7/ 1 2 3- 4 6 2 1-- 7- 0 6 7 1- 1/ 2/ 7- 0 6 7 1- 1/ 2/ 3- 2 7 5 6/ 7/ 1 2
+3- 4 6 2 1--- 1 6-- 0 7- 6 3/ 6/ 7/ 6/ 5-- 7- 6 3/ 6/ 7 5-- 4/ 5/ 6- 7/ 6/ 7 6--- 7--- 7-- 6--- 6- 0/ 1/ 7 6 6/ 7/ 1 1/
+2/ 3/ 5/ 3- 2/ 1/ 2 2/ 3/ 7 5 6-- 1/ 7/ 6 6/ 7/ 1 1/ 2/ 3/ 5/ 3- 2/ 1/ 2 2/ 3/ 7 5 6-- 1/ 2/ 3- 2 7 1/ 7/ 6- 1/ 2/ 3 5-
+3/ 7- 7/ 6 1/ 2/ 3- 2 7 1/ 7/ 6- 1/ 2/ 3 5- 3/ 7--- 7--- 7/ 6--- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=60
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=60
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0//

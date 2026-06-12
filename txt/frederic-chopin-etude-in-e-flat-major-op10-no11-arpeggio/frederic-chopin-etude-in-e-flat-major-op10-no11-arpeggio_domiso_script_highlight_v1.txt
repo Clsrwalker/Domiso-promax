@@ -1,0 +1,72 @@
+Title: Frederic Chopin Etude In E Flat Major Op10 No11 Arpeggio (auto highlight_dense)
+Source: frederic-chopin-etude-in-e-flat-major-op10-no11-arpeggio.mid
+Info: tempo 52, duration~141.9s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w02:-3, w03-w04:-1, w05-w10:-3
+Info: highlight_windows=w00,w08,w20,w56 (fragment-only recognizable hooks/climax)
+
+bpm=52
+
+; Voice A Melody
+bpm=52
++5/ +3/
+bpm=64
++3
+bpm=72
++3/ 0/
+bpm=68
++3
+bpm=76
++3- 0/
+bpm=68
++3
+bpm=76
++3- 0/
+bpm=72
++3
+bpm=76
++3-
+
+rollback=9999
+
+; Voice B Harmony
+bpm=52
+0
+bpm=64
+5
+bpm=72
+5/ 0/
+bpm=68
+6
+bpm=76
+6- 0/
+bpm=68
+6
+bpm=76
+6- 0/
+bpm=72
+6
+bpm=76
+6-
+
+rollback=9999
+
+; Voice C Bass
+bpm=52
+0/ -1/
+bpm=64
+-1
+bpm=72
+-1/ 0/
+bpm=68
+-2/ -1/
+bpm=76
+-1- 0/
+bpm=68
+-2/ -1/
+bpm=76
+-1- 0/
+bpm=72
+-2/ -1/
+bpm=76
+-1-

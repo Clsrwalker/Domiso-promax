@@ -1,0 +1,26 @@
+Title: Qian Si Xi Yin Lin Aki A Jie (auto highlight_dense)
+Source: qian-si-xi-yin-lin-aki-a-jie.mid
+Info: tempo 93, duration~220.0s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w21:-5
+Info: highlight_windows=w00,w37,w69,w77 (fragment-only recognizable hooks/climax)
+
+bpm=93
+
+; Voice A Melody
+bpm=93
+6// 7// +1// +2// +3/. 6 6// 7// +1/ 7/ 5/ 3// 0 5 3/ 2/ 1/ 2/ 3/ 5/ 6 6/ +1/ 0 5 3/ 2/ 1/ 2/ 3/ 5/ 6 6/ +1/ 0 5 3/ 2/
+1/ 2/ 3/ 5/ 6 6/ +1/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=93
+0--- 0- 2 +3/. 0// -3/. 0// +3/. 7// 1 -6/. 0 0// 2 +3/. 0// -3/. 0// +3/. 7// 1 -6/. 0 0// 2 +3/. 0// -3/. 0// +3/. 7//
+1 -6/. 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=93
+0 -4 0 -5 0- -5- -3 -3/ -7/ -4- 0 -5- -3 -3/ -7/ -4- 0 -5- -3 -3/ -7/ -4-

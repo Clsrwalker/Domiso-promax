@@ -1,0 +1,33 @@
+Title: Fragile Fantasy Genshin Impact Dragonspine Ost 3 Piano Solo (auto guitar_dense)
+Source: fragile-fantasy-genshin-impact-dragonspine-ost-3-piano-solo.mid
+Info: tempo 58, duration~115.9s, grid 1/16
+Info: profile=guitar_dense, guitar timbre friendly dense material with anti-mud limits
+Info: top_chord_mode=pad (single-note mapping prefers lower+middle rows)
+Info: chord_pads_from_bass=14
+Info: guitar_style_windows(4 bars): w00-w02:arpeggio, w03-w03:bass_strum, w04-w05:lead_mix, w06-w06:bass_strum, w07-w07:arpeggio
+Info: dynamic transpose windows(4 bars): w00-w01:-5, w02-w04:-8, w05-w06:-5
+
+bpm=58
+
+; Voice A Melody
+bpm=58
+0 7-- 0 7--- 7-- 0 7--- 7--- 7-- 7// 0/. 7-- 0 7--- 7-- 0 7--- 7-- 0 7--- 7- 7/. 0--- 0 0// 4/ 5// 6- 6// 0 6/ 7/ 6/ 5/
+4/ 3/ 2 2/ 3// 4- 4// 0 4/ 5/ 4/ 3/ 2/ 1/ -7 -7/ 1// 2 2// -7/. 6 6/. 7/ 6/ 5/ 4/ 5/ 4 6/. 7--- 7/. 6 5/ 4 4/ 5// 6---
+6/. 5/ 4/ 3/ 2 2/ 3// 4- 4// 0 3/ 4// 5/. 6/ 4--- 4/. 0--- 0/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=58
++4/. 0-- 0// +3/. 0-- 0// +2/. 0-- 0// +1/. 0-- 0// +6/. 0-- 0// +1/. 0-- 0// +4/. 0-- 0// +6/. 0-- 0// +5/. 0-- 0//
++6/. 0-- 0// +5/. 0-- 0// +6/. 0-- 0/. +2// 0-- 0/. +6// 0-- 0// -6--- -6--- -7--- -6--- -5--- -6--- -6--- -5--- -6---
+-6--- -6--- -5- -3- -6--- -6--- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=58
+-4/ 1/ 6- 6/. 0// -3/ 1/ 5- 5/. 0// -2/ -6/ 4- 4/. 0// -1/ -6/ 4- 4/. 0// -6/. -4// 2- 2/. 0// -1/ -5/ 3- 3/. 0// -4/ 1/
+6- 6/. 0// -6/. -3// 1- 1/. 0// -7/. -4// 2- 2/. 0// -6/. -4// 1- 1/. 0// -5/. -2// -7- -7/. 0// -6/. -3// 1- 1/. 0//
+-2/ -6/ 4- 4/. 0// -6/. -3// 1- 1/. 0// -2--- -1--- -4--- -1--- -2--- -3- -1--- -1--- -1- -2--- -1--- -4--- -1--- -1---
+-1// -4-- -4/. 0//

@@ -1,0 +1,35 @@
+Title: Unfinished Frescoes Genshin Impact Dragonspine Ost (auto yihuan_melodylock_dense)
+Source: unfinished-frescoes-genshin-impact-dragonspine-ost.mid
+Info: tempo 66, duration~83.5s, grid 1/16
+Info: profile=yihuan_melodylock_dense, Yihuan 36-key dense melodylock: preserve more chromatic body while keeping lead singable
+Info: dynamic transpose windows(4 bars): w00-w00:-6, w01-w03:-9, w04-w05:-6
+Info: Yihuan 36-key chromatic layout -> naturals Q W E R T Y U / A S D F G H J / Z X C V B N M; semitones: Shift raises, Ctrl lowers
+
+bpm=66
+
+; Voice A Melody
+bpm=66
+-4#/ 1#/ +1#/ 4#/ -5#/ 1#/ +1#/ 5#/ -6/ 1#/ +1#/ 4#/ -5#/ 1#/ +1#/ 4/ -4#/ 1#/ +1#/ 4#/ -5#/ 1#/ +1#/ 5#/ -6/ 1#/ +1#/
+4#/ -7/ 1#/ +1#/ 0/ +7b--- +7// +7b +7b/. -5#/ +5#/ +7b/ +4#/ +7b/ +4/ +7b -3/ +5#/ +7b/ +4#/ +7b/ +3b/ +7b- 7b/ 2/
++7b--- +7// +7b +7b/. -1/ +5#/ +7b/ +4#/ +7b/ +4/ +7b -7b/ +5#/ +7b/ +4#/ +7b/ -7b/ +3b- +5/ +7b/ +7--- +7/ +7b +7b/ -7/
++5#/ +7b/ +4#/ +7b/ +4/ +7b -7b/ +5#/ +7b/ +4#/ +7b +3b +3b/ 3b/ 4#/ 7b/ +2 +2// 0// 4#/ +2 +7/ 5#/ +2/ +1#/. 0// 5#/
+-3b/ 7/ +1#// 0// 6/ +1#/ 5#/ +1#// 0// 4#/ -1#/ 7/ +1#// 0// 6/ +1#/ -6/ 4#-- -2/ -6/ +1#/ 4#/ -1#/ -6/ +1#/ 4#/ -7/
+-4#/ +1#/ 4#/ -1#/ -5#/ 1#/ 4/ -4#- -4#/ 0 0/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=66
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- +1#// 0--- 0--- 0- 0/. 7b/ 0 0/ 7/ 0 0/ 7/ 0/ +1#// 0/. 7b/ 0 0/ 7b/ 0 0/
+7b/ 0 0/ 7b/ 0 0/ 7b/ 0 0/ 7b/ 0- 0/ +3// 0/. +2 0--- 0--- -4#/ 0--- 0--- 0--- 0-- 0/
+
+rollback=9999
+
+; Voice C Bass
+bpm=66
+0--- 0--- 0--- 0--- -3b/ -7b/ 7b/ 3b/ -4/ -7b/ 7b/ 2/ -4#/ -7b/ 7b/ 3b/ 0/ -7b/ 7b/ 3b/ -4/ -7b/ 7b/ 3b/ 0/ -7b/ 7b/ 2/
+-7b/ -5#/ 7b/ 3b/ -7b/ -5#/ 0 -3b/ -7b/ 7b/ 3b/ -2/ -7b/ 7b/ 4/ -1#/ -7b/ 7b/ 4/ 0/ -5#/ 7b/ 3b/ -7/ -5#/ 7b/ 3b/ 0/
+-5#/ 7b/ 2/ -3b/ 0/ 7b/ 3b/ -5/ -7b/ 5/ 3b/ -5#/ -3b/ -7/ 3b/ -1#/ -5#/ -7/ 4/ -4#/ -1#/ -7b/ 4/ 0/ -4#/ -7/ 3b/ -4/
+-3b/ -7/ 3b/ 0/ -4/ -5#/ 2/ -3b/ -7b/ -4#/ 3b/ -1#/ -7b/ -4#/ 3b/ -7/ -4#/ -2/ -6/ -3/ -7/ -2/ -5#/ -6/ -3/ -1#/ -5#/ 0/
+-7/ -4#/ 4#/ -2/ -7/ -4#/ 0 -7/ -4/ 4/ -4#/ 0/ +1#/ 0/ -3/ -6/ +1#/ 0--- 0 0/ 2/ 0 0/ +1#/ 0/. -1#// ( -1# -6 )//
+( -1# 1# )// ( -1# 4# )// ( -1# 6 )// ( -1# +1# ) ( -1# +1# )// ( -6 +1# )// ( 1# +1# )// ( 4# +1# )// ( 6 +1# )// 0//

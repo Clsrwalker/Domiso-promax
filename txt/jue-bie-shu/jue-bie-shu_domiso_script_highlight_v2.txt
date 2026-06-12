@@ -1,0 +1,26 @@
+Title: Jue Bie Shu (auto highlight_pop)
+Source: jue-bie-shu.mid
+Info: tempo 120, duration~218.0s, grid 1/16
+Info: profile=highlight_pop, hook/climax fragments with singable lead and stable support
+Info: dynamic transpose windows(4 bars): w00-w27:-5
+Info: highlight_windows=w00,w11,w21 (fragment-only recognizable hooks/climax)
+
+bpm=120
+
+; Voice A Melody
+bpm=120
+6 +3/ +2/ +3--- +3- 5 +2/ +1/ +2--- +2- 5 +2/ +1/ +2- 0--- +2// +3 +2// 7/ +1 7 6/ +3 +2/ +3/ +6/ +3/ +2/ +3 +3/ +2/ 5-
+5/ +2 +1/ +2/ +5 +7 +7/. +6// +5/ +6 +6/ +7/ +1-- +3 0--- +2// +3 +2// 7/ +1 7 6/ +3 +2/ +3/ +6/ +3/ +2/ +3 +3/ +2/ 5-
+5/ +2 +1/ +2/ +5 +7 +7/. +6// +5/ +6 +6/ +7/ +1/ 6/ 3/ +1/ 6/ 3/ 6/ 7/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---

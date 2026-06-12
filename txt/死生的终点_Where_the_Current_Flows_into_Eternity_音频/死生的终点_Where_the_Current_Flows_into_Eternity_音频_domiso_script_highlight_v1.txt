@@ -1,0 +1,28 @@
+Title: 死生的终点 Where The Current Flows Into Eternity 音频 (auto highlight_dense)
+Source: 死生的终点_Where_the_Current_Flows_into_Eternity_音频.mid
+Info: tempo 133, duration~148.6s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w20:-5
+Info: highlight_windows=w00,w05,w08,w19 (fragment-only recognizable hooks/climax)
+
+bpm=133
+
+; Voice A Melody
+bpm=133
+0--- 0- 0/. 6--- 6-- 6// 7 5--- 5 0--- 6 6// -6- 1--- 1// 2- 2/ 4 4/ 1--- 3--- 1--- -3/ 0--- +3/. +1- +2- 7--- 7 7/ +3-
++3/ +2- +3- +1- +1// +2- 7-- 0--- +1-- 3--- 3-- 6/ 7/. +1--- +1--- 3- 7- 7/.
+
+rollback=9999
+
+; Voice B Harmony
+bpm=133
+0--- 0--- 0--- 0 +1 +2 7--- 7 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- +6-- -6--- -6--
++6 +6// 0--- 0--- 0--- 0/.
+
+rollback=9999
+
+; Voice C Bass
+bpm=133
+0--- 0- 0/. -4--- -4- -4// -5 -7 -6--- -6 0--- -2--- -2--- -2-- -2/ -1--- -1--- -3- -5 -5/ 0/ -1/ 0--- -6/. -5 -5/ -7-
+-7/ -4 -4/ -6- -6/ -5 -5/ -7- -7/ -6--- -5 -5/. -7- -7/ -4 -4/ -6 -6/ 0--- -4 -5- -6--- -6--- -6// -4--- -4--- -6---
+-6/.

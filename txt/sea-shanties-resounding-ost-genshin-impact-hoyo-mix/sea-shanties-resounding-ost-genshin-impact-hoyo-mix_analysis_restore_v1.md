@@ -1,0 +1,24 @@
+# Analysis (Restore Script): sea-shanties-resounding-ost-genshin-impact-hoyo-mix.mid
+
+## Metrics
+- note_count: 359
+- duration_s: 126.24705882352941
+- tempo0: 85
+- tempo_events: 1
+- time_sig: 4/4
+- max_poly: 1
+- bar_density_mean: 7.977777777777778
+- bar_density_p90: 13.4
+- tracks: 1
+- pitch_min: 59
+- pitch_max: 95
+
+## Recommended Profile
+- restore_balanced
+- reason: default restore-balanced profile
+
+## Restore Script Intent
+- keep melody line source-faithful and mostly monophonic
+- preserve bass root movement and downplay non-source ornament feel
+- inject only light strong-beat harmony to avoid clutter
+- maintain 21-key playability and parser-safe syntax

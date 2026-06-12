@@ -1,0 +1,34 @@
+Title: Elysium Of The Blue Sky Xenoblade Chronicles 2 Piano Sheet Music (auto highlight_dense)
+Source: elysium-of-the-blue-sky-xenoblade-chronicles-2-piano-sheet-music.mid
+Info: tempo 77, duration~170.8s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w14:-3
+Info: highlight_windows=w00,w12,w14,w18 (fragment-only recognizable hooks/climax)
+
+bpm=77
+
+; Voice A Melody
+bpm=77
++5 +5/ +7/ +1/ +5/ +4/ +5/ +6/ +3/ +2/ +4/ +5/ +1/ +7/ +1/ +2/ +6/ +5 +1 +5/ +4/ +3 5 3 0--
+bpm=85
++5/ 0- 0/ +6 +5/ +3/ +5/ +6/ +2 +5/ +3/ +2/ +3/ 6 5/ 6 3/ 5/ 3/ 5/ 3/ 5/ 3/ 5/ 3/ 5/ 3/ 2/ 3/ 0-- 5/ 3/ 5/ 3/ 5/ 3/ 5/
+3/ 5/ 3/ 5/ 3/ 5/ 3/ 5/ 3/ 5/ 3/ 5/ 3/ 5/ 3/ 6- 5 1- -7/ 1/ 4 0-- 1 5 -6 6- 7/ +1/ 7/. +1/ 7// 5/ 6- -7/ 5/ 6- 2/ 5/ 6
+-6/ -7/ 1/ -3/ -6/ -7/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=77
+0--- 0--- 0--- +1- 5 0--
+bpm=85
+0-- +1 7/. 0// 6- 6/. 0// 5/. 0// 1 -7 -6 -6/ 0 0/ 1 1/ 0 0/ -6 0-- -6/ 0 0/ 1 1/ 0 0/ -6 -6/ 0 0/ 1 7 7/. 0// +6- +5
++1- 7/. 0// +4 0-- 3 0 3 +1 +2 5 5/. 0// 6/. 0// 3 +1 0 3 +1 0 1 0--
+
+rollback=9999
+
+; Voice C Bass
+bpm=77
+0--- 0--- 0 -4 6 0 -3 3 2 0--
+bpm=85
+0-- 4 3 -6 -2 -6 -5 -4 -3 -6 -6/ -7 -7/ -6 -6/ -7 -7/ -6 0-- -6/ -7 -7/ -6 -6/ -7 -7/ -6 -6/ -7 -7/ -6 -6/ -7 -7/ -4 -6
+-5 -3- -1 -2 0--- 2 -6 -1 -2 -3 -5 -6 -4 -6 0 -5 1 0 -6 0--

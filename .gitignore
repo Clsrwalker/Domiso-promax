@@ -1,0 +1,53 @@
+# Python/cache output
+**/__pycache__/
+**/.cache/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+
+# Build/package output
+**/build/
+**/dist*/
+**/ahk_compiler/
+**/target/
+**/.build/
+**/DerivedData/
+*.app/
+*.dSYM/
+
+# Binaries and archives
+*.exe
+*.dll
+*.pyd
+*.pyc
+*.so
+*.dylib
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+
+# Model/checkpoint files
+*.th
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.bin
+
+# Local generated/test workspaces
+artifacts/
+audio_pipeline_smoke/
+audio_pipeline_smoke_domiso/
+audio_pipeline_smoke_v2/
+_tmp*/
+
+# Vendored or alternate app variants not included in this repo snapshot
+DoMiSo-genshin/
+DoMiSo-guangyu/
+DoMiSo-yihuan/
+domiso-web/
+third_party/

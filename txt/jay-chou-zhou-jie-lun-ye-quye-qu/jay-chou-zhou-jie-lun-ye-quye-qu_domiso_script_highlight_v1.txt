@@ -1,0 +1,28 @@
+Title: Jay Chou Zhou Jie Lun Ye Quye Qu (auto highlight_dense)
+Source: jay-chou-zhou-jie-lun-ye-quye-qu.mid
+Info: tempo 87, duration~226.1s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w20:+4
+Info: highlight_windows=w00,w01,w15,w17 (fragment-only recognizable hooks/climax)
+
+bpm=87
+
+; Voice A Melody
+bpm=87
+0-- 0/ 6// 7// +1- 7- +5// +6 +5/ +4/ +3// +1 +1/ +2- +3/ 7/ +3/ +2 +1- +1/ 7 +1- 7- +5// +6 +5/ +4/ +3// +1 +1/ +2- +3/
++2/ +1/ 7 +1/ 6- -6 0--- +4 +4// +5/. +3 +3// +2 +2// +1- 7 7/ +1- 7/ +3 +3/ +5// +6 +5 +5// +1 +1/ +4- +3/ +2/ 7// +1/.
+6-- 7 0--- +2- +3 +3// +2 +2// +1- 7 7/ +1- 7- +5// +6 +5 +5// +1 +1/ +2- +3/ +2/ 7// +1/. 7/ 6 6/ -6-
+
+rollback=9999
+
+; Voice B Harmony
+bpm=87
+0--- 6/. 0--- 0 0// +5/. 0 0// +4/. 0--- 0 0// 6 0 6/. 0--- 0 0// +5/. 0 0// +4/. 0--- 0--- 0--- 0--- 0--- 0--- 0---
+0--- 0--- 0-- 0// +4/. 0--- 0-- 0// 6/. 0--- 0-- 0// +4/. 0--- 0-- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=87
+0--- -6 0 -5 0 -4 0 -3 0 -2/ 2/ 0 -3 0 -6 0 -3 -5 -6 0 -5 0 -4 0 -3 0 -2 0 -3 0 -6 0--- 0-- -2/ 2/ 0 -3 0 -6 0 -3 -5 -6
+0 -5 0 -4 0 -3 0 -2 0 -3 0 -6 0--- 0-- -2/ 2/ 0 -3 0 -6 0 -3 -5 -6 0 -5 0 -4 0 -3 0 -2 0 -3 0 -6 0--

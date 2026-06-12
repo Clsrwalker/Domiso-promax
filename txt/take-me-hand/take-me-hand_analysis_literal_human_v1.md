@@ -1,0 +1,24 @@
+# Analysis (Literal Human Script): take-me-hand.mid
+
+## Metrics
+- note_count: 1477
+- duration_s: 258.64453125
+- tempo0: 128
+- tempo_events: 1
+- time_sig: 4/4
+- max_poly: 5
+- bar_density_mean: 10.781021897810218
+- bar_density_p90: 15.0
+- tracks: 2
+- pitch_min: 43
+- pitch_max: 81
+
+## Recommended Profile
+- literal_strict
+- reason: default literal_strict for maximal one-to-one feel
+
+## Literal Human Script Intent
+- keep literal identity while adding performer-like phrasing
+- phrase rubato + pocket + repeat variation to reduce machine feel
+- hand reachability constraints for playable layering
+- maintain 21-key playability and parser-safe syntax

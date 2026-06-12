@@ -1,0 +1,31 @@
+Title: Zhou Jie Lunlan Ting Xu Xiao Ti Qin Pu (auto guitar_balanced)
+Source: zhou-jie-lunlan-ting-xu-xiao-ti-qin-pu.mid
+Info: tempo 120, duration~50.0s, grid 1/16
+Info: profile=guitar_balanced, guitar timbre friendly balanced support with clean mid-low bed
+Info: top_chord_mode=pad (single-note mapping prefers lower+middle rows)
+Info: chord_pads_from_bass=0
+Info: guitar_style_windows(4 bars): w00-w00:arpeggio, w01-w03:lead_mix, w04-w06:arpeggio
+Info: dynamic transpose windows(4 bars): w00-w06:-7
+
+bpm=120
+
+; Voice A Melody
+bpm=120
+0- 0/ 2/ 7/ 2/ 3 7/ 2/ 3/ 2/ 7/ 6/ 7- 0/ 7/ 6/ 7/ 5 3/ 5/ 3/ 2/ 7/ 5/ 6// 7/ 6 6// 0 2 3 3/ 5/ 6/ 5/ 3/ 2/ 3/ 2/ 7/ 6/
+7- 6/ 5/ 6/ 7/ 6/ 5/ 7/. 6/ 5 5/. 0/ 2/ 7/ 2/ 3 7/ 2/ 3/ 2/ 7/ 6/ 7- 0/ 7/ 6/ 7/ 5 3/ 5/ 3/ 2/ 7/ 5 6// 7/ 6 6// 2 2/ 3
+3/ 5/ 6/ 5/ 3/ 2/ 7/ 2/ 7/. 6/. 5 5/ 6/ 5/ 3/ 2/ 3/ 5 6- 6/ 0/ 2/ 3/ 5/ 6 6/ 5/ 6/ 5/ 7/. 6/. 5 5/ 0/ 5/ 6/ 7- 7/ 6/ 5/
+3/ 2/ 7- 0/ 7-- 6 5/ 7/. 6/. 5 5/ 0/ 3/ 5/ 7/ 6 6/ 5/ 3/ 2/ 7/ 6/ 5--- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+0--- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+0--- 0//

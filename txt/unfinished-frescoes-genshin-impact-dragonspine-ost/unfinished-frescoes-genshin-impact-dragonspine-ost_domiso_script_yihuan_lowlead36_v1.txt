@@ -1,0 +1,33 @@
+Title: Unfinished Frescoes Genshin Impact Dragonspine Ost (auto yihuan_lowlead36_dense)
+Source: unfinished-frescoes-genshin-impact-dragonspine-ost.mid
+Info: tempo 66, duration~83.5s, grid 1/16
+Info: profile=yihuan_lowlead36_dense, Yihuan 36-key dense lowlead36: low-row lead, exact semitones, controlled support
+Info: original-key strategy: no semitone transpose, octave-fold only; windows: w00-w05:-12
+Info: lead register strategy: Voice A prefers Yihuan low row C3-B3 (Z X C V B N M); octave moves only
+Info: lowlead smoothing -> lead_ornaments_dropped=0, support_pruned=93
+Info: Yihuan 36-key chromatic layout -> naturals Q W E R T Y U / A S D F G H J / Z X C V B N M; semitones: Shift raises, Ctrl lowers
+
+bpm=66
+
+; Voice A Melody
+bpm=66
+-1/ 0/ -5/ 0/ -2/ 0/ -5/ 0/ -3b/ 0/ -5/ 0/ -2/ 0/ -5/ 0/ -1/ 0/ -5/ 0/ -2/ 0/ -5/ 0/ -3b/ 0/ -5/ 0/ -4/ 0/ -5/ 0/ -5---
+-5- -4 -5/ -3b/ -5/ -2/ -5 -1#/ -4/ -5/ -3b/ -5/ -1/ -5- -5/ 0/ -5--- -5#// -5 -5/. -6/ -4/ -5/ -3b/ -5/ -2/ -5 -5/ -4/
+-5/ -3b/ -5/ 0/ -1- -3/ -5/ -5#--- -5#/ -5 -5/ -5#/ -4/ -5/ -3b/ -5/ -2/ -5 -5/ -4/ -5/ -3b/ -5 -1 -1/ 1/ 3b/ -5/ -5#
+-5#// 0/. -7b// -5#/. -4/ 0/ -5#/ -5/. 0/. -6/ -4/ -5// 0// -3b/ -5/ -2/ -5// 0/. -5/ -4/ -5// 0// -3b/ -5/ 0/ -1- -1/
+0/ -5#/ 0/ -5/ 0/ -5/ 0/ -5/ 0/ -4/ 0/ -5/ 0/ -5/ 0/ -5/ 0/ -1- -1/ 0 0/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=66
+0--- 0--- 0--- 0--- 0--- +5#// 0--- 0--- 0--- 0-- 0/. +7b// 0--- 0--- 0--- 0/. 5#/ 0 0/ 5#/ 0/ +7b// 0/. 5/ 0 0/ 5/ 0 0/
+5/ 0 0/ 5/ 0 0/ 5/ 0 0/ 5/ 0 0/ 5# 5#// 0/. 5# 0 5 0 5/ 0 0/ 5 0 5/ 0 0/ 5/ 0/ -7b/ 0/ 5/ 0--- 0--- 0 0/ 1// ( 1 3b )//
+( 1 3b 5 )- ( 3b 5 )// 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=66
+0--- 0--- 0--- 0--- -1/ 0--- 0--- 0--- 0-- 0/ -1/ 0--- 0--- 0-- 0/ -1/ 0--- 0--- 0--- 0-- 0/ -1/ 0- 0/ -3b/ 0--- 0-- 0/
+-1/ 0 0/ -1/ 0- 0/ -1/ 0--- 0--- 0--- 0-- 0/

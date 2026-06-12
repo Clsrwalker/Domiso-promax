@@ -1,0 +1,24 @@
+Title: Vagrant Wandering Yu Peng Chen Wu Ji De Man You Genshin Impact Sumeru Rainforest Ost (auto highlight_pop)
+Source: vagrant-wandering-yu-peng-chen-wu-ji-de-man-you-genshin-impact-sumeru-rainforest-ost.mid
+Info: tempo 64, duration~102.7s, grid 1/16
+Info: profile=highlight_pop, hook/climax fragments with singable lead and stable support
+Info: dynamic transpose windows(4 bars): w00-w06:-4
+Info: highlight_windows=w00,w13,w22 (fragment-only recognizable hooks/climax)
+
+bpm=64
+
+; Voice A Melody
+bpm=64
+5/ +1/ +2 +2/ +3/ 5 5/ +5/ 0 +5 +5/ +2 -1// +5/. +3/ +5 +5/ +3/ 0 5 5/ +5/ +4/ +5/ +3/ +4/ +2 +3
+
+rollback=9999
+
+; Voice B Harmony
+bpm=64
+0--- 0--- +7/. 0--- 0--- 0- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=64
+0 -1 0--- 0- -3 0--- 0- -1/ -5/ 3--

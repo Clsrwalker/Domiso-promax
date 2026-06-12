@@ -1,0 +1,24 @@
+Title: Genshin Impact Wangshu Inn Marupiano Arr (auto highlight_dense)
+Source: genshin-impact-wangshu-inn-marupiano-arr.mid
+Info: tempo 105, duration~328.7s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w16:+1, w17-w24:+3, w25-w35:+1
+Info: highlight_windows=w00,w94,w100,w228 (fragment-only recognizable hooks/climax)
+
+bpm=105
+
+; Voice A Melody
+bpm=105
++2/ 7/ 2/ 6/ 2/ 0/ +2/ +3 7 7/ 0/ +5/ +7/ +6- 0/ +5/ +7/ +6-
+
+rollback=9999
+
+; Voice B Harmony
+bpm=105
+2/. 0- 0// +3/ 0/ 7/ 0- 3// 0// 7/. -6// 0- 3// 0// 7/. -6// 0 0/
+
+rollback=9999
+
+; Voice C Bass
+bpm=105
+0/ -5 -5/ -7/ 0/ -3 -3/ -2 -2/ 0/ -7 -7/ -6 -6/ 0/ -7 -7/ -6 -6/

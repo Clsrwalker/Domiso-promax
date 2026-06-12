@@ -1,0 +1,26 @@
+Title: Da An Yang Kun Yang Kun (auto highlight_pop)
+Source: da-an-yang-kun-yang-kun.mid
+Info: tempo 142, duration~163.9s, grid 1/16
+Info: profile=highlight_pop, hook/climax fragments with singable lead and stable support
+Info: dynamic transpose windows(4 bars): w00-w24:+0
+Info: highlight_windows=w00,w06,w14 (fragment-only recognizable hooks/climax)
+
+bpm=142
+
+; Voice A Melody
+bpm=142
+0-- +5/ +6/ +1- +1/ +6 +5--- +5-- +3 +1-- +1/ +5/ +6/ 0--- +2 +1 +2 +1-- 5/ 6/ +1 +2/ +3 6 6/ +1 +2/ +3 6 6/ +1 +2 +3-
++5- +3-- 0--- +2 +1 +2 +1-- 5/ 6/ +1 +2/ +3 6 6/ +1 +2/ +3 6 6/ +1 +2 +3- +5- +3--
+
+rollback=9999
+
+; Voice B Harmony
+bpm=142
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+
+rollback=9999
+
+; Voice C Bass
+bpm=142
+0--- -2 -6 1- 0--- -1 -5 1- 0--- 0--- -1 -5 1 -5 0- 1 -5 -2 0- -6 -5 0- -2 -1 -5 1 -5 0 -3 0--- 0- -1 -5 1 -5 0- 1 -5 -2
+0- -6 -5 0- -2 -1 -5 1 -5 0 -3 0-

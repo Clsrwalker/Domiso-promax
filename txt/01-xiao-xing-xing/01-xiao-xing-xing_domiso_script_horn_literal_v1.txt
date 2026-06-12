@@ -1,0 +1,24 @@
+Title: 01 Xiao Xing Xing (auto horn_literal_strict)
+Source: 01-xiao-xing-xing.mid
+Info: tempo 120, duration~24.0s, grid 1/16
+Info: profile=horn_literal_strict, horn literal 1:1-oriented mapping, keep source density, no de-clutter
+Info: horn_range=48-71, key_rows_shift=1
+Info: dynamic transpose windows(4 bars): w00-w02:-9
+
+bpm=120
+
+; Voice A Melody
+bpm=120
++1- +5- +6- +5- +4- +3- +2- +1- +5- +4- +3- +2- +5- +4- +3- +2- +1- +5- +6- +5- +4- +3- +2- +1- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0//

@@ -1,0 +1,25 @@
+Title: Xia Yu Tian Xia Yu Tian Rainy Day Nan Quan Ma Ma Nan Quan Ma Ma (auto highlight_dense)
+Source: xia-yu-tian-xia-yu-tian-rainy-day-nan-quan-ma-ma-nan-quan-ma-ma.mid
+Info: tempo 65, duration~268.6s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w17:-4
+Info: highlight_windows=w00,w20,w45,w64 (fragment-only recognizable hooks/climax)
+
+bpm=65
+
+; Voice A Melody
+bpm=65
++3/ +4/ +3// +5- +5/. +7/. +1// 0 +3 +5// +6- +6/ +5// +1// +6/ +1/ +6/. 0 +3 +5// +6- +6/ +5// +1// +6/ +1/ +6/. 0 +6
++6/. +5// +1// +6/ +1/ +6 +6// +5/. +6/.
+
+rollback=9999
+
+; Voice B Harmony
+bpm=65
+0 +1 0 7 0- -3 -3/. 0 0// -6/. 0-- 0// -3 -3/. 0 0// -6/. 0--- 0// -6/. 0- 0// -3/. 0// -5/. 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=65
+0 1 +1 -7 7 0 -1- 0 -4 0 -5 0 -1- 0 -4 0 -5 0 -4- -5- -3/ -7/ -3

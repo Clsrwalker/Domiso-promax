@@ -1,0 +1,30 @@
+Title: The Scientist Coldplay Piano Arrangement (auto highlight_dense)
+Source: the-scientist-coldplay-piano-arrangement.mid
+Info: tempo 75, duration~291.2s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w22:+7
+Info: highlight_windows=w00,w03,w12,w15 (fragment-only recognizable hooks/climax)
+
+bpm=75
+
+; Voice A Melody
+bpm=75
++3/ 6/ +3/ 6/ +3/ 6/ +3/ 6/ +4/ 6/ +4/ 6/ +4/ 6/ +4/ +5/ +3/ 5/ +3/ 5/ +3/ 5/ +3/ 5/ +2/ 5/ +2/ 5/ +2/ 5/ +2/ 5/ +3/ 6/
++3/ 6/ +3/ 6/ +3/ 6/ 0--- +1/ +2 +1 +1/ 7/ +1/ 5- +1/ +2/ +1/ +5 +3 1// +1/. +2/ +1/ +5 +3/ 5/. +1/. +2/ +1/ +3-- +3/
++2/ +1/ 5- +1/ +2/ +1/ +5/ 0--- +1 1 6/ +2/ +1 +1/ +3/ +2// +1 +1// +2/ +1 +1/ +3 +1 +1/ 7/ +1 5 5/ 6/ +2/ +1- 1 6/ +2/
++1- 5 +1/ +2/ +1 0--- +1/ +4/ +5/ +1 +4/ +5 5- +1/ +5 +3/ +1/ +3- +3/ +2/ +1 0/ 1/ +1 +4/ +5/ +1 +4/ +5/ +1 +4/ +5 5-
++1/ +5 +3/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=75
+5--- 1--- 3--- 2--- 5--- 0--- 2- 5 2 1- 3- -6- 1- 3--- 5 2 5- 1- 3- 0--- -6- 1- 3--- 2- 5 2 1-- 3 -6- 1- 3--- 0--- -6 1
+-6 1 3-- 5--- 5 1 -6- 1 -6 1 -6 1 3-- 5
+
+rollback=9999
+
+; Voice C Bass
+bpm=75
+-6--- -4--- -5--- -5--- -6--- 0--- 1--- -6--- -4--- 1--- 1--- -6--- 0--- -4--- 1--- 1--- -6--- -4--- 1--- 0--- -4---
+1--- 1--- -4--- -4--- 1---

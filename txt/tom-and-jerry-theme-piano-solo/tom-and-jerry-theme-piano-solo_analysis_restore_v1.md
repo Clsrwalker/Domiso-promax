@@ -1,0 +1,24 @@
+# Analysis (Restore Script): tom-and-jerry-theme-piano-solo.mid
+
+## Metrics
+- note_count: 243
+- duration_s: 25.92650002327421
+- tempo0: 165
+- tempo_events: 5
+- time_sig: 3/4
+- max_poly: 5
+- bar_density_mean: 12.15
+- bar_density_p90: 19.6
+- tracks: 2
+- pitch_min: 33
+- pitch_max: 79
+
+## Recommended Profile
+- restore_balanced
+- reason: default restore-balanced profile
+
+## Restore Script Intent
+- keep melody line source-faithful and mostly monophonic
+- preserve bass root movement and downplay non-source ornament feel
+- inject only light strong-beat harmony to avoid clutter
+- maintain 21-key playability and parser-safe syntax

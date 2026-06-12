@@ -1,0 +1,30 @@
+Title: Canon In D Violin Solo (auto highlight_dense)
+Source: canon-in-d-violin-solo.mid
+Info: tempo 56, duration~218.6s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w12:-2
+Info: highlight_windows=w00,w02,w04,w10 (fragment-only recognizable hooks/climax)
+
+bpm=56
+
+; Voice A Melody
+bpm=56
+0--- 0--- +3 +2 +1 7 6 5 6 7 +3 +2 +1 7 0--- 1/ -6/ 1/ 5/ 4/ 6/ 5/ 4/ 3/ 1/ 2/ 7/ +1/ +3/ +5/ 5/ 6/ 4/ 5/ 3/ 1/ +1- +1/
+1// 5/ 3/ +1/ 7/ +3// +5// +6/ +4 +3// +2// +1// 7// 6// 5// 4 3// 2/ 3// 4// 5 4// 6/ 5/. 4// 3// 0--- +6 +5 +6 +7 +1 7
+0/ 6/ +1-- +1/ +4/ +2/ +5 +4 7// +3/. +2/ 4// 5/. 4// 6/ 5// 3/ 2// 5// 6/. 7// +1/. +4/ +3// +2 +2/ +1/ 7/ 2// 3/ 7//
+0--- +6 +5 +6 +7 +1 7 0/ 6/ +1-- +1/ +4/ +2/ +5 +4 7// +3/. +2/ 4// 5/. 4// 6/ 5// 3/ 2// 5// 6/. 7// +1/. +4/ +3// +2
++2/ +1/ 7/ 2// 3/ 7//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=56
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+0--- 0---
+
+rollback=9999
+
+; Voice C Bass
+bpm=56
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0-- +2 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0/ +5/ 5/ +1/ +4 5- 2/ 3/ 4/ 5 +2/ +5
+7/ +2/ 7 3 0--- 0--- 0--- 0--- 0/ +5/ 5/ +1/ +4 5- 2/ 3/ 4/ 5 +2/ +5 7/ +2/ 7 3

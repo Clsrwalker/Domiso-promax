@@ -1,0 +1,27 @@
+Title: Rasputin Piano Adaptation (auto highlight_pop)
+Source: rasputin-piano-adaptation.mid
+Info: tempo 120, duration~111.0s, grid 1/16
+Info: profile=highlight_pop, hook/climax fragments with singable lead and stable support
+Info: dynamic transpose windows(4 bars): w00-w04:+4, w05-w06:+2, w07-w13:+4
+Info: highlight_windows=w00,w02,w07 (fragment-only recognizable hooks/climax)
+
+bpm=120
+
+; Voice A Melody
+bpm=120
+-6- -6// -7// 1// 2// 3/ 6 5/ 6/ 3 2/ 3 -6- -6// -7// 1// 2// 3/ 6 1/ 2/ 3 3/ -2/ 3/ 6/ +3- +3/ -6/ +3/ 0--- +2 +1/ 7/ 6
+-2/ 3/ 6/ +3- +3/ -6/ +3/ +4/ +5/ +4/ +3 +3/ 7/ +1/ +2-- 7/ +1/ +2 +1/ 7/ 6 -2/ 3/ -6 -6/ -7/ 1 2 0--- 2 1/ 2 2/ -4/ -6-
+-6/. -7// 1// 2// 3/ 6 5/ 6/ 3 2/ 3 -6- -6// -7// 1// 2// 3/ 6 1/ 2/ 3 3/ -2/ 3/ 6/ +3- +3/ -6/ +3/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+-6 -6/ 0 0/ -6--- -6 -2 -2/ 0 0/ -2--- 0/ -1/ -6-- 0--- 0 -2-- 0/ -1/ -6-- 0 -6--- -2 -2/ 0 0/ -2--- 0/ -1/ -6 0- -3
+0--- -2/ -7/ -1/ -2/ 0- -6 -6/ 0 0/ -6--- -6 -2 -2/ 0 0/ -2--- 0/ -1/ -6-- 0

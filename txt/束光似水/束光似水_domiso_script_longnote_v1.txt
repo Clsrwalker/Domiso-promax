@@ -1,0 +1,24 @@
+Title: 束光似水 (auto longnote_solo)
+Source: 束光似水.mid
+Info: tempo 120, duration~24.0s, grid 1/16
+Info: profile=longnote_solo, long-note melody first, very sparse accompaniment
+Info: dynamic transpose windows(4 bars): w00-w02:-2
+
+bpm=120
+
+; Voice A Melody
+bpm=120
++6/ 0 +7/ +6 +7/ +5/ +1/ +5/ +2 +3 +4/ +3/ +2/ +1/ +2-- +1 +1/ +7/ +6 +7/ +5/ +1 +5 +3 +3/ +6/ +5 +2- +3 +1 +1/ +7/ +6
++7/ +5/ +1/ +5/ +2 +3 +6 +7 +5- +6/ +7/ +1 +1/ +2 +1/ +7 +1/ +7/ +6/ +5/ +6--- +6- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
++3/. 0--- 0--- 0--- 0--- 0--- 0- 0// 7 0--- 0--- 0--- 0--- 0--- 0 +3-- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
++1 +1/ 0/ +1 0- 7 0- 6 0- 6 0- +1 0- 7 0- +1 0- 5 0- +1 0- +1 0- +1 0- 7 0- +1 0- 7 0-- 6-- 0//

@@ -1,0 +1,146 @@
+Title: 束光似水 (auto sky_melodylock_human)
+Source: 束光似水.mid
+Info: tempo 120, duration~24.0s, grid 1/16
+Info: profile=sky_melodylock_human, Sky 15-key melodylock human: keep the hook centered, then add subtle breath, lag and rubato
+Info: dynamic transpose windows(4 bars): w00-w02:+3
+Info: Sky 15-key layout C4-C6 -> Y U I O P / H J K L ; / N M , . /
+Info: humanize=on mode=lite, rubato+/-1bpm gradual, breath=7, lag=1, pocket=0, release=0
+Info: speed_guard lead_pruned=0, support_pruned=0, input_budget_dropped=5, peak_clusters/s=5.0
+
+bpm=120
+
+; Voice A Melody
+bpm=120
++4 +4/ +3/ +2
+bpm=119
++3/
+bpm=120
+++1/ +4/ ++1/ +5 +6/. 0// +7/ +6/ +5/ +4/ +5-- +4 +4/
+bpm=119
++3// 0// +2 +3/
+bpm=120
+++1/ +4 ++1 +6 +6//
+bpm=119
++6// +2//
+bpm=120
+0//
+bpm=119
+++1/ +7/ +5 +5/
+bpm=120
++5/ +6 +4 +4/ +3/ +2//
+bpm=119
++2/ 0// +3/
+bpm=120
+++1/ +4/ ++1/ +5 +6 +2 +3//
+bpm=119
++3/.
+bpm=120
+++1 ++1/. 0//
+bpm=119
++2/ +3/ +4
+bpm=120
++4/ +5 +4/ +3 +4//
+bpm=119
++4// +3/ +2//
+bpm=120
+0// ++1// 0//
+bpm=119
++2-
+bpm=120
++2--
+bpm=119
++2
+bpm=120
+0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
++2// 0- 0/.
+bpm=119
+0/
+bpm=120
+0--- 0--- 0-
+bpm=119
+0-
+bpm=120
+0-- 0/.
+bpm=119
+0/
+bpm=120
+0//
+bpm=119
+0- 0/
+bpm=120
+0/ +3 0- 0//
+bpm=119
+0 0//
+bpm=120
+0--- 0/.
+bpm=119
+0/.
+bpm=120
+0-
+bpm=119
+0-
+bpm=120
+0-- 0//
+bpm=119
+0
+bpm=120
+0/.
+bpm=119
+0-
+bpm=120
+0 +6-
+bpm=119
++6
+bpm=120
+0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+2/ 6/ +2/ 0/ +4
+bpm=119
+2/
+bpm=120
+5/ +1/ +2/ +3 2/ 4/ 7/ +1/ +2 2/ 3/ 5/ +1/ +2 2/ 6/ +2/
+bpm=119
+0/ +4 2/
+bpm=120
+5/ +1/ +2/ +3 6/ 4/ 6//
+bpm=119
+6// 0//
+bpm=120
+0//
+bpm=119
++4 6/ 3/ 7/
+bpm=120
++2/ +1 2/ 6/ +2/ 0/ +4//
+bpm=119
++4/. 1/
+bpm=120
+5/ +2/ +3/ 0// +4/. 6 0/ +3/ +4//
+bpm=119
++4/.
+bpm=120
+6/ 5/ +1/ +2/
+bpm=119
++3 5
+bpm=120
+7/ +2/ +4 6 5//
+bpm=119
+5// +1/ +3//
+bpm=120
++3/.
+bpm=119
+2/ 6/ +2/ +3/
+bpm=120
++4/ +5/ +2-
+bpm=119
++2
+bpm=120
+0//

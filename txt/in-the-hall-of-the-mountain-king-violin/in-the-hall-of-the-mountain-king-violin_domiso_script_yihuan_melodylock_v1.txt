@@ -1,0 +1,30 @@
+Title: In The Hall Of The Mountain King Violin (auto yihuan_melodylock)
+Source: in-the-hall-of-the-mountain-king-violin.mid
+Info: tempo 120, duration~56.0s, grid 1/16
+Info: profile=yihuan_melodylock, Yihuan 36-key melodylock: chromatic lead, exact semitones, restrained support
+Info: dynamic transpose windows(4 bars): w00-w06:-2
+Info: Yihuan 36-key chromatic layout -> naturals Q W E R T Y U / A S D F G H J / Z X C V B N M; semitones: Shift raises, Ctrl lowers
+
+bpm=120
+
+; Voice A Melody
+bpm=120
+1/ 2/ 3b/ 4/ 5/ 3b/ 5 4#/ 2/ 4# 4/ 1#/ 4 1/ 2/ 3b/ 4/ 5/ 3b/ 5/ +1/ 7b/ 5/ 3b/ 5/ 7b- 1/ 2/ 3b/ 4/ 5/ 3b/ 5 4#/ 2/ 4# 4/
+1#/ 4 1/ 2/ 3b/ 4/ 5/ 3b/ 5/ +1/ 7b/ 5/ 3b/ 5/ 7b- 5/ 6/ 7/ +1/ +2/ 7/ +2 +3b/ 7/ +3b +2/ 7/ +2 5/ 6/ 7/ +1/ +2/ 7/ +2
++3b/ 7/ +3b +2- 5/ 6/ 7/ +1/ +2/ 7/ +2 +3b/ 7/ +3b +2/ 7/ +2 5/ 6/ 7/ +1/ +2/ 7/ +2 +3b/ 7/ +3b +2- 1/ 2/ 3b/ 4/ 5/ 3b/
+5 4#/ 2/ 4# 4/ 1#/ 4 1/ 2/ 3b/ 4/ 5/ 3b/ 5/ +1/ 7b/ 5/ 3b/ 5/ 7b- 1 +1-- 1 +1-- 1/ 2/ 3b/ 4/ 5/ 3b/ 5/ +1/ 7/ 5/ 7/ +2/
++1- 1 +1-- 1 +1-- 1/ 2/ 3b/ 4/ 5/ 3b/ 5/ +1/ 7/ 5/ 7/ +2/ +1- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+0--- 0--- 0--- 0--- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+0--- 0--- 0--- 0--- 0//

@@ -1,0 +1,31 @@
+Title: 01 Xiao Xing Xing (auto horn_balanced)
+Source: 01-xiao-xing-xing.mid
+Info: tempo 120, duration~24.0s, grid 1/16
+Info: profile=horn_balanced, French-horn balanced: long coherent phrases with clear breathing
+Info: horn_range=48-71 (lower+middle octave only)
+Info: key_rows_shift=1 (two-row mode)
+Info: row_design=A->qwertyu, B/C->asdfghj around split 60
+Info: bass_floor=52 (raise very low C-voice anchors)
+Info: melody_clarity=on (de-emphasize micro offbeat ornaments in A)
+Info: melody_middle_octave_usage~100.0% (>= 60)
+Info: breathing every~20 steps, gap=2 steps
+Info: dynamic transpose windows(4 bars): w00-w02:-2
+
+bpm=120
+
+; Voice A Melody
+bpm=120
++5- +2- +3 +3/ 0/ +2- +1 +1/ 0/ +7- +6- +5 +5/ 0/ +2- +1 +1/ 0/ +7- +6 +6/ 0/ +2- +1 +1/ 0/ +7- +6- +5 +5/ 0/ +2- +3- +2
++2/ 0/ +1 +1/ 0/ +7- +6- +5- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0//

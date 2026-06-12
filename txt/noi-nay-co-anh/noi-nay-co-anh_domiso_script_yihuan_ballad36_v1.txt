@@ -1,0 +1,36 @@
+Title: Noi Nay Co Anh (auto yihuan_ballad36)
+Source: noi-nay-co-anh.mid
+Info: tempo 75, duration~109.6s, grid 1/16
+Info: profile=yihuan_ballad36, Yihuan 36-key ballad36: vocal-like middle lead, exact semitones, soft accompaniment
+Info: original-key strategy: no semitone transpose, octave-fold only; windows: w00-w08:+0
+Info: lead register strategy: Voice A prefers Yihuan middle row C4-B4; octave moves only
+Info: ballad smoothing -> lead_ornaments_dropped=26, support_pruned=2
+Info: Yihuan 36-key chromatic layout -> naturals Q W E R T Y U / A S D F G H J / Z X C V B N M; semitones: Shift raises, Ctrl lowers
+
+bpm=75
+
+; Voice A Melody
+bpm=75
+3/ 0// 5 5// 3/ 0// 5 5// 3/ 0// 5 5// 3/ 0// 5 5// 3// 0// 1/ 2/. 6// 3// 0// 1/ 2 2// 5/. 3-- 3/ 0// 5// 1 3/ 0// 5
+5// 3/ 0// 5 5// 3/ 0// 5 5// 3// 0// 1/ 2/. 6// 3// 0// 1/ 2/ 3/ 2/ 1-- 1// 0// 6 6/ +1/ +2/ 3 2 7 +1- +1/ 6 6/ +1/ +2/
+3 2 7 +1-- 7/ 6- 2 2/ 7 +1/ +2/ 5 5/ +1/ 7/ 6/ 3 3/ 6/ 2 1-- 1// 0// 6 6/ +1/ +2/ 3 2 7 +1- +1/ 6 6/ +1/ +2/ 3 2 7 +1--
+7/ 6- 2 2/ 7 +1/ +2/ 5 5/ +1/ 7/ 6/ 3 3/ 6/ 2 1-- 1// 0// 3/ 0// 5 5// 3/ 0// 5 5// 3/ 0// 5 5// 3/ 0// 5 5// 3// 0// 1/
+2/. 6// 3// 0// 1/ 2 2// 5/. 3-- 3/ 0// 5// 2/. 6// 3// 0// 1/ 2/ 3/ 2/ 1- 1/ 3/ +1/ +2/ 3/ 6- 2- 2/ 3/ 5/ 3 1/ 2/ 3/ 6-
+2 2/ 7 +1-- +1// 0/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=75
+0 1- 2- -7- 3- -6- -7- 0--- -6- 2- -7- 3- -6- -7- 0--- 0--- 0--- 0--- 0--- 0--- 0- -6- 0--- 0--- 0--- 0--- 0--- 0---
+0--- 0- -6- 0--- 0--- 1- 2 -7-- 3 1 -6 1 -7- 0--- -6 1 -7- 0--- 1- -7- 0--- 1- -7- 0--- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=75
+0 -4- -5- -3- -6- -4- -5- -1/ 0 0/ 3 0 -4- -5- -3- -6- -4- -5- -1/ 0 0/ 3 0 -4/ 0/ -4 -5/ 0/ -5 -6/ 0/ -6/ 0/ 1 0 -4/ 0/
+-4 -5/ 0/ -5 -6/ 0/ -6/ 0/ 1 0 -4/ 0/ -6 -5/ 0/ -7 -3/ 0/ -5 -1- -4/ 0/ -6 -5/ 0/ -7 -1/ 0/ 1/ 0/ 3- -4/ 0/ -4 -5/ 0/ -5
+-6/ 0/ -6/ 0/ 1 0 -4/ 0/ -4 -5/ 0/ -5 -6/ 0/ -6/ 0/ 1 0 -4/ 0/ -6 -5/ 0/ -7 -3/ 0/ -5 -1- -4/ 0/ -6 -5/ 0/ -7 -1/ 0/ 1/
+0/ 3- -4- -5- -3- -6- -4- -5- -1/ 0/ 1/ 0/ 3- -4- -5- -1/ 0/ 1/ 0- 0/ -4- -5- -3/ 0/ 1 -6/ 0/ -6 -4- -5- -1/ 0/ 1/ 0/ 3-
+0//

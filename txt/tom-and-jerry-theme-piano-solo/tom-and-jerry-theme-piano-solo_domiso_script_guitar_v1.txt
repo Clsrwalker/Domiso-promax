@@ -1,0 +1,52 @@
+Title: Tom And Jerry Theme Piano Solo (auto guitar_dense)
+Source: tom-and-jerry-theme-piano-solo.mid
+Info: tempo 165, duration~25.9s, grid 1/16
+Info: profile=guitar_dense, guitar timbre friendly dense material with anti-mud limits
+Info: top_chord_mode=pad (single-note mapping prefers lower+middle rows)
+Info: chord_pads_from_bass=1
+Info: guitar_style_windows(4 bars): w00-w01:muted_strum, w02-w03:arpeggio
+Info: dynamic transpose windows(4 bars): w00-w03:-5
+
+bpm=165
+
+; Voice A Melody
+bpm=165
+0- 4/ 5// 6 6/. 0/ 4// 5/ 6// 7 7/ 0/
+bpm=155
+7 6- 5 5/ 6/ 3/ 5 6/ 3/ 6/ 5/ 6/ 3 3/ 1 -7 2-- 1--- 1/ 2/ 0// -7/. 5 5/ 4 3--- 3/ 5-- 5/ 7 7/. 5/. 6/ 4/ 5/ 3 3/ 5 5/
+bpm=135
+5/ 6// 7//
+bpm=112
+7// 1// 6/ 3/ 5- 0/
+bpm=90
+4/ 5/ 2/ 1 4/ 5 2- 1- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=165
+0-- 4 4/. 0 0// 4-
+bpm=155
+4- 3 2 -7/. 0/. -7- -7/ 3/. 0// 1/ 5 0 5 0/ -7/ 5- 0/ 3/. 0// 5/. 0// 7/. 0// 6/. 0// 7/. 0/. 2 2/ -7 5/. 0// 1/ 5- 5/
+7/. 0// 3/ 7- 7/ 0--- 0--
+bpm=135
+0
+bpm=112
+5/. 0/. 1 1/ +6/. 0//
+bpm=90
+0 0/ -5- 0/ -7- -6- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=165
+0- 0/ 5/ -6/. 2/ -6/ 0/. 6/ -7/. 2/ -7/.
+bpm=155
+-7 -6- -5 -4/. 0/. -4- -4/ -1/ 3/ -5/ 1 -6 2 6/ -5/ -7- 4/ -1/ 4/ -1/ 6/ -3/ 7/ -3/ 7/ -2/. 0/. -5 -5/ -2/. -1/. 6/ -5/
+1- 1/ -7/ 7/ -3/ 3 3/ -3/ 3/ -7 -6 -5 -4 -3 -3/ -5 -5/
+bpm=135
+-5// -6/ 1//
+bpm=112
+1// -1/ 0/. -5 -5/ -6/. -3//
+bpm=90
+-2 -2/ -4- 0/ -1--- 0//

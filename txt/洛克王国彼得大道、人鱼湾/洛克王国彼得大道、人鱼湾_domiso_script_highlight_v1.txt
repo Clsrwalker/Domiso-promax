@@ -1,0 +1,27 @@
+Title: 洛克王国彼得大道、人鱼湾 (auto highlight_dense)
+Source: 洛克王国彼得大道、人鱼湾.mid
+Info: tempo 132, duration~33.2s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w04:+0
+Info: highlight_windows=w00,w02,w04 (fragment-only recognizable hooks/climax)
+
+bpm=132
+
+; Voice A Melody
+bpm=132
+0-- +4/. +5/ +4 +4/. 4/. +6/ +5/ +6- +6// +7/ +6/ +7 +6// +1 +1/. +5 +1 6- -3 -3/ 5/ 0--- -3// -1// -6/ 2 2/ -4 -6 -6/
+-2/ 4/. 6// +2// +4/ +3/ +4- +4// +1 1 -4 -4// +5 +4// +1/ +2/. +3// +4/ -3 5/ +1 3/ 5 1// -4/ +1/ +4 +1 +1// 0--- -4/
+-2/ -3/ 2 2/ 1- 1/ 4// +3// +4 1 -1 0-- +1
+
+rollback=9999
+
+; Voice B Harmony
+bpm=132
+0--- 6--- 6--- 5--- 1- -3 1 0--- -6 2 -6 +1 -1/. 0// 1- 6--- +7 -4 2 0- +1--- -4 1 3- 0--- -6 2 4 +3/. 4--- 4// 0--- +2
+
+rollback=9999
+
+; Voice C Bass
+bpm=132
+0--- -1 -6 -6/ 0 0/ -1 -6/ +5 0/ -4- 1 1/ 0/ +6 -1 1/ 5 5/ 1 0--- -6- +6 +1 5/ -1/ -3 -1/ 1 +3/ -1 -6 -6/ 0/ +2 -1 -2/
++2 +2/ -4- 1 1/ 0/ +6 -1 1 1/ -1/ -3 0--- -6- -5/ -1/ +1 5/ -1/. +3- -3/. 0--- +1

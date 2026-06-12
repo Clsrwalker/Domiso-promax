@@ -1,0 +1,30 @@
+Title: I Really Want To Stay At Your House  Cyberpunk Edgerunners  Arr Mel Mayuga (auto highlight_dense)
+Source: I_Really_Want_To_Stay_At_Your_House__CYBERPUNK_EDGERUNNERS__Arr_Mel_Mayuga.mid
+Info: tempo 128, duration~91.3s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w11:+6
+Info: highlight_windows=w00,w04,w06,w09 (fragment-only recognizable hooks/climax)
+
+bpm=128
+
+; Voice A Melody
+bpm=128
++1 +1/ 5 +5 +1 +5 +3 +2/ +3/ +2/ +3/ +2/ 0/ 5/ +1/ 5/ +1 5-- +1- +1/ +2 +2/ +5/ +1/ 0--- +1 2/ +2 +2/ +1 -4 +1/ +2 +2/
+-4/ +1 +2 -5/ 5/ 2/ +1 5--- 5--- -4 -4/ 1/ 4/ 5 5/ 0--- +1-- 5 -4 +1/ +2 +2/ -4/ +1 +2 -5/ 5/ 2/ +1 5-- 5/ +1-- +1/.
++2/. +1- 2/ 4 5/ 0--- 1-- -5/ 1/ -4/ 1 -4/ 1 -4/ 1/ -1/ 1- 1/ -1/ 1/ -6/ 1 -6/ 1 1/ 2 2/ 1 +1/ +5/ +3/ +2- +1 +1/ 5
+
+rollback=9999
+
+; Voice B Harmony
+bpm=128
+4- 4/. 0 0// 5- 5/. 0 0// 6 6/ 0--- 0/ +2 0 4 4/ 0--- 0--- 0 0/ +1 0- 5 0 -5 5/. 0// +2/. 0// -5 -6 +5- +1/. 0- 0// +2
++1 0-- +1/. 0--- 0// +5-- +1 0- 5 0 -5 5/. 0// +2/. 0// -5 -6 +5- +1/. 0- 0// +2 0 -2 0- -2 0--- 6 5 0-- 5 5/. -4// 0- 5
+5/. 0- 0// 5 5/. 0// -6 6 5 +3/. 0// +1- +1/ +2 +2/ -4
+
+rollback=9999
+
+; Voice C Bass
+bpm=128
+-4- -4/. 0// 1 -5- -5/. 0// 2 -6 -6/ 3-- 3/. 0- 0/. -4 -4/ 1 1/ 4 0--- 5/ -5/ 0/ 5- 5// 0// -4 -4/ 4 4/ -4 -5 -5/ 0 0/
+-5 -6 -6/ 0-- -6/ 0- -5 -4 0--- 0-- -2-- -6 -4 -4/ 4 4/ -4 -5 -5/ 0 0/ -5 -6- 3 0-- -5 -2- 0- -2 0--- -5 0- -5 -4- 0-
+-1- 0/ 1/ 0 -6- 0 -6 -5 0- -5 -4 0- -4

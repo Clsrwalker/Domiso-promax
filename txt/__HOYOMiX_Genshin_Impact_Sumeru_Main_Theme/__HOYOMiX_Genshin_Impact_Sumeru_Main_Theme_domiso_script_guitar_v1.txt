@@ -1,0 +1,30 @@
+Title:   Hoyomix Genshin Impact Sumeru Main Theme (auto guitar_dense)
+Source: __HOYOMiX_Genshin_Impact_Sumeru_Main_Theme.mid
+Info: tempo 120, duration~31.8s, grid 1/16
+Info: profile=guitar_dense, guitar timbre friendly dense material with anti-mud limits
+Info: top_chord_mode=pad (single-note mapping prefers lower+middle rows)
+Info: chord_pads_from_bass=11
+Info: guitar_style_windows(4 bars): w00-w00:arpeggio, w01-w01:muted_strum, w02-w03:bass_strum
+Info: dynamic transpose windows(4 bars): w00-w03:-8
+
+bpm=120
+
+; Voice A Melody
+bpm=120
+4 6 7--- 7 6-- 6/ 0/ 7--- 7/ 6/ 4 6 7--- 7 6 7-- 1 2 2/ 1- 2/ 4 4/ 6/ 7 7/. 4 4/ 2// 0/ 1- 6 6/. 7- 7// 0/ 1// 2/. 1- 2/
+4 4/ 6/ 7 7/. 4 4/ 2// 0/ 1-- 6--- 6/ 0- 0/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
++4/. -4// 0/ -6/ 0 1 2 0/ -6/ +1/. 0// -6-- 7 -4- 0/ -6/ 0/ -1 -1// 0// -4 0/ -6/ +1/ 0/ 1 2 0/ -6/ +1/ 0/ -6 1 1/ -6/
++5// 0/. -4- 0/ -6/ +5/ 0/ -6/ 7/ -4 0/ -6/ 0/ +4/ 4/. -4 -4// 7 0/ +5/ 7 6 6/ -6/ 0/ +1/. -4/. 0 0/ -6/ 0 -4 -6 -6/ -4
+-4/ -6- 7 -6- 0/ +5/ 0/ -4/ 0 0/. +4// 0 0/ -6- -6// 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+-4 -6/. -1// 1 -4- 1- -4- 0/ -1/ 1 -4- 0/ -1/ 0/ -1 -2/ -4 -6/. -1// 1 -4- 1- -2 -4 0/ -1// 7/ 4/. -4- 0/ -1/ 7 7/ -1/
+-4/ 7 7// -1// 4 -4- 1 7 -6- 0/ -1/ 1- -6 1/. -1// 7- -1/ 7 7// -1// 4 -1- 1 -1 -1/ 7 7/ 6--- 6- 6/. 0//

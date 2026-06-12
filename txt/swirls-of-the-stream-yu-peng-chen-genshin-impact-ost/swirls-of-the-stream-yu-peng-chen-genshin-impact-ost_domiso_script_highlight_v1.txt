@@ -1,0 +1,35 @@
+Title: Swirls Of The Stream Yu Peng Chen Genshin Impact Ost (auto highlight_dense)
+Source: swirls-of-the-stream-yu-peng-chen-genshin-impact-ost.mid
+Info: tempo 162, duration~518.6s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w11:+5, w12-w17:+2, w18-w41:+4
+Info: highlight_windows=w00,w22,w24,w40 (fragment-only recognizable hooks/climax)
+
+bpm=162
+
+; Voice A Melody
+bpm=162
+3/ 4/ 5/ 6/ 5/ 4/ 3 4/ 3 0/ 3--- 3 3/ 4/ 3-- 2 2// 3// 4/ 5/ 6/ 7/ +2/ +1// 7// 6/ 0---
+bpm=54
+7--- 7// 3// 4/ 5/ 6/ 7/ 0/ 7/ +1/ +2 +1/ +2/ +1// 7/. 6 5 5/ 7// +1/ 7--- 7 7/. +3--- 0--- +3-- +3/ +2- +2/. +3/ +2//
++1/. 7// 6/. 5// 4// +3--- +3/. +4- +4/. +5/ +4// +3/. +2// +1/. 7/ +3--- +3// 0--- 5/ 4/ 3/ 4/ 3/ 2/ 3/ 4/ 5/ 6/ 5/ 4/
+3/ 4/ 3/ 2/ 0 3/ 4/ 5/ 6/ 5/ 4/ 3/ 0// 4/ 3// 2/ 3/ 0 0/ 3--- 3- 3/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=162
+0--- 0--- +3-- +3/. 0--- 0--- 0--- 0//
+bpm=54
+0-- -7 0--- 0--- -3 -3/ 0/ +3- 0-- -7 3/. 0// 5/. 0// 7/. 0// 4/. 0--- 0// 6/. 0// 3/. 0// 5/. 0// 7/. 0// +1/. 0// 6/.
+0// -4-- -3/. 0// 5/. 0// 7/. 0// 4/. 0// 6/. 0// 7 7/. 0// 4/. 0- 0/. 3/ 4/. 0// 6/. 0// 3/. 0// 5/. 0--- 0// +5/. 0//
+-3- -3/. 0// +5 +5/. 0// -7 -4 0 -3/ -4/ -5 -5/. 0 0// -3 -3/. 0--- 0-- 0/.
+
+rollback=9999
+
+; Voice C Bass
+bpm=162
+-3--- -3-- -3/ 0/ -3--- -3-- -2 -3--- 0---
+bpm=54
+-7--- -3 0- -3- 0 -3 0 -3 -3/ 0- 0/ -3-- -7 -3 0 0/ -3/ 0--- 0- -3 0 0/ -4/ 0- -4-- -3 0 0/ -3- -3/ -4 0/ 2/. 0// -4 0
+-4 0- 0/ -3 0--- 0 -3--- -3-- -1 0 -3 -5/ -6/ -5 -3-- 0- -3--- -3 0/

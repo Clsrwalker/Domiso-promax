@@ -1,0 +1,68 @@
+Title: What A Delightful Scenery Bu Shang Feng Guang (auto guitar_dense)
+Source: what-a-delightful-scenery-bu-shang-feng-guang.mid
+Info: tempo 88, duration~102.2s, grid 1/16
+Info: profile=guitar_dense, guitar timbre friendly dense material with anti-mud limits
+Info: top_chord_mode=pad (single-note mapping prefers lower+middle rows)
+Info: chord_pads_from_bass=3
+Info: guitar_style_windows(4 bars): w00-w01:arpeggio, w02-w02:folk_strum, w03-w03:bass_strum, w04-w04:muted_strum, w05-w07:lead_mix, w08-w08:muted_strum, w09-w09:arpeggio
+Info: dynamic transpose windows(4 bars): w00-w02:-7, w03-w09:-8
+
+bpm=88
+
+; Voice A Melody
+bpm=88
+0- 0/ 7- 6/ 7/ 5 5// 6/ 5/ 6/ 5// 4// 2// 1// -7 6/. 7/ 5 5// 6// 7/ 5 0/ 7 7/ 6/ 7/ 5 5// 6/ 5// 4// 2/ 4// 5// 6/ 2/
+4// 5// 6// 7/ 6/ 7/ 6/ 4- 0/ 6/ 5 3/ 5/ 2 2// 3/ 2/ 3/ 2// 6 5 3/ 5/ 2 2// 3// 5/ 2 2/ 3/ 5 3/ 5/ 2 2// 3/ 2// 6 2//
+3// 6 2// 3// 5/ 3/ 5/ 3/ -7- 0/ -7- 4/ 7- 7/ 0/ 7--- 7 7/ 0 7- 4/ 7- 7/ 0/ 5/ 4/ 2/ 0/
+bpm=85
+6/ 4/
+bpm=74
+5/ 7- 7/ 0/
+bpm=88
+7--- 7--- 7-- 7/ 0/ 5/ 4/. 7- 7// 0- 4// 5// 7--- 7 7/ 0/ 5/ 4/. 7-- 7/. 0/ 4// 5// 7--- 7 7/ 0/ 5/ 4 4/ 7 7/ 0- 4// 5//
+7--- 7/. 5// 4/. 5// 7-- 7// 5/ 7--- 7 7// 0 7--- 7 7/
+bpm=85
+7
+bpm=77
+0
+bpm=68
+0/ 7--- 7- 7//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=88
+0--- 0--- 0--- 0--- 0--- 0--- 5/. 0--- 0--- 0--- 0--- 0--- 0-- 0// 2/. 0--- 0--- 0--- 0--- 0- 0/. +5/ 0- 0/
+bpm=85
+0
+bpm=74
+0-- 0/
+bpm=88
++5/ 7/ 0/ 7 7/ 0 7- 7/. 0--- 0--- 0-- 0// 7/. 0--- 0--- 0-- 0// 7/. 0--- 0--- 0-- 0// 7/. 0--- 0 0// 7/. 0--- 0--- 0---
+0- 0/.
+bpm=85
+0
+bpm=77
+0
+bpm=68
+0/ +5/ 7/ 0/ 7--- 7/ 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=88
+0--- 0--- 0--- 0--- 0--- 0--- 4/. 0--- 0--- 0--- 0- 0// 6/. 0--- 0--- 0// -7/. 0--- 0- 0/. 7/ 0--- 0 0/ 4 0--- 0 7/ 0-
+0/
+bpm=85
+0
+bpm=74
+0-- 0/
+bpm=88
+7--- 7- 7/. 0--- 0--- 0// 7- 0/. 5// 7/. 0--- 0--- 0 0/. 7/ 0/. 5// 7/. 0--- 0--- 0// 7- 0/. 5// 7/. 0--- 0 5// 7/. 0---
+0--- 0--- 0- 0/.
+bpm=85
+0
+bpm=77
+0
+bpm=68
+0/ 7--- 7- 7//

@@ -1,0 +1,36 @@
+Title: Merry Christmas Mr Lawrence Ryuichi Sakamoto Merry Christmas Mrlawrence (auto highlight_dense)
+Source: merry-christmas-mr-lawrence-ryuichi-sakamoto-merry-christmas-mrlawrence.mid
+Info: tempo 104, duration~289.4s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w29:-1
+Info: highlight_windows=w00,w24,w37,w39 (fragment-only recognizable hooks/climax)
+
+bpm=104
+
+; Voice A Melody
+bpm=104
++3/ +2/ +3/ +6/ +3/ +2/ +3/ +2/ +3/ +6/ +3/ +2/ +3/ +2/ +3/ +5/ +3/ +2/ +3/ +2/ +3/ +5/ +3/ +2 +1/ +2/ +5/ +2/ +1/ 0--
+bpm=100
+6/ 5 5/ 3/ 2/ 3--- 3- 2--- 2 1--- 0-- +2/ +1/ 6 6/ +1/ 6 6/ 5 5/ -5/ 2/
+bpm=84
+3- 3// -6--- -6 -4/. 3// 6- 6/. 0-- +3-- +3// +6-- +3--- +3--- +3/ 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=104
++4--- +4 +4/. 0// +6--- +6 +6/. 0// +5-- 0--
+bpm=100
+2 -5- -6--- -6- -4- -5-- -3--- 0-- 6/. 0// 2 2/ 0/ 2- -5 -4
+bpm=84
+0--- 0-- -3 0--- 0--- 0--- 0--- 0 -4---
+
+rollback=9999
+
+; Voice C Bass
+bpm=104
++1--- +1 +1/. 0// +4--- +4 +4/. 0// +3-- 0--
+bpm=100
+-2 -5- -4--- -4--- -3--- -6-- 0-- -5 -2 0 -2 -5--
+bpm=84
+-4--- -4--- -4-- 0-- -4--- -4-- 0 0/ -4--- -4- -4/

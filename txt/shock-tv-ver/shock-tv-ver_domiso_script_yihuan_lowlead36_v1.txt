@@ -1,0 +1,33 @@
+Title: Shock Tv Ver (auto yihuan_lowlead36_dense)
+Source: shock-tv-ver.mid
+Info: tempo 69, duration~83.5s, grid 1/16
+Info: profile=yihuan_lowlead36_dense, Yihuan 36-key dense lowlead36: low-row lead, exact semitones, controlled support
+Info: original-key strategy: no semitone transpose, octave-fold only; windows: w00-w05:+12
+Info: lead register strategy: Voice A prefers Yihuan low row C3-B3 (Z X C V B N M); octave moves only
+Info: lowlead smoothing -> lead_ornaments_dropped=13, support_pruned=148
+Info: Yihuan 36-key chromatic layout -> naturals Q W E R T Y U / A S D F G H J / Z X C V B N M; semitones: Shift raises, Ctrl lowers
+
+bpm=69
+
+; Voice A Melody
+bpm=69
+-5# -4#/ -3 -3b/ -1#/ -7- -7/ -7b// 0/. -7- -4#/ -3 -3b/ -1#/ -7- -7/ -7b -7- -4#/ -3 -3b/ -1#/ -7- -7/ -7b -7b/ -7- -7/
+1# 1#/ 3b- 3b/ -4# -4#/ -5# -3b -3b/ -7b/ -3b -3b/ -7/ -3b -3/ -4#/ -7/ -7b/ -7 -3b -3b/ -1#/ 0/ -3b -7/ -3b -3/ -4#-
+-3// -7/. -4#/ -7b -7 -5# -7- -7/. 0/ -5#/. -4# 0// -3b/. -4# -7b -4# 0// -3b/. 0/ -7 1#/ 3b/ -7b/ 0/ 1#/ 3b/ -7b/ -7/
+-5#/ -7b -5# -7/ -7b/ -7- -7// 0// -7b -7b/ -7-- -7/. -1#// -7/ -1#/ -3b/ -7b/ -7/ -1#/ -3b/ -7b/ -7 -7b -1# -7/ -7b/
+-7- -7// 0// -7b -4#- -4#/. 0// -7b- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=69
+0--- 0-- 0/ 5 5/ 0--- 0 +4# +5#/ 0 0/ 5#/ 0/ 5#/ 0--- 0-- 0/ 4# 0-- +1# +1#/ 0/ 5#- +7b- +7-- +7/. 0// +7- +1#- +7--
++7/. 0// +4# 0-- 0/ +4#- +4#/. 0/. +3/ 0--- 0-- 0/ 3/ 0 0/ 4#/ 0--- 0-- 0/ +4# +4#/ +5#-- +5#// 0--- 0--- 0--- 0-- 0//
++7b- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=69
+0--- 0--- 0--- 0--- -3/ 0--- 0-- 0/ -3/ 0 0/ -4#/ 0/ 4# -5#/ 0/ 5# 0--- 0--- 0- -3/ 0--- 0--- 0--- 0--- 0--- 0-- 0/ -3/
+0 0/ -4#/ 0--- 0 0/ -3/ 0--- 0--- 0--- 0-- 0/ -3- 0--- 0- 0//

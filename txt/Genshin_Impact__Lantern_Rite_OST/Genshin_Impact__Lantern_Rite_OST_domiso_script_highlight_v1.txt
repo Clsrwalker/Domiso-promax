@@ -1,0 +1,26 @@
+Title: Genshin Impact  Lantern Rite Ost (auto highlight_dense)
+Source: Genshin_Impact__Lantern_Rite_OST.mid
+Info: tempo 172, duration~87.1s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w15:-4
+Info: highlight_windows=w00,w16,w25,w40 (fragment-only recognizable hooks/climax)
+
+bpm=172
+
+; Voice A Melody
+bpm=172
+5/ +1/ 7/ +1--- +1// 2// 5/ +1/ 7/ 0 0/ +2 +5/ +2// +1/ 5// +5--- +5 +5// 5// +1/ 7/ 0 0/ 2 2// 4// 5// +1// +2// +4//
++5/ +4// +3// +2--- 5/ +1/ 7/ 0 0/ +1--- +1--- +1/. 1//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=172
+0--- 0--- 0 1 0 1 5- 5/. -5// -7 0 1/ 0-- 0/ -2 -2/ -7 -5 -5/ -2/ -5- 0- 0/ 1- 1/ +1/. 0--- 0 0/.
+
+rollback=9999
+
+; Voice C Bass
+bpm=172
+0 0/ -1/ 0- 0/ -1- -5 0 0/ -5/ -4/ -5/ -2/ -4 -2 -5- -5/ -2/ -5 -5/ -7/ 0 0/ -5--- -5-- 0 -5 0 0/ -1- -1/ -5 -1--- -1
+-1/

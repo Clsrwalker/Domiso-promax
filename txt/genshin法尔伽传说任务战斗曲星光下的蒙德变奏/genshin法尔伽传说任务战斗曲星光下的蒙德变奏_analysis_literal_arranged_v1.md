@@ -1,0 +1,23 @@
+# Analysis (Literal Arranged Script): genshin法尔伽传说任务战斗曲星光下的蒙德变奏.mid
+
+## Metrics
+- note_count: 946
+- duration_s: 162.7215189873418
+- tempo0: 158
+- tempo_events: 1
+- time_sig: 4/4
+- max_poly: 7
+- bar_density_mean: 8.841121495327103
+- bar_density_p90: 12.2
+- tracks: 2
+- pitch_min: 33
+- pitch_max: 81
+
+## Recommended Profile
+- literal_arranged_dense
+- reason: high polyphony/density -> literal_arranged_dense
+
+## Literal Arranged Intent
+- keep literal-style source identity as baseline
+- add light musical arrangement: phrase continuity + breathing + anti-mud harmony
+- avoid over-ornament and keep the melody clearly recognizable

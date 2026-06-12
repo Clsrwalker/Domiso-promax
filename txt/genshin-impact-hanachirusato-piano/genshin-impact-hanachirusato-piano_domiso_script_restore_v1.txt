@@ -1,0 +1,28 @@
+Title: Genshin Impact Hanachirusato Piano (auto restore_strict)
+Source: genshin-impact-hanachirusato-piano.mid
+Info: tempo 74, duration~88.4s, grid 1/16
+Info: profile=restore_strict, maximum source-faithful restore: mono melody + anchored bass + very light harmony
+Info: dynamic transpose windows(4 bars): w00-w06:-2
+
+bpm=74
+
+; Voice A Melody
+bpm=74
++6/ +7/ +1 +7/ +6/ +5 +3/ +2/ +3 +6- +3/ +4/ +5 +4/ +3/ +4 +4/ +2/ +3- +3/. 0// 6/ 7/ +1 7/ 6/ 5 +2 +3 +5 +2 +1/ 7/ 6--
+6/ 5/ 6-- 6/. 0// 7// +1-- +1/. -6/ 3/ 2/ 3/ 5 3/ 2/ 3/ 5/ 2 1/ -6/ 1/ 2/ 3 5- 6 3-- 3/ 6- 5/ 3/ 2/ 1/ 2/ 3 2/ 1/ -6 3/
+2/ -6-- -6/ -5/ -6-- +6/ +7/ +1 +7/ +6/ +5 +3/ +2/ +3 +6- +3/ +4/ +5 +4/ +3/ +4 +4/ +2/ +3- +3/. 0// +6/ +7/ +1 +7/ +6/
++5 +2 +3 +5 +2 +1/ +7/ +6-- +6/ +5/ +6-- +6/. 0// +7--- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=74
+0 +1- 7- 6-- 6/. 0- 0// 6- 0--- 4 0 2 0 5 0 5 0-- 2 2/ 0--- 0/ 3--- 0--- 0--- 0--- 0--- 0- -3- 0 -6 0 -3 0- -3- 0---
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- +3--- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=74
+0 4- 5- 3-- 3/. 0 0// +1 2- 0- 5- -4- -5- -1- -5- 0 -6 -2- 0- 5- 0--- -6-- -6/. 0// -7-- -7/. 0// -1--- -1-- -1/. 0 0//
+4 -3- 0 -4- -3 0 -4 -3- 0- 1- 0 -6 0 -7 0 1 1/ 0- 0/ 3 0 4 0 6 5- 0 -6 0 -7 0 3 0 2 0-- -7 0- 5- 0--- 0//

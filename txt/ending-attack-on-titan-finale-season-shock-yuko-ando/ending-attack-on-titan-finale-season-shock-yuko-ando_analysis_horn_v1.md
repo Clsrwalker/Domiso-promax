@@ -1,0 +1,24 @@
+# Analysis (Horn Script): ending-attack-on-titan-finale-season-shock-yuko-ando.mid
+
+## Metrics
+- note_count: 420
+- duration_s: 92.12307692307692
+- tempo0: 65
+- tempo_events: 1
+- time_sig: 4/4
+- max_poly: 8
+- bar_density_mean: 16.8
+- bar_density_p90: 25.0
+- tracks: 2
+- pitch_min: 35
+- pitch_max: 97
+
+## Recommended Profile
+- horn_solemn
+- reason: high density/polyphony -> horn_solemn with anti-mud sustained shaping
+
+## Horn Script Intent
+- only use lower+middle octave keys (top octave removed)
+- prioritize long melodic phrases with explicit breathing points
+- keep line stable, solemn, and coherent for horn-style phrasing
+- maintain parser-safe syntax and horn-range playability

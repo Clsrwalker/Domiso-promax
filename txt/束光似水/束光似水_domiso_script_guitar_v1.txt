@@ -1,0 +1,26 @@
+Title: 束光似水 (auto guitar_solo)
+Source: 束光似水.mid
+Info: tempo 120, duration~24.0s, grid 1/16
+Info: profile=guitar_solo, guitar timbre friendly: melody first, very sparse accompaniment
+Info: top_chord_mode=avoid (single-note mapping prefers lower+middle rows)
+Info: chord_pads_from_bass=0
+Info: guitar_style_windows(4 bars): w00-w00:muted_strum, w01-w02:bass_strum, w03-w03:arpeggio
+Info: dynamic transpose windows(4 bars): w00-w02:-1
+
+bpm=120
+
+; Voice A Melody
+bpm=120
+7/ 0 7--- 7--- 7--- 7--- 7--- 7--- 7--- 7--- 7--- 7--- 7--- 7- 7/ 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+7 7/ 0--- 0--- 0--- 0--- 0--- 0 0/ 7 0--- 0--- 0--- 0--- 0--- 0 7-- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+7/. 0 0// 7 0- 7 0- 6 0- 6 0- 7 0- 7 0- 7 0- 6 0- 7 0- 7 0- 7 0- 7 0- 7 0- 7 0-- 6-- 0//

@@ -1,0 +1,31 @@
+Title: Never Gonna Give You Up Easy Piano (auto sky_melodylock)
+Source: never-gonna-give-you-up-easy-piano.mid
+Info: tempo 114, duration~58.4s, grid 1/16
+Info: profile=sky_melodylock, Sky 15-key melodylock: monophonic lead, center the hook, thin support to fit C4-C6
+Info: dynamic transpose windows(4 bars): w00-w06:+0
+Info: Sky 15-key layout C4-C6 -> Y U I O P / H J K L ; / N M , . /
+Info: speed_guard lead_pruned=0, support_pruned=0, input_budget_dropped=1, peak_clusters/s=7.0
+
+bpm=114
+
+; Voice A Melody
+bpm=114
++1 +1/ +2--- +3 +3/ +5// +4// +3/ +1 +1/ +2- +2// 0// 7- 6/ 5/ 6// +1- +1// +2--- +3 +3/ +5// +4// +3/ +1 +1/ +2- +2//
+0// 7/ +1 +1/ 6- 4 6/ +1 +1/ +2/ 7/. 6// 5- 5// 0// 4 4/ 6 7/ +1/ 6 5/ +5/ 0/ +5/ +2/ 5 4 4/ 6 7/ +1/ 6/ +1/ +2/ 5/ 7/
+6/ 5 5/ 4 4/ 6 7/ +1/ 6/ 5 +2 +2/ +3/ +2 4 +1- +1// 0// +2/ +3/ +1/ +2 +2/ +3/ +2 5 4- 6/ 7/ +1/ 6/ 5/ +2/ +3/ +2 +2/
+5// 6// +1// 6// +3 +3/ +2/ 0 5// 6// +1// 6// +2 +2/ +1/. 7// 6/ 5// 6// +1// 6// +1 +2/ 7/. 6// 5 5/ +2 +1- 5// 6//
++1// 6// +3 +3/ +2/ 0 5// 6// +1// 6// +5 7/ +1/. 7// 6/ 5// 6// +1// 6// +1 +2/ 7/. 6// 5 5/ +2 +1- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=114
+6 6/ 7- 7// 0// 7 7/ +1 +1/ 0 6 6/ 7- 7// 0// 5- 0- 6 6/ 7- 7// 0// 7 7/ +1 +1/ 0 6 6/ 7- 7// 0// 5/ 0--- 0--- 0--- 0---
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0- 0/.
+
+rollback=9999
+
+; Voice C Bass
+bpm=114
+4 4/ 5- 5/ 3 3/ 6- 6/ 4 4/ 5- 5/ 3- 0- 4 4/ 5- 5/ 3 3/ 6- 6/ 4 4/ 5- 5/ 3 6 0--- 4- 5-- 0-- 4- 5- 0--- 4- 0- 5 0-- 4-
+5-- 0 4--- 5--- 0- 4- 0 5- 0 4 4/ 5/ 0- 3 3/ 6/ 0- 4 4/ 5 5/ 0 3 3/ 6 6/ 0 4 4/ 5/ 0- 3 3/ 6/ 0- 4 4/ 5 5/ 0 3 6- 0//

@@ -1,0 +1,24 @@
+Title: Fur Elise Beethoven For Beginner Piano (auto highlight_pop)
+Source: fur-elise-beethoven-for-beginner-piano.mid
+Info: tempo 53, duration~50.9s, grid 1/16
+Info: profile=highlight_pop, hook/climax fragments with singable lead and stable support
+Info: dynamic transpose windows(4 bars): w00-w02:+0
+Info: highlight_windows=w00,w03,w16 (fragment-only recognizable hooks/climax)
+
+bpm=53
+
+; Voice A Melody
+bpm=53
++3 +3/ +2/ +1// 6// 0/. 3// +3 +3/ +2/ +1// 6// 0/ +3--
+
+rollback=9999
+
+; Voice B Harmony
+bpm=53
+0--- 0--- 0 0/
+
+rollback=9999
+
+; Voice C Bass
+bpm=53
+0--- 0--- 0 0/

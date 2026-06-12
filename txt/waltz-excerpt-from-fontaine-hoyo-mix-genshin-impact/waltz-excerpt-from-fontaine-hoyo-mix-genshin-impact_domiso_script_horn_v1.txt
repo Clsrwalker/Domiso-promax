@@ -1,0 +1,86 @@
+Title: Waltz Excerpt From Fontaine Hoyo Mix Genshin Impact (auto horn_solemn)
+Source: waltz-excerpt-from-fontaine-hoyo-mix-genshin-impact.mid
+Info: tempo 90, duration~82.3s, grid 1/16
+Info: profile=horn_solemn, French-horn solemn: stable and grand, anti-mud sustained blend
+Info: horn_range=48-71 (lower+middle octave only)
+Info: key_rows_shift=1 (two-row mode)
+Info: row_design=A->qwertyu, B/C->asdfghj around split 60
+Info: bass_floor=53 (raise very low C-voice anchors)
+Info: melody_clarity=on (de-emphasize micro offbeat ornaments in A)
+Info: melody_middle_octave_usage~93.4% (>= 60)
+Info: breathing every~18 steps, gap=1 steps
+Info: dynamic transpose windows(4 bars): w00-w00:+0, w01-w07:-2
+
+bpm=90
+
+; Voice A Melody
+bpm=90
+0--- 0- +3 +3/ +2 +2/ +1// +7 +7// 0/ +3/ +5 0/ +7 +5/ +3// 0// +5 +5/ 0// +3 +3// 0/ +4 +3/. +5// +7/ +6 +6/ 0/ +2/ 0/
++4/ 0/ +6/. 0// +4/ 0/ +2 +2/ 0/ +2/ 0/ +4/ 0/ +4// 0// +5/. +1/ 0// +6 +6/ 0/ +2/ 0/ +4/ 0/ +4/ +5/. +1/ 0// +6 +6/ 0/
++6/ 0/ +6/ 0/ +6/ +7/. 0// +3/ +6/ 0/ +4/ +5/. 0// +1/ +4/ 0/ +2/ +1/. 0// +7/ +6 +6/ 0/ +1/ 0 0/ +3/ 0/ +3/ +6 +6/.
++1// +5 +4/ +3 +3/ 0/ +6/ 0/ +6// 0// +2/ +3/ 0/ +1// 0// +6 +6/. +2// +7 +7/ +6 +6// +1// +5 +4/ +3 +3/ 0/ +6/ 0/ +6//
+0// +2/ +3/ 0/ +1// 0// +7/ +6 +6/ 0/ +6/ +7// 0// +1// +6/ +7// +2 +2// +5/. +2// +3 +3/ +6/ +3/. +1// +6/ +7// +2-
++2// +3 +3// +5- +5// 0// +3/ +5 +7// 0// +4/ 0/ +2/ +3 +6 +6/ +7/ +6--
+bpm=86
++6 +6/
+bpm=81
++6// 0// +5
+bpm=76
+0/ +5
+bpm=72
++6/ +4 +6/ +3/. 0// +6//
+bpm=66
++6// +7 +6/
+bpm=57
++6 +6/
+bpm=29
++7
+bpm=45
++7 +7// 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=90
+0--- 0--- 0--- 0--- 0--- 0--- 0- 4/. 0-- 0// 2/. 0 0// 7/. 0--- 0 0// 7/. 0-- 0// 3/. 0 0// 5/. 0 0// 4/. 0 0// 6/. 0---
+0-- 0// 3/. 0 0// 6/. 0 0// 5 5/ 0/ 6/. 0 0// 3/. 0 0// 5 5/ 0/ 6/. 0 0// 6/. 0 0// 5 5/ 0/ 6/. 0 0// 3/. 0 0// 3 3/ 0-
+0/ 1/. 0 0// 3 3/ 0/ 6/. 0 0// 4/. 0 0// 4/. 0 0// 5/. 0 0// 7/. 0 0// 6/. 0 0// 6/. 0 0// 4/. 0 0// 3/. 0/.
+bpm=86
+0/ 6
+bpm=81
+0 0/
+bpm=76
+0 0/
+bpm=72
+6/. 0 0// 5 0//
+bpm=66
+0 0/.
+bpm=57
+0 6/
+bpm=29
+6// 0/.
+bpm=45
+0 0/
+
+rollback=9999
+
+; Voice C Bass
+bpm=90
+0--- 0--- 0--- 0--- 0--- 0--- 4 4/ 0--- 0- 0/ 4- 0- 4 4/ 0--- 0- 0/ 4 4/ 0 0/ 4-- 0--- 0- 4- 0- 6- 0- 4- 0 4- 4/ 0- 0/
+6- 0- 4- 0 6 6/ 0-- 0/ 4 4/ 0- 0/ 4 4/ 0- 0/ 4- 0- 4-- 4/ 0/ 4- 4/ 0
+bpm=86
+0/ 4
+bpm=81
+4 0/
+bpm=76
+0 0/
+bpm=72
+6 6/ 0 0/.
+bpm=66
+0 0/.
+bpm=57
+0 0/
+bpm=29
+0
+bpm=45
+0 0/

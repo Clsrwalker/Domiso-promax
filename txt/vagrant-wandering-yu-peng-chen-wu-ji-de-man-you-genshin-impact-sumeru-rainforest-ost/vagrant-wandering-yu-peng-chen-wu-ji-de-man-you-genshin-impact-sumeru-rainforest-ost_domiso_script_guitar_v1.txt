@@ -1,0 +1,36 @@
+Title: Vagrant Wandering Yu Peng Chen Wu Ji De Man You Genshin Impact Sumeru Rainforest Ost (auto guitar_balanced)
+Source: vagrant-wandering-yu-peng-chen-wu-ji-de-man-you-genshin-impact-sumeru-rainforest-ost.mid
+Info: tempo 64, duration~102.7s, grid 1/16
+Info: profile=guitar_balanced, guitar timbre friendly balanced support with clean mid-low bed
+Info: top_chord_mode=pad (single-note mapping prefers lower+middle rows)
+Info: chord_pads_from_bass=8
+Info: guitar_style_windows(4 bars): w00-w01:bass_strum, w02-w03:lead_mix, w04-w06:arpeggio
+Info: dynamic transpose windows(4 bars): w00-w02:-7, w03-w03:-6, w04-w06:-7
+
+bpm=64
+
+; Voice A Melody
+bpm=64
+3/ 6/ 7- 3 3/ 7--- 7 4--- 4 4/ 3 6 7- 3 3/ 7--- 7 4-- 4// 7/ 6- 6/. 7--- 7--- 7 7/ 6// 4-- 4// 3-- 7--- 7--- 7--- 7---
+7--- 3/ 6/ 7- 3 3/ 7--- 7 4-- 4// 7/ 6- 6/. 3/ 6/ 7- 3 3/ 7--- 7 4--- 4- 4/ 3//
+bpm=60
+3// 6/ 7- 3--- 3- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=64
+0 0/. +3// 0--- 0-- 0/ +2// 0--- +6// 0--- 0--- 0-- 0/ +2// 0--- 0/. +4 0--- 0--- 0--- 0 0/ +1/. 0-- 0// 7/. 0-- 0// 7/.
+0--- 0// +2/. 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0-- 0// +4 0--- 0 0//
+bpm=60
+0--- 0--- 0
+
+rollback=9999
+
+; Voice C Bass
+bpm=64
+0 -6/. -3// 1-- -6/. -3// 1-- -2/ -6/ -4-- -2/ -6/ -4-- -6/. -3// 1-- -6/. -3// 1-- -2/ -6/ -4- -4/. 7/ -2// -6/ -4--
+-4/. -1// -6-- -3/. -1// -6/ 7/ -6- -2/ -6/ -4-- -1/ -6/ -3-- -2/ -6/ -5-- -2/ -6/ -4/ 7/ -4- -1/ -5/ -2/ -6- -6/ -4 -4/
+-6--- -6 -6/ 0 -6--- -6--- -2-- -2/. 7/ -2-- -2/. -6/. -3// 1-- -6/. -3// 1-- -2/ -6/ -4-- -1/ -6/ -3/ -4 -4/.
+bpm=60
+-4/. -6/. -3// 1--- 1-- 0//

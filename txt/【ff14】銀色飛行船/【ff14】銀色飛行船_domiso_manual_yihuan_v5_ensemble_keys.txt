@@ -1,0 +1,64 @@
+?ff14?????? v5 ???????
+?????=????#=Shift+???b=Ctrl+???0=???bpm=70
+
+0-- H// J// Q#/ (N D H Q#)- (N D H Q#)/. (N D)// W// (N W)// (N D Q#)// Q#// (C D H Q#) (C D J) (C D J)/. J// (C D Q#)// (C D J)//
+(C D H)/ (N D H)/ (N D H)/ (C D J)- (S H)/ (M S J)/ (N D H) (C N D H)// (N D H)/. (C N D H) (C N D H)// (C D H)/. (N D H)
+(C N D H)- (N H)// J// (N Q#)// Q#// (N D H)// (N D Q#)/. (C D H)// (D H)/. (C D H) (C H Q#)// (H W)// (C H E)/ (C D H)//
+(C D E)// (C D E)/ (C D H)// (D H)// (D J)/ (C G# J) (C G# Q#)// (C G# J)// (C H)/ (V# F# H)- (C D H) (C D G#)// (C D H Q#)//
+(C D Q#)// F#// D// (X S F#)/. (X S F#)// (S F#)/. (X S F#) (X S F#)// (X S F# H)// (D Q#)/ (N D H)// (N D Q#)/. (C D Q#)//
+(D Q#)/. (C D H)/. (C D H Q#)// (H W)/ (C H Q#)/ (C D J)/ C/ (C D H) (C G# Q#)/ (C G# J)/ (C D G#)/ (C D G#)/ (D H) (C D H)-
+(C D J)/ (C J)/ (N D H) (C N D H)- (C N D H)// (C D H)/. (N D H) (C N D H)- (C N D H)// J// (N Q#)/ (N D H)// (N D H Q#)//
+(N D H Q#)/ (C D H Q#) (C D H Q#)// (C D H Q#)/. (C N A# D Q#)// (N W)// (C N A# E)/ (C D H E) (C H E) (C B# D J) (C B# D Q#)//
+(C B# D J)// (C D H)/ (D H)/ (D H)/ (N A# F#) (C D)/ (C D H)/ (D G# Q#)/ (M D G# E)// (M R#)// (X S R#)/ (X S)/ (H E)- (N D H)//
+(D J)// (N D Q#)/ (N D H Q#) (C H Q#)- (N W)/ (C N A# Q#)/ (C D)// (C D G# J)/. (C D H) (C B# D J)/. (C B# D J)// (C B# D J)/
+(C D H)// (C D H)// (X H W) (C D J) 0 (S H)/ (C M J)/ (N A# D H) (Z# D H) (Z# C N H)/ (C J)/ (Z# B# D Q#)/ (Z# B# D E)/ (V# F# H)
+(N A# F#) (N A# F# H)/ (A# G#)// (N A# F#)// (N A# F#) (Z# A#) (C D J)/. W// (V F G# Q#)/ (V F W)// (V F G# Q#)// (B# F G# Q#)/.
+(B# J)// (V# F# H)/ (V# F# Q#)/ Q#/ F#/ (V# A# H)/ (V# A# H)// (V# A# H)// (C D H)/ (M F#)// (C D Q#)// (H Q#) (V# H Q#)//
+(V# F# H Q#)/ (V# H Q#) (V# H Q#)// (Cb G#)/ (Cb V# F#)/ (X S) (N D)/. (V# N S H)// (N D H) (D H)/ D/ (C D)/ (C D J)// (C E)//
+(C D J)// (C N D)/. (C D H) (C D H)/ (C D G# J)/ (C D G#)/ C C/ (A# Jb) (Db G Q)// (Db G Jb)/. (G# Eb)/ (B# G# Eb)/ (Mb Db Eb)/
+(Jb Eb)// (Db Jb)// (Z# Jb Q#)/ (Db Jb)/ (Mb Db Jb)/ (Db Jb)// (B# G#)// (Cb Db Jb Eb)/ (Jb Eb)/ (Mb Db Eb)/ (B# Q)/ (Db Jb)/ B#//
+B#// (B G Jb)/ (B A G)/ (V F G#)/ (B# G#)/ (Mb Db Jb)/ (B# G# Eb)/ (G# Eb)/ G#/ (B# Db G#)/ G#// (B Jb)// (V Q)/ (Z# F Q#)//
+(Z# F Jb)// (Cb Db Jb)// (Cb Db G#)// (B# A# G#)/ (B# Db G#)/ (Cb Db G#)// (Db Eb)// (Cb B Q)// (Cb B Jb)// G#// (Mb Jb)//
+(G# Eb)/ (B# G# Eb)/ (Mb Db Eb)/ (Jb Eb)// (Db Jb)// (Z# Q#)/ B#/ (Mb Db Jb)/ B#// (B# G#)// (Cb Db Jb Eb)/ (Jb Eb)/ (Mb Db Eb)/
+(B# Q)/ (Db Jb)/ B#/ (B G Jb)/ (B A G)/ (V F G#)/ (B# G#)/ (Mb Db Jb)/ (B# G# Eb)/ (G# Eb)/ G#/ (B# Db G#)/ G#// (B Jb)// (V Q)/
+(Z# F Q#)// (Z# F Jb)// (Cb Db Jb)// (Cb Db G#)// (Cb Db G#)/ (B# G# Eb)-- (B# G# Eb)/ (Cb G# Eb)/ (B# A G# Eb) (B# Q Eb)--
+(B# G# Eb) (Jb Eb)-- (B# G# Eb)-- H// J// Q#/ (C H Q#)- (C H Q#)/. Q#/ W// E/ (C D H E)/ (D H E)/ (C D H E)/ (G# J)/ (C B# G# J)/
+(M G# J)/ (C B# Q#)// (C B# M J)// (V F H)/ (V# A# F# H)/ (Z# A# H)/ (V# A# H)/ (N A# H)/ (C A# H)/ (A# H)/ (C Q#)/ (M E)//
+(N Q# R#)// (X W)/ N/ W/ F#/ (N D H) (X S H)// (X S J)// Q#/ (N D H Q#)/ (C D H Q#)/ (N D H Q#)/ (D H Q#)/ (C H Q#) N/ C//
+(C Q#)// (C D Q#)// (C D G#)// (M G# J)// M// D/ G#/ (M D J) (B# Q#)// (B# J)// (C H)/ (X N F# H) (C M D G# J)- (M D J)/ (M D J)//
+(M D J)// (N D H)/ (C D H)/ (A# D H)/ (N D H)/ H/ (M J)/ (C D Q#)/ (G# E)/ (V# H)/ (A# H)/ (F# H)/ (N H)/ (Z# H)/ G#/ (Z# F#)/ D//
+(D J)// Z#/ A#/ D/ G#/ (V F G# Q#)/ W// (V A# G# Q#)// F/ G#// H// (V# H)/ (A# Q#)/ F#/ (F# H)/ C/ (D H)/ G#/ (F# J)// H// Q#//
+Cb// V#/ J/ (Db F#)// H// F#/ J/ G#/ F#/ D/ (D H)// E// (V# N H W)/ (X H W)/ (D H)// (D H)// (X W)/ (N D E)/ (H E)// E// (C E)/
+(C D G# J)// (C M D J)// (D G# J)// (N D)// C/ (N H E)/ C/ (N H E)/ (C D G# J)- (C D G# J)/ (Db Jb Eb) (Cb G Q)// (Cb Mb G)//
+(Cb Mb G Jb)// (Cb Mb G)// (Jb Eb)// (G# Eb)/. (Cb Db G# Eb)// (Cb Db G# Eb)// (Jb Eb)/ (Z# Q#)/ G#/ (Cb Db G#)/ G#// G#//
+(Cb Db Eb T)// (Cb Db Eb Ub)// (Eb Ub)/ (Cb Eb Ub)// (Cb Eb Ub)// (B Db G Q Eb)// (B Db G Q)// (B# G# Q Eb)// (B# G#)//
+(Z B# Db G#)/ (B G Jb Eb)/. (Z B G Q Eb)// (V F T#)/ (G# T#)/ (Cb Eb T#)/ (B# Db G# Eb)/ (Db G# Eb)/ (Eb T#)/ (B# Q Eb)/ G//
+(G Jb)// Q/ (V A# Q#)// (V A# Jb)// (Cb Jb)// (Cb G#)/. (B# G#)// (B# G#)// (Cb G# Eb)/ (B Q)// (B Jb)// G#// (B Mb Jb)// (G# Eb)/
+(G# Eb)/ (Cb Db Eb)/ (Jb Eb)/ (Z# Q#)/ G#/ (Cb Db G#)/ G#// G#// (Cb Db Eb T)// (Cb Db Eb Ub)// (Eb Ub)/ (Cb Eb T#)/ (B Db G Q)//
+(B Db G Eb)// (B# G# Q Eb)// (B# G#)// (Z B# G# Q Eb)// (Z B# G# Eb)// (G# Eb)// (B G Jb Eb)/ (Z B G Q Eb)// (V F Q T#)//
+(V F T#)// (G# T#)/ (Cb Eb T#)/ (B# Db G# Eb)/ (Eb T#) (B# Q Eb)/ G// (G Jb)// Q/ (V A# Q#)// (V A# Jb)// (Cb Jb Eb)// (Cb T#)/.
+(Z# Ub)/ Ub/ (G# Q) (G# Eb) (G# Q) Jb (G# Q)/ G#// (G# Eb)// (Z G# Eb)/ (G# Q#)// Jb// (G# Q)// (G# T#)// (G# T#)/ (Mb Ub)/ Ub/
+(G# Q) (G# Eb) (G# Q) Jb (G# Q) (G# Eb) (G# Eb)/. Eb// (Z# G# Q#) (Z# G# Q#)/. (G# Eb)// Eb (B# Eb)// (B# A# Q#)/. (B# Q)/
+(B# A# Q#)// (B# Q)// (Z G# Q)- (Mb G Jb) (G Q) (B# A Q Eb) (G# Q#)- Eb (B# Eb)// (B# A# Q#)/. (B# Q)// (B# A# Q#)/ (B# Q)//
+(B# G#) (Z B# G# Q)// (B# G#)/. F/ Jb/ (B# G# Q) (A G)/ (B# A Eb)/ (Z# G# Q#) (Z# G# Q#)/ (G# Eb)/ Eb (B# A# R)/ (B# Eb)//
+(B# A# G#)// (B# A# G#) (Z A G#) (Z A G#)/ (Z A Q)// (Z A Q)// (B G Jb) (B G Q) (B# A Db G#) (A# G#)- Db (B# A# F)// (B# Eb)/
+(B# A# G#)// (B# A# G#) (B# A# Q#) (B# Q#) (B# G# Q#)/. Q#// (B# G# Q#) (B# G# Q) (Z B# G# Eb) G# (B# A Q) (B# Q#) (Jb Q#) (Mb Jb)
+(B# Q#) (B# A Db G#)// (B# A Db Q)/. (Z A Db Q)// (Z A Db Q)/. (Z Db G#)/. (Z Db G#)// (B Mb Db G)/ (B Mb Db G)// (Db G#)//
+(V Jb)// (V G#) (V G#)// (V Jb)/ Z# Z#/. (Z# G#)// (Cb Jb) (Cb Jb)/ (Cb Q)/ G# G (V G#) (V G#)/ Eb (Z# G#) (Z# G#)// (Z# Jb)//
+(B Q)/ Q#// (B Jb)// B// G#/. A/. (A Eb)// Q// Jb// (M G#)// Jb// (V G#)/ (Db G#)/ (B# G# Q)/ (Db Jb)/ A#/ G#/ (Z Q Eb)/ G#/
+(Cb Jb)/ (Mb Jb)/ (Cb Db Jb)/ Q/ G#// Eb/ G/ Jb/. (V G#)/ (Db G#)/ (B# G# Q)/ (Db Eb)/ Eb/ G#/ (Z Q Eb)/ G#// Jb// (Cb Q)/ Q#//
+(Cb Jb)/ (Cb G#)/ (Cb G#)// G#// G#/ (G# Eb)// W// (G# Q)// Jb// (G# Q)// (B G W T)// (B G W Ub)// (X W Ub)/ (B Jb Ub)/ Q/
+(Cb Eb)/ Mb/ (Cb G Jb)/ Mb// (Mb Jb)// (V F Q R)/ (Z Q R)/ (V H R)/ (S W)/ (Mb S W)/ (X S F W)// (N S W)// (V Mb S F W)//
+(S F W)// (V S F W)/ (B G Jb)/ (X Jb)/ (B Jb W)/ (X F R)/ (F Jb R)/ (Mb Jb)/ (Cb G Jb)/ (Mb Jb)// Q// (S W)/ (Cb A Db Eb)//
+(Cb A Q)// V// (V Jb)/. Mb/ (V F Jb)// (V F R)// (N W)// (N Q)// (V Jb)// (V N Q)// (B S G Jb)/ (X S G Jb)/ (B S G W)/ Q/ (Cb Eb)/
+Mb/ (Cb G Jb)/ Mb// (Mb Jb)// (V F Q R)/ (Z Q R)/ (V H R)/ (S W)/ (Mb S)/ (X S F Jb)// (N S)// (V Mb S F W)// (Z F R)// (V N Q)//
+(V N S)// (B G Jb)/ (X Jb)/ (B Jb W)/ (X F R)/ (F Jb R)/ (Mb Jb)/ (Cb G Jb)/ (Mb Jb)// Q// (S W)/ (Cb A Db Eb)// (Cb A Q)//
+(V Q)// (V Jb)/. (Mb F Jb) (N F H) (X B Mb Jb) (X B Mb Jb)/ (X Mb R)/ (Mb R)/ (Cb Mb Db Jb) (Cb Mb Db Jb)// (Cb Db Q)// (B W)/
+Eb// Q// (V A Q)// (V A F)// (V Jb)/ (X Mb F Jb)- R Jb/. F 0 0// (F Jb)/ (X F Jb)/ (F Jb)/ Q/ Cb/ Mb/ Cb/ Mb// (Mb Jb)//
+(V A F Q)/ (Z A F Q)/ (V A F Q)/ W/ Mb/ V/ (N F Q)/ (V F Q)/ (S F Jb)/ (X S F Jb)/ (S F Jb)/ (X R)/ (Jb R)/ (Mb Jb)/ Cb/ Mb//
+(F Q)// W/ (Z Eb)// (Z F Q)// V// (V Jb)/. Mb/ (Mb F)/ (N H Q)/ (N W)/ (F Jb)/ (X F Jb)/ (F Jb)/ Q/ Cb/ Mb/ V/ Mb// (Mb Jb)//
+(V A F Q)/ (Z A F Q)/ (V A F Q)/ W/ Mb/ V/ (N F Q)/ (V F Q)/ (S F Jb)/ (X S F Jb)/ (S F Jb)/ (X R)/ (Jb R)/ (Mb Jb)/ V/ Mb// Q//
+(H E)/ (X R)// (X W)// G// (G Q)/. A (M S G) (F Jb) (F Jb)/ (G Q)/ Db Db/. (Mb Db)// (V Q) (V Q)/ (V W)/ Jb H (G Jb) (G Jb)/ R/
+(Jb R)/ (Cb Jb)/ Cb/ Cb// (Cb Q)// (V F W)/ Eb// (V F Q)/ (V F Jb)/ (V F Jb)// Jb (N H Q) (G Jb) (G Jb)/ (G Q)/ Db/. (Mb Db)//
+(Db Q)// W// Db/ (V F W)/ Q/ Jb/ F/ (Mb Jb)/ (F Jb)/ (N H Q)/ (N H W)/ (G Jb) (G Jb)/ R/ (Jb R)/ (Cb Jb) (Cb Jb)// (Cb Q)// (X W)/
+Eb// Q// G// (G Jb)// (G Jb)/ Jb/ Db/ (V F Jb)/ Eb/ R/ Jb/ Eb/ R R/ 0 0// (V Jb W)- (V Jb W)/ 0--- 0--- 0--- 0--- 0--- 0 0/

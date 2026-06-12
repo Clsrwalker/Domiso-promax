@@ -1,0 +1,26 @@
+Title: 01 Xiao Xing Xing (auto longnote_balanced)
+Source: 01-xiao-xing-xing.mid
+Info: tempo 120, duration~24.0s, grid 1/16
+Info: profile=longnote_balanced, long-note priority with richer but controlled 3-layer support
+Info: melody_breath=every:20, gap:1, hits:7
+Info: humanize=on, delay_step:1, lag_ratio:0.28, pickup_ratio:0.14, release_ratio:0.20, hits:lag=0, pickup=0, release=0
+Info: dynamic transpose windows(4 bars): w00-w02:-2
+
+bpm=120
+
+; Voice A Melody
+bpm=120
+5- +2- +3 +3/. 0// +2- +1- 7 7/. 0// 6- 5- +2 +2/. 0// +1- 7- 6 6/. 0// +2- +1- 7 7/. 0// 6- 5- +2 +2/. 0// +3- +2- +1
++1/. 0// 7- 6- 5- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0//

@@ -1,0 +1,31 @@
+Title: A Cruel Angels Thesis Neon Genesis Evangelion Op Animenz Animenz A Cruel Angels Thesis Neon Genesis Evangelion Opxin Shi Jievuangerionop (auto highlight_dense)
+Source: a-cruel-angels-thesis-neon-genesis-evangelion-op-animenz-animenz-a-cruel-angels-thesis-neon-genesis-evangelion-opxin-shi-jievuangerionop.mid
+Info: tempo 158, duration~283.0s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w36:-3
+Info: highlight_windows=w00,w51,w54,w102 (fragment-only recognizable hooks/climax)
+
+bpm=158
+
+; Voice A Melody
+bpm=158
+0// 3// 6// +1// +6/ +3// +1// 6/ +1// +3/ +6/ +3// +1/ +2// +5// 0
+bpm=129
++6// +4 +4/ +2 +2// +5/ +4/ +3/ +2// +1/ +7/ +2// 0 +5/ 0// +6 7// -7/ -6/ -1// -7/ -5// -2// -7 -7// -5// -2// 0 3- 6/
+0/ +5// +6/. +5// +2/ 2 2//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=158
+0--- 0-
+bpm=129
+-2/. 0 0// -5/. 0// +7/. 0// -1/. 0- 0// +5/. 0--- 0--- 0// 3/. 0// +1 4/. 0 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=158
+0 -6 0/ -6 -6/ 0/ 1/ 0
+bpm=129
+-2 0 -5 0 -1 0/ -7/ 0 -5 0/ -6 -6/ 0--- -5 -3/. 0// 1- -2 0/ -4/

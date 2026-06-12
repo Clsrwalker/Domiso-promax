@@ -1,0 +1,24 @@
+Title: John Macdonald Of Glencoe (auto highlight_pop)
+Source: john-macdonald-of-glencoe.mid
+Info: tempo 120, duration~64.0s, grid 1/16
+Info: profile=highlight_pop, hook/climax fragments with singable lead and stable support
+Info: dynamic transpose windows(4 bars): w00-w07:-2
+Info: highlight_windows=w00,w06,w62 (fragment-only recognizable hooks/climax)
+
+bpm=120
+
+; Voice A Melody
+bpm=120
++2 5 +5/ 0/ +3/ +2/ +1 7/ +1/ 0/ +3/ +2/ +1 7/ +1/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+0-- +2// 0-- 0// +2// 0- 0/.
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+0/ 7/ 0- 5/ 0/ 7/ +2 4/ 0/ 5/ 0/ 7/ +2 4/

@@ -1,0 +1,41 @@
+Title: I Really Want To Stay At Your House  Rosa Walton I Really Want To Stay At Your House Arrby Yulun Chou (auto highlight_dense)
+Source: I_REALLY_WANT_TO_STAY_AT_YOUR_HOUSE__Rosa_Walton_I_Really_Want_to_Stay_at_Your_House_ArrBy_YuLun_Chou.mid
+Info: tempo 126, duration~305.0s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w05:-1, w06-w28:+1, w29-w41:+0
+Info: highlight_windows=w00,w30,w32,w34 (fragment-only recognizable hooks/climax)
+
+bpm=126
+
+; Voice A Melody
+bpm=126
+-6/ 2/ 4/ +1 2/ 4/ +1/ 1/ 3/ 5/ +2 3/ 5/ +2/ 2/ 4/ 6/ +1 4/ 6/ +1/ 4/ 6/ +1/ +2 6/ +1/ +4/ -6/ 2/ 4/ +1 2/ 4/ +1/ 0---
+bpm=134
++5// +7/ +5// +2// 5/ 6// 7/. +1/. 5/ 6 7/ +1 7- 5 5/ 7/ +2/ 7/ 6 6//
+bpm=136
+7/. +1 7 5/. 7// +5// +7/ +5/ +6// +7/. +6/. +5/ +6 +7/ +6 +7 +5/ 0--- +5// +7/ +5// +2// 5/ 6// 7/. +1/. 5/ 6 7/ +1 7-
+5 5/ 7/ +2/ 7/ 6 6// 7/. +1 7 5/. 7// +5// +7/ +5/ +6// +7/. +6/. +5/ +6 +7/ +6 +7 +5/ 0--- -5 +5--- +5-- +6/ +7 +7/ +5-
+-1 5- 6/ 7/ -5 +5-- -3 5--
+
+rollback=9999
+
+; Voice B Harmony
+bpm=126
+0--- 0--- 0--- 0--- 0--- 0---
+bpm=134
+-5 -5/ 0/ +7/. 0// -5 +1 5/ 6 0- 0/ 7/. -7// +7/. -7// -3 +1/.
+bpm=136
+0/. 6 0 0/ -5 -5/ 0/ +7/. 0// -5 +6 +5/. +1/. 0--- 0 0/ -5 -5/ 0/ +7/. 0// -5 +1 5/ 6 0- 0/ 7/. -7// +7/. -7// -3 +1/.
+0/. 6 0 0/ -5 -5/ 0/ +7/. 0// -5 +1 +5/. +1/. 0--- 0- 0/ +5 +5/. 0// +4/. 0 0// +5- +5/. 0// +1/. 0// +5 +5/. 0// +4/. 0
+0// 7 7/. 0// 4/. 0 0// +5 +5/. 0// +4/. 0 0// 7- 7/. 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=126
+0--- 0--- 0--- 0--- 0--- 0---
+bpm=134
+-5 -5/ -2--- -2- -2/ -3--- -1/.
+bpm=136
+-1-- -1// -5 -5/ -2--- -2- -2/ 0--- -5 -5/ -2--- -2- -2/ -3--- -1--- -5 -5/ -2--- -2- -2/ 0--- -5 0/ -2 -5/ -2 -3 0 0/
+-3 -3/ -2--- -1 0 0/ -1 -1/ -5 0/ -2 -5/ -2 -3 0 0/ -3 -3/

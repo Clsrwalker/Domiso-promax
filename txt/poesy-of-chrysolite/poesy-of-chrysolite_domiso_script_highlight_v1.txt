@@ -1,0 +1,30 @@
+Title: Poesy Of Chrysolite (auto highlight_dense)
+Source: poesy-of-chrysolite.mid
+Info: tempo 94, duration~139.4s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w06:-2, w07-w10:-3, w11-w13:-2
+Info: highlight_windows=w00,w25,w42,w76 (fragment-only recognizable hooks/climax)
+
+bpm=94
+
+; Voice A Melody
+bpm=94
+0// 3/. 5 6/ 0/
+bpm=100
+3/ 4/ 5 4/. 3// 0/ 6// +6- +6/. 0/ 4/ 3/ 5/ 1/ 5
+
+rollback=9999
+
+; Voice B Harmony
+bpm=94
+0--
+bpm=100
++1/ +2/. 0--- 0 0/. +4// -7// 5/. -6// 0 0/
+
+rollback=9999
+
+; Voice C Bass
+bpm=94
+0--
+bpm=100
+0/ -6 -5/ -6/ 0 -1/ 0/ -6/ 0- -7/ -5/ -6/ -5 -5/

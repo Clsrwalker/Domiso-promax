@@ -1,0 +1,43 @@
+Title: Natlan Tequemecan Valley Piano Ost 7 Hoyo Mix Genshin Impact 50 Ost (auto guitar_dense)
+Source: natlan-tequemecan-valley-piano-ost-7-hoyo-mix-genshin-impact-50-ost.mid
+Info: tempo 86, duration~81.1s, grid 1/16
+Info: profile=guitar_dense, guitar timbre friendly dense material with anti-mud limits
+Info: top_chord_mode=pad (single-note mapping prefers lower+middle rows)
+Info: chord_pads_from_bass=4
+Info: guitar_style_windows(4 bars): w00-w00:lead_mix, w01-w01:folk_strum, w02-w04:muted_strum, w05-w06:arpeggio
+Info: dynamic transpose windows(4 bars): w00-w02:-8, w03-w03:-7, w04-w06:-8
+
+bpm=86
+
+; Voice A Melody
+bpm=86
+6/ 2// 5/ 2// 6/ 2// 5// 6// 7/ 6// 2/ 6/ 2// 5/ 2// 6/ 2// 5// 6// 7/ 6// 5/ 6/ 2// 5/ 1// 6/ 2// 5// 6// 7/ 6// 2/ -7/
+2// 5/. 6/ 2// 5// 6// 7/ 6// 5// 2// -7/ 2// 5/ 2// 6/ 2// 5// 6// 7/ 6// 1/ 6/ 2// 5/ 2// 6/ 2// 5// 6// 7/ 6 6/ 5/
+2// 6/ 2// 5/ 2// 6/ 2/ -7/ 2// 5/ 2// 6/ 2/ -7-- -7/ 2//
+bpm=83
+2// 5/ 6//
+bpm=73
+6// 7--- 7- 7/ 2/ 5/ 6/ 7--- 7--- 7--- 7--- 7--- 7- 6/ 7--- 7--- 7--- 7--- 7- 7/ 2// 5/ 2// 6/ 2// 5// 6// 7/ 6// 2/ 6/
+2// 5/ 2// 6/ 2// 5// 6// 7/ 6// 5/ 6/ 2// 5/ 2// 6/ 2// 5// 6// 7/ 6// 2 2// 5/ 2/ -7--- -7// 0- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=86
+-7--- -5--- -3--- -5-- -2 -7--- -1- 0- -2--- -6--- +5/ 0 0/ +2//
+bpm=83
++2// 0/ -7//
+bpm=73
+-7/. 2 2/ -6/. 0/. -6/ -7/ 5- -2/ -6 3/ 6 6/ -6/. 0/. -6/ -7/ 7- +5/ 0/ 7- 7/ 0/ 7 0 7-- 0 7 7/ 0- 0/ 7 7/ 0/ 5 6 5 5/
+-6/ 4 7 3 3/ -5/ 2 5 7 7/ 0/ +5/ 0/ 7 5- 0- -7--- -5--- -5--- -5--- -5--- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=86
+-5--- -2--- -1// -5-- -5/. -3-- -2 -7-- 2/. -7// -1- -5/. 2/. -5/ -1--- -2--- 7- -2//
+bpm=83
+-2// -5/.
+bpm=73
+-5// 3/ -1/. -2--- -2 -2/. -5 -5// -2--- -2// -1/. -2 -2// 7 -2 -4- -2- -1- -1/ -4/ 7 -4 -4/ 7/ -2- -1-- -2 -2// 7 7//
+-2// 3/ -2 -2/. -1/. -2 -2// -7/. -2 -2// -5/. 1/ 0// 2/ -5// 1 1// 2/ -2--- -5--- -2--- -1--- -1--- -1--- 0//

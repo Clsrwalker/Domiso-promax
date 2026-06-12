@@ -1,0 +1,111 @@
+Title: 束光似水 (auto longnote_solo)
+Source: 束光似水.mid
+Info: tempo 120, duration~24.0s, grid 1/16
+Info: profile=longnote_solo, long-note melody first, very sparse accompaniment
+Info: melody_breath=every:34, gap:0, hits:0
+Info: humanize=on, mode:sad, rubato+/-1bpm gradual, delay_step:0, lag_ratio:0.04, pickup_ratio:0.00, release_ratio:0.00, hits:lag=0, pickup=0, release=0, repeat=0, hand_drop=0, legato=16
+Info: style_windows=off(sad)
+Info: density_windows=w00:full, w01:full, w02:thin
+Info: dynamic transpose windows(4 bars): w00-w02:-2
+
+bpm=120
+
+; Voice A Melody
+bpm=120
++1 +1/
+bpm=119
++7/. +6/. +7/. +5 +5/ +2//
+bpm=120
++2/ +3 +4/. +3/ +2-- +2//
+bpm=119
++2/ +1 +1/
+bpm=120
++7/. +6/. +7/. +5/ +1/. +5 +3 +3/ +6/. +5/. +2- +3/
+bpm=119
++3/ +1 +1/
+bpm=120
++7/. +6/. +7/. +5 +5/ +2/. +3 +6 +7 +5 +5/
+bpm=119
++5/ +6/ +7/.
+bpm=120
++1 +1// +2
+bpm=119
++1/
+bpm=120
++7 +1/
+bpm=119
++7/. +6 +6/.
+bpm=120
++6-- +6/.
+bpm=119
++6 +6//
+bpm=120
+0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
++6/ 0
+bpm=119
+0---
+bpm=120
+0--- 0-
+bpm=119
+0-
+bpm=120
+0--- 0--- 0 0/ 7/
+bpm=119
+7/ 0 0/
+bpm=120
+0--- 0--- 0
+bpm=119
+0 0/.
+bpm=120
+0- 0//
+bpm=119
+0/
+bpm=120
+0 0/
+bpm=119
+0- 0/
+bpm=120
+0-- 0/.
+bpm=119
+0 0//
+bpm=120
+0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
++1 +1/
+bpm=119
++7/ +1 +7/. +5// +1/ +5/ 7/
+bpm=120
+7/ +3 +4/. +3// 6/ +1/ +2- +2/
+bpm=119
++2/ +1 +1/
+bpm=120
++7/ +1 +7/. +5// +1 7 +3 +3/ +6/ +1/ +5/ +2- 5/
+bpm=119
+5/ +1 +1/
+bpm=120
++7/ +1 +7/. +5// +1/ +5/ +1 +3 +6 +1 +5 +5/
+bpm=119
++5/ 7/ +7/ +1//
+bpm=120
++1 +1// +2
+bpm=119
++1/
+bpm=120
++7 +1/
+bpm=119
++7/ 7/ +5/ +6
+bpm=120
++6-- +6/.
+bpm=119
++6 +6//
+bpm=120
+0//

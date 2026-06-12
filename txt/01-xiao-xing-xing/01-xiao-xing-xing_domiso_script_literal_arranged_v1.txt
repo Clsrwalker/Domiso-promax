@@ -1,0 +1,27 @@
+Title: 01 Xiao Xing Xing (auto literal_arranged_soft)
+Source: 01-xiao-xing-xing.mid
+Info: tempo 120, duration~24.0s, grid 1/16
+Info: profile=literal_arranged_soft, literal-based adaptation: melody-first, restrained harmony, phrase breathing
+Info: phrasing=melody_min_steps:2, breath_every:24, breath_gap:1
+Info: humanize=on, delay_step:1, support_ratio:0.42, strum_ratio:0.30, release_ratio:0.24, hits:support=4, strum=0, release=0
+Info: micro_delay=voices(B,C), attack-only, step+1, ratio=0.05, delayed=0
+Info: dynamic transpose windows(4 bars): w00-w02:-2
+
+bpm=120
+
+; Voice A Melody
+bpm=120
+5 5/. 0// +2- +3- +2 +2/. 0// +1- 7- 6 6/. 0// 5 5/. 0// +2- +1- 7 7/. 0// 6- +2- +1 +1/. 0// 7- 6- 5 5/. 0// +2- +3- +2
++2/. 0// +1- 7- 6 6/. 0// 5- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+5- 0// +2 +2/. +3- +2- +1- 7- 6- 5- +2- +1- 7- 0// 6 6/. +2- +1- 7- 6- 5- 0// +2 +2/. +3- +2- +1- 7- 6- 0// 5 5/. 0//

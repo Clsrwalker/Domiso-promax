@@ -1,0 +1,36 @@
+Title: Sadness And Sorrow Violin (auto yihuan_noki_like)
+Source: sadness-and-sorrow-violin.mid
+Info: tempo 85, duration~166.6s, grid 1/16
+Info: profile=yihuan_noki_like, Yihuan Noki-like 36-key: maximize coverage in C2-B4, octave-fold overflow, keep DoMiSo arrangement
+Info: Noki-like strategy: maximum C2-B4 coverage, octave-fold overflow; windows: w00-w11:-12
+Info: Yihuan 36-key chromatic layout -> Noki-like chromatic 36-key window C2-B4; DoMiSo text uses octave prefixes and #/b accidentals
+
+bpm=85
+
+; Voice A Melody
+bpm=85
+4#--- 3--- 3--- 2--- 2--- 1- 3 6--- 6 7- 4#-
+bpm=65
+-3 5/ 4# 2 2/ -3 5/ 4# 2 2/ 4#// 3// -7- -7/ 3/ 5/ 6 3-- 5- 4#/ 5/ 6/ 2/ 7- 6 4# 4#// 3// -7- -7/ 3/ 5/ 6 3-- 5- 4#/ 5/
+6/ 2/ 3--- 0- 0/ 3/ 4#/ 5/ 6/ 7/ 3/ 5 4# 4#/ 3 3/. 0// 5/ 6/ 5/ 4# 4#/ 7-- 6- 6/ 7/ 3/ 5 4# 4#/ 3 3/. 0// 5/ 6/ 5/ 4#
+4#/ -7 3--- 0- 4#// 3// -7- -7/ 3/ 5/ 6 3-- 5- 4#/ 5/ 6/ 2/ 7- 6 4# 4#// 3// -7- -7/ 3/ 5/ 6 3-- 5- 4#/ 5/ 6/ 2/ 3--- 0-
+0/ 3/ 4#/ 5/ 6/ 7/ 3/ 5 4# 4#/ 3 3/. 0// 5/ 6/ 5/ 4# 4#/ 7-- 6- 6/ 7/ 3/ 5 4# 4#/ 3 3/. 0// 5/ 6/ 5/ 4# 4#/ -7 -6--- -6/
+-7/ -3/ -5 -4# -4#/ -3/ -5/ 2/ -7- -7/ 5/ 6/ 5/ 4# 4#/ -7 3--- 3- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=85
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+bpm=65
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=85
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+bpm=65
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0//

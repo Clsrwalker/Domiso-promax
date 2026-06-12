@@ -1,0 +1,25 @@
+Title: Yi Jian Mei Yi Jian Mei (auto highlight_dense)
+Source: yi-jian-mei-yi-jian-mei.mid
+Info: tempo 82, duration~176.3s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w14:+3
+Info: highlight_windows=w00,w25,w29,w33 (fragment-only recognizable hooks/climax)
+
+bpm=82
+
+; Voice A Melody
+bpm=82
+0/ +3// +5// +6- +6/. 0// +1// +7/ +6// 0 +5 +6 +5/ +2 +3// +5/ +3 +3/. 0 +5 +6 +5/ +2 +3// +5/ +3 +3/. 0 +5 +6 +5/ +2
++3// +5/ +3 +3/.
+
+rollback=9999
+
+; Voice B Harmony
+bpm=82
+0 +1--- 0 3- 7- 5- 0 3- 7- 5- 0 3- 7- 5-
+
+rollback=9999
+
+; Voice C Bass
+bpm=82
+0 -6--- 0 -6- -5- -1- 0 -6- -5- -1- 0 -6- -5- -1-

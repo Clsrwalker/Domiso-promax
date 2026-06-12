@@ -1,0 +1,25 @@
+Title: 01 Xiao Xing Xing (auto sky_literal)
+Source: 01-xiao-xing-xing.mid
+Info: tempo 120, duration~24.0s, grid 1/16
+Info: profile=sky_literal, Sky 15-key literal-balance: preserve more source body than melodylock, but trim mid clutter to fit C4-C6
+Info: dynamic transpose windows(4 bars): w00-w02:+3
+Info: Sky 15-key layout C4-C6 -> Y U I O P / H J K L ; / N M , . /
+Info: speed_guard lead_pruned=0, support_pruned=0, input_budget_dropped=0, peak_clusters/s=2.0
+
+bpm=120
+
+; Voice A Melody
+bpm=120
++1- +5- +6- +5- +4- +3- +2- +1- +5- +4- +3- +2- +5- +4- +3- +2- +1- +5- +6- +5- +4- +3- +2- +1- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0//

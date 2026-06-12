@@ -1,0 +1,31 @@
+Title: My Heart Will Go On Titanic (auto guitar_balanced)
+Source: my-heart-will-go-on-titanic.mid
+Info: tempo 90, duration~111.9s, grid 1/16
+Info: profile=guitar_balanced, guitar timbre friendly balanced support with clean mid-low bed
+Info: top_chord_mode=pad (single-note mapping prefers lower+middle rows)
+Info: chord_pads_from_bass=0
+Info: guitar_style_windows(4 bars): w00-w09:folk_strum, w10-w10:arpeggio
+Info: dynamic transpose windows(4 bars): w00-w10:-7
+
+bpm=90
+
+; Voice A Melody
+bpm=90
+0-- 1/ 2/ 3- 3/. 0// 2/ 1/ 2 5- 4/ 3/ 1 6-- 5- 5/. 0// 1/ 2/ 3- 3/. 0// 4/ 3// 2 2// 5- 3/ 5/ 6- 6/. 0// 5 2- 2/. 0 0//
+1--- 7 1-- 7 1- 2 3 3/ 4/ 3// 2 2/. 1--- 7 1-- 5-- 5/. 0--- 0// 1--- 7 1-- 7 1- 2 3 3/ 4/ 3// 2 2/. 1--- 7 1-- 5-- 5/.
+0--- 0// 1-- 1/. 0// 2- 2/. 0// 5-- 4 3 2- 3 4 3- 2 1 7 1- 7 6- 6/. 0// 7/ 6/ 5- 4- 1-- 1/. 0// 2- 2/. 0// 5-- 4 3 2- 3
+4 3- 2 1 7 1- 7- 1- 2 3- 2- 1-- 1/. 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=90
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+
+rollback=9999
+
+; Voice C Bass
+bpm=90
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0---

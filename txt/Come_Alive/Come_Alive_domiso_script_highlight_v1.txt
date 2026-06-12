@@ -1,0 +1,29 @@
+Title: Come Alive (auto highlight_dense)
+Source: Come_Alive.mid
+Info: tempo 120, duration~238.6s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w26:+7, w27-w29:+5
+Info: highlight_windows=w00,w03,w11,w22 (fragment-only recognizable hooks/climax)
+
+bpm=120
+
+; Voice A Melody
+bpm=120
++3--- +3- +1/. +3--- +3 +3// +1/ +2--- +2 +2/ 5/. +3 +3// 0--- +3- +3/ +4 +4/ +3// +2--- +3// +6 +6/. 6--- 6--- 6--- 6
+6/. 0--- +6--- +6--- +6--- +6--- +6 +6// 6-- 6/ +2 +1/. 6/ +1 0--- -6--- -6--- -6-- 0/. -6-- -6/. 0/. -6--- -6 -6// 0/.
+-6/. 0/ -6/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+6--- 6- 3--- 3--- 3--- 2- 0--- 2--- 4--- 4- 3 3// 0-- 0/. 1- 1// 0-- 0/. 1 2 2// 0--- 0/. 3--- 3/. 0// 2--- 2 2/. 0//
+1--- 1 1/. 0--- 0 0// -6 -6/. 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+-6--- -6--- -6--- -6--- -6- -5- 0--- -5--- -4--- -4- 1 1// 0 -6 -6/ 0 0// -6- -6// 0 -6 -6/ 0 0// -6 -5 -5// 0--- 0/.
+-6// 0 0/. -6 -6// 0 0/. -5 -5// 0 0/. -5 -5// 0 0/. -4 -4// 0 0/. -4 -4// 0-- 0// -6/. 0 0/ -6/. 0/ -6- 0--- -6 0- -6
+0- -6 0- -6 0- -6 0- -6 0- -6 0- -6 0 0/ -6/

@@ -1,0 +1,27 @@
+Title: Summertime Sadness (auto highlight_pop)
+Source: Summertime_Sadness.mid
+Info: tempo 120, duration~243.8s, grid 1/16
+Info: profile=highlight_pop, hook/climax fragments with singable lead and stable support
+Info: dynamic transpose windows(4 bars): w00-w30:-4
+Info: highlight_windows=w00,w10,w18 (fragment-only recognizable hooks/climax)
+
+bpm=120
+
+; Voice A Melody
+bpm=120
+-6--- -6-- -6/. 0// -7-- -7/. 0// -6--- -6--- 0--- -6--- -6/ 6 6/ +1/ +2/ +1 6- +1/ +2/ +1 -7 6 +1/ +2/ +1 6- +1/ +2/ +1
+-6 6 +1/ +2/ +1 0--- -6--- -6/ 6 6/ +1/ +2/ +1 6- +1/ +2/ +1 -7 6 +1/ +2/ +1 6- +1/ +2/ +1 -6 6 +1/ +2/ +1
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+-4-- -4/. 0// -3-- -3/. 0// -5-- -5/. 0// -4--- -4-- -4/. 0--- 0// -4--- -4- -6--- -6- -5- -7- -6--- -4- -6- 0--- -4---
+-4- -6--- -6- -5- -7- -6--- -4- -6-
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+-1--- -1-- -1/. 0// -2--- -2-- -2/. 0// -1--- 0--- -2--- -1--- -1--- -2--- -2--- -1--- 0--- -2--- -1--- -1--- -2---
+-2--- -1---

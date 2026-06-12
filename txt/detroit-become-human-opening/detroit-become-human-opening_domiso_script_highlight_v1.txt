@@ -1,0 +1,27 @@
+Title: Detroit Become Human Opening (auto highlight_dense)
+Source: detroit-become-human-opening.mid
+Info: tempo 60, duration~100.0s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w06:+5
+Info: highlight_windows=w00,w03,w05 (fragment-only recognizable hooks/climax)
+
+bpm=60
+
+; Voice A Melody
+bpm=60
+6/ 3/ 6/ 3/ 5/ 3/ 5/ 3/ 4/ 3/ 4/ 3 1/ 3/ 1/ 6/ 3/ 6/ 3/ 5/ 3/ 5/ 3/ 4/ 3/ 4/ 3 1/ 3/ 1/ +6- +5- 0--- +6- -6 7// +7/. 7//
++1/. +3/ +1/ +4/ +1/ +5/ +1/ +3/ +1/ +3/ +1/ +2/ +1/ +2/ +1 +1/ +3/ +1/ +4/ +1/ +5/ +1- +1/ 7 +1/ +2/ 7// +1/. +3/ +1/
++4/ +1/ +5/ +1/ 0--- +1- 7 +1/ +2/ +6- +5- +4- 0 +3/ +2/ +3- +2 +3 6// +6/. +7 +1 7 6// +1-- +1/.
+
+rollback=9999
+
+; Voice B Harmony
+bpm=60
+0--- 0--- 0--- 0--- +6- +5- 0--- 6- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0 +3/. 0- 0// +2 +3 0 7 +1 +7 0---
+
+rollback=9999
+
+; Voice C Bass
+bpm=60
+-6- -5- -4-- -4/. 0// -6- -5- -4-- -4/. 0--- 0--- 0// -4- 0- -6- -5- -4/ -6--- -6 -6/ -5- -4/ -6--- -6 -6/ -5- 0--- -4/
+-6-- -6/ 0--- 0--- 0--- 0--- -6-- 0

@@ -1,0 +1,80 @@
+Title: Shi Daiwo Yueeru Xiangi He Tian Xun Chuan Yue Shi Kong De Si Nian (auto yihuan_ballad36_dense)
+Source: shi-daiwo-yueeru-xiangi-he-tian-xun-chuan-yue-shi-kong-de-si-nian.mid
+Info: tempo 65, duration~139.1s, grid 1/16
+Info: profile=yihuan_ballad36_dense, Yihuan 36-key dense ballad36: vocal-like middle lead, richer but controlled accompaniment
+Info: original-key strategy: no semitone transpose, octave-fold only; windows: w00-w08:+0
+Info: lead register strategy: Voice A prefers Yihuan middle row C4-B4; octave moves only
+Info: ballad smoothing -> lead_ornaments_dropped=0, support_pruned=156
+Info: Yihuan 36-key chromatic layout -> naturals Q W E R T Y U / A S D F G H J / Z X C V B N M; semitones: Shift raises, Ctrl lowers
+
+bpm=65
+
+; Voice A Melody
+bpm=65
+5/ 1 1/ 6 6/ 4- 4/ 2// 5// +1 +1/ 6 6/ 4- 4/ 7b 6 4 2 -7b -6 4 1
+bpm=32
+2-
+bpm=65
+2 2/ 4/ 5 5/ 7b/ 1 2/ 4/ 2 1/ 7b/ 5 2/ 1/ 5 2/ 1/ 5 4 2-- 2/ 4/ 5 5/ 7b/ 1 2/ 4/ 2 1/ 7b/ 5 2/ 1/ 5 2/ 1/ 5 4 5-- 2/ 4/
+5 5/ 4/ 5 6/ 4/ 5 4/ 1/ 2 2/ 4/ 5 5/ 4/ 5/ 7b/ 6/ 4/ 2 +1 7b 6/ 4/ 5// 3b 3b// 4/ 1 6/ 4/ 5// 2/. 4/ 1/ 6 2/ 1/ 5 2/ 1/
+5 4 5-- 2/ 4/ 5 5/ 4/ 5 6/ 4/ 5 4/ 1/ 2 2/ 4/ 5 5/ 4/ 5/ 7b/ 6/ 4/ 2 1 7b 2/ 4/ 5// 3b 3b// 4/ 1 6/ 4/ 5// 2/. 4/ 1/ 2
+2/ 1/ 5 2/ 1/ 5 6// 4/. 7b// 5 2// 6// 2// 7b 2/ 1/ 5 2/ 1/ 5 4 5--- 3b// 1- 1/. 4 2/
+bpm=57
+2
+bpm=54
+2- 2/
+bpm=50
+3b// 2 2/. 1-
+bpm=31
+2-
+bpm=50
+2- 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=65
+0--- 0--- 0--- 0--- 0---
+bpm=32
+0-
+bpm=65
+0- 5// ( 5 7b ) ( 5 7b )/. 6// ( 6 +1 ) ( 6 +1 )/. 7b// ( 7b +2 ) ( 7b +2 )/. 7b// ( 7b +2 ) ( 7b +2 )/. 5// ( 5 7b )
+( 5 7b )/. 6// ( 6 +1 ) ( 6 +1 )/. 0--- 0--- 0--- 0--- 0--- 0-- +6/ 0/ +5 +4/ 0/ +2 +2/ 0/ +5 +5/ 0/ +5/ 0/ +6/ 0/ +2 0-
+2/ 0/ 7b// ( 7b +5 )/. ( -5 7b +5 )/ 0/ 5 -6/ 0/ 7b -7b/ 0/ 2 -6 -5 -5/ 0/ -5 -6 -5/ 0-- 0/ +5 +5/ 0/ +5 +6/ 0/ +5 +4/
+0/ +2 +2/ 0/ +5 +5/ 0/ +5/ 0/ +6/ 0/ +2 +1 +7b +2/ 0/ +7b// ( +5 +7b ) ( +5 +7b )// 0/ +5 +6/ 0/ +7b +4/ 0/ +2 +2/ 0/ +2
++2/ 0/ +1 4 5 0--- 0 6// ( 6 +1 ) ( 6 +1 )/. 0--- +5-- 0 +5/
+bpm=57
++5
+bpm=54
++5- +5/
+bpm=50
++5- 0-
+bpm=31
++5-
+bpm=50
++5- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=65
++2// 0--- 0 0/. -5// 0--- 0 0/. +7b +6 +4 +2 -7b -6 -4 -1
+bpm=32
+-2-
+bpm=65
+-2 0 3b- 4- 5- 4- 3b- 4- -5/ 0/ 5/ 0/ 7b 0 -3b/ 0/ 3b -4/ 0/ 4 -5/ 0/ 5 -4/ 0/ 4 -3b/ 0/ 3b -4/ 0/ 4 -5/ 0/ -5/ 0/ -7b 0
+-3b/ 0/ -3b/ 0/ -4/ 0/ -4/ 0/ -5/ 0/ -5/ 0/ -4/ 0/ -4/ 0/ -3b/ 0/ -3b/ 0/ -4/ 0/ -4/ 0/ -5/ 0/ -7b/ 0/ -6/ 0/ -7b/ 0/
+-3b/ 0/ -3b/ 0/ -4/ 0/ -4/ 0/ -5/ 0/ -5/ 0/ -4/ 0/ -4 -3b/ 0/ -3b/ 0/ -4/ 0/ -4 -5 -5/ 0/ -7b +2/ 0/ -3b// 0/. 5// 0/.
+-4// 0/. 6// 0/. -5// 0/. 2// 0/. -4// 0/. 1// 0/. -3b// 0/. 5// 0/. -4// 0/. 1// 0/. -5// 0/. 2// 0/. -2// 0/. -6// 0/.
+-3b// 0/. 5// 0/. -4// 0/. 6// 0/. -5// 0/. 2// 0/. -4// 0/. 1// 0/. -3b// 0/. 5// 0/. -4// 0/. 1// 0/. -5// 0- 0/. +4/
+0/ 3b/ 0/ +2 4- -5/ 0/ 5/ 0/ 7- -4// ( -4 +2 )// +2/ ( 4 +2 )/ +2/ ( 6 +2 ) 6 -5/
+bpm=57
+0/ 5/
+bpm=54
+0/ 7-
+bpm=50
+-4/ 0/ 4/ 0/ 6-
+bpm=31
+5-
+bpm=50
+5- 0//

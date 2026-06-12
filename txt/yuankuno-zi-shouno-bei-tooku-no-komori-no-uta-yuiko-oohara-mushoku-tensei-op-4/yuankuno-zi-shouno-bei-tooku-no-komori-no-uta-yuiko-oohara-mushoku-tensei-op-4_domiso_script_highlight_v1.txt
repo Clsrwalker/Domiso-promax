@@ -1,0 +1,28 @@
+Title: Yuankuno Zi Shouno Bei Tooku No Komori No Uta Yuiko Oohara Mushoku Tensei Op 4 (auto highlight_dense)
+Source: yuankuno-zi-shouno-bei-tooku-no-komori-no-uta-yuiko-oohara-mushoku-tensei-op-4.mid
+Info: tempo 121, duration~95.2s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w11:+0
+Info: highlight_windows=w00,w05,w11,w13 (fragment-only recognizable hooks/climax)
+
+bpm=121
+
+; Voice A Melody
+bpm=121
+3-- -6/ 6/ 7/ 6/ 7/ 6/ 7/ 6/ 7/ 6/ 7/ 6/ 3- 5 6- 6/. -7// 0-- -7 -7/ 3/ 2 -7 5 2 -7- 1/ 2/ 1 5 2 -7 5/ 4/ 2 -6/ 3 3/ 1
+0-- -7- -7/. -5// 1 7 +1 7 3- -6 5 6 -4 1- -4 3 4 0-- +1 +1/ -6 -6/ 1 7 +1 7 3 +2 1 5 6 3 5- -4- -4/. 0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=121
+0--- 0--- 0--- 0--- 0- 2 0- 1- 1/. 0// 2- 2/ 0/ -6- 0 2 0- 1 -4/. 0// 5 0-- 2- 2/. 0// -6 0- 3 0- -4 0- -1 0- -2 0--- 0
+3 3/ 0 0/ -6 0- 3 0- -4 0- -1 1- -2- -2/. 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=121
+-6 0-- -7 3 -6 -7 3 -6 0 3 -4 -5- 0-- -5 -2/ -6/ -3 -6 -3 0 -5 0 0/ -3/ -4 -1 -6 -3 0/ -5 0/ -2 -6 -2/ 0-- 0/ -5 0- -6-
+-3/ -6/ -3 -3/ -5/ 0 -4- -1/ 0/ -1 -1/ -3/ -1 -2 -2/ -4 0-- 0/ -3 0/ 1 1/ -6- -3/ -6/ -3 -3/ -5/ -3 -4- -1/ 0/ -1 -1/
+-3/ 0 -2- -2/. 0//

@@ -1,0 +1,243 @@
+Title: In The Hall Of The Mountain King Violin (auto longnote_balanced)
+Source: in-the-hall-of-the-mountain-king-violin.mid
+Info: tempo 120, duration~56.0s, grid 1/16
+Info: profile=longnote_balanced, long-note priority with richer but controlled 3-layer support
+Info: melody_breath=every:30, gap:0, hits:0
+Info: humanize=on, mode:sad, rubato+/-1bpm gradual, delay_step:0, lag_ratio:0.03, pickup_ratio:0.00, release_ratio:0.00, hits:lag=0, pickup=0, release=0, repeat=0, hand_drop=0, legato=63
+Info: style_windows=off(sad)
+Info: density_windows=w00:full, w01:full, w02:mid, w03:mid, w04:full, w05:thin, w06:thin
+Info: dynamic transpose windows(4 bars): w00-w01:+0, w02-w03:-2, w04-w06:+0
+
+bpm=120
+
+; Voice A Melody
+bpm=120
+2/ 3/ 4/ 5/ 6- 5--- 2/ 3/ 4/ 5/
+bpm=119
+6 6/ +2//
+bpm=120
++2/ +1/ 6 6// +1 +1//
+bpm=119
++1/.
+bpm=120
+2/ 3/ 4/ 5/ 6- 5--- 2/ 3/ 4/ 5/
+bpm=119
+6 6/ +2//
+bpm=120
++2/ +1/ 6 6// +1- 5/ 6/ 7/ +1/ +2--- +2- 5/ 6/ 7/ +1/ +2--- +2- 5/ 6/ 7/ +1/ +2--- +2- 5/ 6/ 7/ +1/
+bpm=119
++2--- +2-
+bpm=120
+2/ 3/ 4/ 5/ 6- 5--- 2/ 3/ 4/ 5/
+bpm=119
+6 6/ +2//
+bpm=120
++2/ +1/ 6 6// +1 +1//
+bpm=119
++1/.
+bpm=120
+2
+bpm=119
++2
+bpm=120
++2 +2/
+bpm=119
++2/
+bpm=120
+2
+bpm=119
++2
+bpm=120
++2 +2/
+bpm=119
++2/
+bpm=120
+2/ 3/ 4/ 5/ 6 6//
+bpm=119
+6// +2//
+bpm=120
++2/ +1 +1// +3/. +2
+bpm=119
++2/.
+bpm=120
+2
+bpm=119
++2
+bpm=120
++2 +2/
+bpm=119
++2/
+bpm=120
+2
+bpm=119
++2
+bpm=120
++2 +2/
+bpm=119
++2/
+bpm=120
+2/ 3/ 4/ 5/ 6 6//
+bpm=119
+6// +2//
+bpm=120
++2/ +1 +1// +3/. +2
+bpm=119
++2/.
+bpm=120
+0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+0--- 0--- 0-
+bpm=119
+0 0/.
+bpm=120
+0-- 0/
+bpm=119
+0/.
+bpm=120
+0--- 0--- 0-
+bpm=119
+0 0/.
+bpm=120
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0- 0//
+bpm=119
+0--- 0-
+bpm=120
+0--- 0--- 0-
+bpm=119
+0 0/.
+bpm=120
+0-- 0/
+bpm=119
+0/.
+bpm=120
+0
+bpm=119
+0
+bpm=120
+0 0/
+bpm=119
+0/
+bpm=120
+0
+bpm=119
+0
+bpm=120
+0 0/
+bpm=119
+0/
+bpm=120
+0-- 0//
+bpm=119
+0/
+bpm=120
+0-- 0/
+bpm=119
+0/.
+bpm=120
+0
+bpm=119
+0
+bpm=120
+0 0/
+bpm=119
+0/
+bpm=120
+0
+bpm=119
+0
+bpm=120
+0 0/
+bpm=119
+0/
+bpm=120
+0-- 0//
+bpm=119
+0/
+bpm=120
+0-- 0/
+bpm=119
+0/.
+bpm=120
+0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+2/ 3/ 4/ 5/ 6- 5--- 2/ 3/ 4/ 5/
+bpm=119
+6 6/ +2//
+bpm=120
++2// +1/. 6// 4/ 6/ +1 +1//
+bpm=119
++1/.
+bpm=120
+2/ 3/ 4/ 5/ 6- 5--- 2/ 3/ 4/ 5/
+bpm=119
+6 6/ +2//
+bpm=120
++2// +1/. 6// 4/ 6/ +1- 5/ 6/ 7/ +1/ +2--- +2- 5/ 6/ 7/ +1/ +2--- +2- 5/ 6/ 7/ +1/ +2--- +2- 5/ 6/ 7/ +1/
+bpm=119
++2--- +2-
+bpm=120
+2/ 3/ 4/ 5/ 6- 5--- 2/ 3/ 4/ 5/
+bpm=119
+6 6/ +2//
+bpm=120
++2// +1/. 6// 4/ 6/ +1 +1//
+bpm=119
++1/.
+bpm=120
+2
+bpm=119
++2
+bpm=120
++2 +2/
+bpm=119
++2/
+bpm=120
+2
+bpm=119
++2
+bpm=120
++2 +2/
+bpm=119
++2/
+bpm=120
+2/ 3/ 4/ 5/ 6 6//
+bpm=119
+6// +2//
+bpm=120
++2// +1 +1/ +3/ +2 +2//
+bpm=119
++2/.
+bpm=120
+2
+bpm=119
++2
+bpm=120
++2 +2/
+bpm=119
++2/
+bpm=120
+2
+bpm=119
++2
+bpm=120
++2 +2/
+bpm=119
++2/
+bpm=120
+2/ 3/ 4/ 5/ 6 6//
+bpm=119
+6// +2//
+bpm=120
++2// +1 +1/ +3/ +2 +2//
+bpm=119
++2/.
+bpm=120
+0//

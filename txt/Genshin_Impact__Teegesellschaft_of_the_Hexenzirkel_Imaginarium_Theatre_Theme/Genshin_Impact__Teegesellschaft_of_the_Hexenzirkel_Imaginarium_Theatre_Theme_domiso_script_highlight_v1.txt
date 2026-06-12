@@ -1,0 +1,29 @@
+Title: Genshin Impact  Teegesellschaft Of The Hexenzirkel Imaginarium Theatre Theme (auto highlight_pop)
+Source: Genshin_Impact__Teegesellschaft_of_the_Hexenzirkel_Imaginarium_Theatre_Theme.mid
+Info: tempo 170, duration~85.0s, grid 1/16
+Info: profile=highlight_pop, hook/climax fragments with singable lead and stable support
+Info: dynamic transpose windows(4 bars): w00-w15:-2
+Info: highlight_windows=w00,w06,w10 (fragment-only recognizable hooks/climax)
+
+bpm=170
+
+; Voice A Melody
+bpm=170
+-6/ 0/ 1/ 0/ 1/ 0/ 1/ 0/ -7/ 0/ -7/ 0/ -7 -3/ 0/ -3/ 0/ 1/ 0/ 1/ 0/ 1/ 0/ -7/ 0/ -7/ 0/ -7 -3/ 0/ +5// +6/. 3/ 0/ +3/ 0/
++6/ 0--- 0/ +6/ +5/ +4/ +3/ +4 2/ 0/ +5/ 0/ +5 +4/ 0/ +4 +4/ +3/ +2- -2 +3/ 0/ +3 +1/ 0/ +1 +1// +7/. +6/ +5/ +6- +1 +4/
++3/ +2 +3/ +4/ 0--- 5-- 5/. -6// +1 +6 +5 +6- +3 +1 +2 +3- 0 +2/ +1/ 7 +1/ +2/ +1/ 0/ 7// +1/ 7// 6 3/ 0/ 3/ 0/ 1/ 0/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=170
+-3/. 0// 3 3/. 0// -6 -6/. 0// 2/. 0// -5 0 -6/. 0// 3 3/. 0// -6 -6/. 0// 2/. 0// -5 0-- 3/. 0--- 0 0// -3/. 0// 1/.
+0// 2/. 0 0// -6/. 0// 2/. 0// 3/. 0// -6 -6/. 0// 1/. 0// 2/. 0 0// -3/. 0// 3 3/. 0// -3/. 0// +3- 6- +3 0 5 0--- 0
++1-- +1/. 0// -6- +1 0 +3 6 4 -1 6- 0- 3 0 -3- 0-- -6
+
+rollback=9999
+
+; Voice C Bass
+bpm=170
+-6- 0 -6-- -5 -3 -6- 0 -6-- -5 -3 -6 1- -6 0--- -3 -5 -4 -2 -6--- -6- -7 -2 -3 -5- -3- -5 -3 -6 -2- -5- 0--- -1 0-- -6-
+-1- -4 -5 -6 -1 -7-- -7/. 0// -3--- -6 1- -1

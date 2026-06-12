@@ -1,0 +1,31 @@
+Title: Happy Journey Genshin Impact Slimeland Theme Browser Minigame (auto highlight_dense)
+Source: happy-journey-genshin-impact-slimeland-theme-browser-minigame.mid
+Info: tempo 132, duration~151.8s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w08:+5, w09-w17:+4, w18-w20:+2
+Info: highlight_windows=w00,w06,w10,w14 (fragment-only recognizable hooks/climax)
+
+bpm=132
+
+; Voice A Melody
+bpm=132
+0- 0/ 1/ 4/ 6/ 7/ +2/ 0/ +4/ 0/ +5/ 0/ +5/ +6/ 0 +5/ +6/ 0-- +5/ +6/ +7/ +6/ +5/ +3/ 0 +2/ +3/ 0--- 0 0/ +6 0/ +5/ +6/
++7/ +6/ +5/ +6/ 0 +5/ +6/ 0 +5/ +6/ +5/ +3 +3/ 0/ 1// 3// 5// +1/ 6// 0/ 6/ 0/ 6 0/ 5/ 0/ 5/ 0/ 5 0/ 6/ 7 0/ 7/ 0/ 7 0/
++1/ 0--- 0/ +2 +2/. +1/. +2/ +5/ +4/ +3 +3/. 0- 0// 6 +1/ +2/ 0/ 2// +2// +4// +5// +6/ 0/ 4/ +5/ +6- +6/. 6/. +5/ +6/
++7/ +6/ +5/ +3-- +3/. +1// 0--- 5/ 6/ +2/ +1/ 0/ +1 +2/ +3/ 0/ +2/ 0/ +1/ +2/ +1 +5- +5/ +2/ 7/ +5/ +6 +6/ +5/ +6-- 2/
++5/ +6/ +7/ +6/ +5/ +6 +6/ +5/ +6 +6/ +5/
+
+rollback=9999
+
+; Voice B Harmony
+bpm=132
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 4-- 0/ 4/ 0/ 4/ 0/ 4 4// 0// 6/. 0// 5-- 0/ 5/ 0--- 0-- +5/. 0--- 0--- 0//
++6/. 0// 1/. 0// 6--- 7/ +7/ +6/. 7// +3-- +3/. 0--- 0// 6/. 0// +4/. 0 0// +5/. 0- 0// +5/. 0// 2/. 0 0// +1/. 6// 0-
+1--- 0--- -7- 1-
+
+rollback=9999
+
+; Voice C Bass
+bpm=132
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0-- 1 0--- 0--- 0--- 0--- 0--- 0--- 0-- 2 -2 1 -2/ 1/ 0/ -5 -5/ 2 -5/ -7/ 0/ -5/
+-1 -7 0/ -1/ -5/ -7/ 0--- 0--- 0--- 0/ 6 6/ 7 2 -2 0 -2 0-- -2 -5 -1 0 -1 0

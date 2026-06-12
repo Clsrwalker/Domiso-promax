@@ -1,0 +1,24 @@
+# Analysis (Literal Human Script): shock-attack-on-titan-season-4-ending-song-full.mid
+
+## Metrics
+- note_count: 1765
+- duration_s: 241.7735933499533
+- tempo0: 64
+- tempo_events: 23
+- time_sig: 4/4
+- max_poly: 8
+- bar_density_mean: 30.964912280701753
+- bar_density_p90: 54.6
+- tracks: 2
+- pitch_min: 26
+- pitch_max: 99
+
+## Recommended Profile
+- literal_dense
+- reason: high polyphony/density -> literal_dense
+
+## Literal Human Script Intent
+- keep literal identity while adding performer-like phrasing
+- phrase rubato + pocket + repeat variation to reduce machine feel
+- hand reachability constraints for playable layering
+- maintain 21-key playability and parser-safe syntax

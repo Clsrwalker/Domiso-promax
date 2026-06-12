@@ -1,0 +1,183 @@
+Title: Decision Naruto Shippuden (auto longnote_balanced)
+Source: decision-naruto-shippuden.mid
+Info: tempo 60, duration~180.0s, grid 1/16
+Info: profile=longnote_balanced, long-note priority with richer but controlled 3-layer support
+Info: melody_breath=every:30, gap:0, hits:0
+Info: humanize=on, mode:sad, rubato+/-1bpm gradual, delay_step:0, lag_ratio:0.03, pickup_ratio:0.00, release_ratio:0.00, hits:lag=0, pickup=0, release=0, repeat=0, hand_drop=0, legato=35
+Info: style_windows=off(sad)
+Info: density_windows=w00:thin, w01:mid, w02:thin, w03:mid, w04:mid, w05:full, w06:thin, w07:full, w08:full, w09:full, w10:thin, w11:thin
+Info: dynamic transpose windows(4 bars): w00-w03:+0, w04-w11:-2
+
+bpm=60
+
+; Voice A Melody
+bpm=60
+0
+bpm=59
+2 3 4//
+bpm=60
+4- 4// 5/. 3/.
+bpm=59
+3
+bpm=60
+0
+bpm=59
+2 3 4- 4/ 5/ 6- 5/
+bpm=60
+5/ 3 1 2/ 3/ 4 5 6-- 2 5 4 4//
+bpm=59
+4 4/. 3-
+bpm=60
+0
+bpm=59
+2 3 4//
+bpm=60
+4- 4// 5/. 3/.
+bpm=59
+3
+bpm=60
+0
+bpm=59
+2 3 4- 4/ 5/ 6- 5 3/
+bpm=60
+3/ 1 2/ 3/ 4 5 6-- 2 5 4-- 4/.
+bpm=59
+4 4// 2--
+bpm=60
+0
+bpm=59
++4 +4/ +3/. +2/. 6/ +2/ +3/. +2/ +1- +1/. +4 +4/ +3/. +2/. 6/ +2/ +3/
+bpm=60
++4/. +1- +1/. 6/ +1/ +2- +5/. +2// +4/. +3/ +2-- +2/. +3 +6 +5 +4- +3 +3/.
+bpm=59
++3// +2--- +2-
+bpm=60
+0/
+bpm=59
+4/. 3/. 2 2/ 3/ 4 4/ 5/ 6/ +1/. 6 6/. 5- 5/ 6/. 3/. 1 2- 2/
+bpm=60
+2/ 4/. 3/ 2 2// 3/ 4 4/ 5/ 6/ +1/. 6 6/. 5- 5/ 6/. 3/. 1 2-- 4/ 5/ 6- 5 3 4/. 3/ 2 2/.
+bpm=59
+4/ 5/ 6 +1- 6/ +3/ +4 +3 +2
+bpm=60
+4/ 5/ 6- 5 3 4/. 3/ 2 2/. 4/ 5/ 6 +1- 6/ +3/ +4--- +3---
+bpm=59
++2---
+bpm=60
+0//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=60
+0
+bpm=59
+0- 0//
+bpm=60
+0-- 0/.
+bpm=59
+0
+bpm=60
+0
+bpm=59
+0--- 0-- 0/
+bpm=60
+0--- 0--- 0-- 0/.
+bpm=59
+0-- 0/.
+bpm=60
+0
+bpm=59
+0- 0//
+bpm=60
+0-- 0/.
+bpm=59
+0
+bpm=60
+0
+bpm=59
+0--- 0--- 0/
+bpm=60
+0--- 0--- 0--- 0 0//
+bpm=59
+0--- 0//
+bpm=60
+0
+bpm=59
+0--- 0--- 0--- 0/
+bpm=60
+0--- 0--- 0--- 0--- 0-- 0//
+bpm=59
+0--- 0- 0//
+bpm=60
+0/
+bpm=59
+0--- 0--- 0--- 0---
+bpm=60
+0--- 0--- 0--- 0--- 0--- 0--- 0/
+bpm=59
+0--- 0---
+bpm=60
+0--- 0--- 0--- 0--- 0--- 0
+bpm=59
+0---
+bpm=60
+0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=60
+0
+bpm=59
+2 3 4//
+bpm=60
+4- 4// 5/ 3
+bpm=59
+3
+bpm=60
+0
+bpm=59
+2 3 4- 4/ 5/ 6- 5/
+bpm=60
+5/ 3 1 2/ 3/ 4 5 6-- 2 5 4 4//
+bpm=59
+4 4/. 3-
+bpm=60
+0
+bpm=59
+2 3 4//
+bpm=60
+4- 4// 5/ 3
+bpm=59
+3
+bpm=60
+0
+bpm=59
+2 3 4- 4/ 5/ 6- 5 3/
+bpm=60
+3/ 1 2/ 3/ 4 5 6-- 2 5 4-- 4/.
+bpm=59
+4 4// 2--
+bpm=60
+0
+bpm=59
++4 +4/ +3/ +2 6/ +2/ +3/. +2// +1-- +4 +4/ +3/ +2 6/ +2/ +3/
+bpm=60
++4/ +1-- 6/ +1/ +2- +5/. +2// +4/. +3// +2--- +3 +6 +5 +4- +3 +3/.
+bpm=59
++3// +2--- +2-
+bpm=60
+0/
+bpm=59
+4/ 3 2 2/ 3/ 4 4/ 5/ 6/ +1/ 6- 5- 5/ 6/ 3 1 2- 2/
+bpm=60
+2/ 4/. 3// 2 2/ 3/ 4 4/ 5/ 6/ +1/ 6- 5- 5/ 6/ 3 1 2-- 4/ 5/ 6- 5 3 4/. 3// 2-
+bpm=59
+4/ 5/ 6 +1- 6/ +3/ +4 +3 +2
+bpm=60
+4/ 5/ 6- 5 3 4/. 3// 2- 4/ 5/ 6 +1- 6/ +3/ +4--- +3---
+bpm=59
++2---
+bpm=60
+0//

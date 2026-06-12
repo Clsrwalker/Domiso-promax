@@ -1,0 +1,26 @@
+Title: 小宇 (auto highlight_pop)
+Source: 小宇.mid
+Info: tempo 90, duration~118.6s, grid 1/16
+Info: profile=highlight_pop, hook/climax fragments with singable lead and stable support
+Info: dynamic transpose windows(4 bars): w00-w11:+0
+Info: highlight_windows=w00,w05,w08 (fragment-only recognizable hooks/climax)
+
+bpm=90
+
+; Voice A Melody
+bpm=90
+0- 0/ +5/ +2/ +3/ 6- -2/ -5/ -1/ -5/ 0/ -5/ -4/ -3/ 0 +5/ +1/ 6- -5 -4 -5 -1/ -5/ +5/ +2/ +3/ +1/ 0--- -1 -6 -2 -4 -3/
+-5/ -1/ -2 -2/ +3/ +4/ +5- +5/. +4/. +3 +3/ +2/ +1/ 0 0/ 6// 7// +1 +1/ +2 +3 +4/ +5- 0--- 0- 3- 2 2/ 1 1/ -6 0- -6 -4/
+-6 -6/ -5 -2/ -5/ -1/ +2/ +3/ +2/ +1/ 5/ 6- -7 1 -6 -2/ -6/ 0-
+
+rollback=9999
+
+; Voice B Harmony
+bpm=90
+0--- 0--- 0--- 0--- -3 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--
+
+rollback=9999
+
+; Voice C Bass
+bpm=90
+0--- 0 -4 0- 0/ -1/ 0--- -4 -2 -1- 0/ -3/ 0--- 0--- 0--- 0 -1 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- -1 0--- 0--- 0--

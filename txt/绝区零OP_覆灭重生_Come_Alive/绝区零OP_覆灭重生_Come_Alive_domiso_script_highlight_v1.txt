@@ -1,0 +1,28 @@
+Title: 绝区零Op 覆灭重生 Come Alive (auto highlight_dense)
+Source: 绝区零OP_覆灭重生_Come_Alive.mid
+Info: tempo 161, duration~238.6s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w05:+7, w06-w07:+6, w08-w39:+7
+Info: highlight_windows=w00,w03,w14,w31 (fragment-only recognizable hooks/climax)
+
+bpm=161
+
+; Voice A Melody
+bpm=161
++3--- +3--- +3// +1 +3--- +3-- +1/ +2-- +2// 0--- 6--- 6/ -6/ 6--- 6-- 6/ -5 6--- 6/ +1/ +2--- +2 +2/ 0--- +1 +1/ -6/ 6/
+5/ 3/ 5/ 6/ 3/ 0 +1- +2/ 6/ 0/ -6/ +1-- +2 +2/ +1/ +3/ 3/ 0 0/ -5/ +2/ +3/ +2-- +2/. +3/ 6/ 2// 0--- -6--- -6--- -6--
+-6// -4/ 1/ 4/ 1/ 4/ 1/ 4/ 1/ -5/ 2/ 5/ 2/ 5/ 2/ 5/ 2/ +3 +3/ +2/ +1/ 3/ 6/ 3/ -6/ 3//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=161
+6--- 6--- 6// 0--- 0--- 0--- 0--- 0/. +2/. 0--- 0// +2 +2/ 0 0/ +2/. 0--- 0/. 2 2/ +1/. 0// +2/. 0/. 6-- 6// 0--- 0---
+0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0--- 0- 0//
+
+rollback=9999
+
+; Voice C Bass
+bpm=161
+-6--- -6--- -6--- -6// 3--- -6-- -6/. 0--- -6--- -6--- -6--- -6/ -5--- -5--- -4-- -4/ 0--- -4 -4/ -6/ 0 -6 0-- 0/ -6/ 0
+0/ -6/ 0 -6 0-- 0/ -6/ 0 0/ -5/ 0 -5 0--- 0--- -6// 0-- -6 0 -6 0 -6 0 -6 0--- 0--- 0 -6/ 0--- 0//

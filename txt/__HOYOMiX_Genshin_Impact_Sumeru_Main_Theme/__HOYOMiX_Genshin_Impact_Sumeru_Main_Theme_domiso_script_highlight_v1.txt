@@ -1,0 +1,28 @@
+Title:   Hoyomix Genshin Impact Sumeru Main Theme (auto highlight_dense)
+Source: __HOYOMiX_Genshin_Impact_Sumeru_Main_Theme.mid
+Info: tempo 120, duration~31.8s, grid 1/16
+Info: profile=highlight_dense, high-density songs: preserve strong hooks, avoid mud and over-ornament
+Info: dynamic transpose windows(4 bars): w00-w03:+3
+Info: highlight_windows=w00,w02 (fragment-only recognizable hooks/climax)
+
+bpm=120
+
+; Voice A Melody
+bpm=120
++3/ +4/ +5/ +6/ +7 +7/ +1/ +2 +1 7 6 5 5/. +5// +6/ 0/ +7/ +1/ +2 +2/ +1/. +7 +7// +6/ 3/ 4/ 5/ 6/ 7 7/ +1/ 0--- +2 +2/
++1/ 7/. +1/. +2/ +3/ +4/ +3/ +6/ +3 +3/. +4/ +3 +2// 6/ +1 7 6 6/ +6// +7/ +1 +1/. -6/ +1// +2/. +1/ 7/. +1/. +2/ +3/
++4/ +3/ +6/ +3 +3/. +4//
+
+rollback=9999
+
+; Voice B Harmony
+bpm=120
+3/. 0// 5/ 6/ 7 7/. 0// +2 +1 +7 -3- 0 7 -3- 0- -7/. 0// -3 +5/. 2// +7 +7/. 0--- 0// -3 0 +7/. 0// 2/. 0// +3-- +3/.
+0// +2/. 0// +1- +7 +6 +6/ 0/ +1- 0 0/ 3/ +7/. 0 0// 3 +3- 3
+
+rollback=9999
+
+; Voice C Bass
+bpm=120
+0/ -3/ 0/ -7/ 0 -3/ -7/ -3 0/ 1/ 0 -3/ -7/ -3 0/ -7/ 0 -3/ -7/ -3 0/ 1/ 0/ -1/ -7 -3 0/ -7/ 0 -3 0--- -3 0/ -7/ 0 -7 -3
+0/ 1/ 0 -4- 0/ 1/ 0 -5 -6 0/ 1/ 0 -3 0 0/ 1/ 0 -3 -4 -4/ 1 1/ -4
