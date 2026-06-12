@@ -30,6 +30,7 @@ class ClientSession:
     name: str
     layout: str = "sky15"
     window_title: str = ""
+    window_exe: str = ""
     state: str = "CONNECTED"
     input_delay_offset_ms: int = 0
     sync_rtt_ms: float = 0.0
@@ -49,6 +50,7 @@ class ClientSession:
             "name": self.name,
             "layout": self.layout,
             "windowTitle": self.window_title,
+            "windowExe": self.window_exe,
             "state": self.state,
             "input_delay_offset_ms": self.input_delay_offset_ms,
             "syncRttMs": self.sync_rtt_ms,
@@ -145,6 +147,7 @@ class OrchestraRoom:
             session.name = str(hello.get("name") or session.name or client_id)
             session.layout = str(hello.get("layout") or session.layout or "sky15")
             session.window_title = str(hello.get("windowTitle") or session.window_title or "")
+            session.window_exe = str(hello.get("windowExe") or session.window_exe or "")
             session.state = "CONNECTED"
             session.input_delay_offset_ms = int(hello.get("inputDelayOffsetMs") or session.input_delay_offset_ms)
             session.connected_at_ms = server_time_ms()
@@ -173,6 +176,8 @@ class OrchestraRoom:
                 session.input_delay_offset_ms = int(payload["inputDelayOffsetMs"])
             if "windowTitle" in payload:
                 session.window_title = str(payload["windowTitle"] or "")
+            if "windowExe" in payload:
+                session.window_exe = str(payload["windowExe"] or "")
             if "syncRttMs" in payload:
                 session.sync_rtt_ms = float(payload["syncRttMs"])
             if "bestSyncRttMs" in payload:
@@ -546,7 +551,7 @@ async function refresh() {
   const clients = state.clients || [];
   document.getElementById("clients").innerHTML = clients.map(c => `
     <tr>
-      <td>${esc(c.client_id)}</td><td>${esc(c.name)}</td><td class="state">${esc(c.state)}</td><td>${esc(c.layout)}</td><td>${esc(c.windowTitle || "")}</td>
+      <td>${esc(c.client_id)}</td><td>${esc(c.name)}</td><td class="state">${esc(c.state)}</td><td>${esc(c.layout)}</td><td>${esc(c.windowTitle || "")}<br><span class="small">${esc(c.windowExe || "")}</span></td>
       <td><input type="number" value="${Number(c.input_delay_offset_ms || 0)}" data-delay-client="${esc(c.client_id)}" style="width:80px"></td>
       <td>${fmtNumber(c.syncRttMs)} ms<br><span class="small">best ${fmtNumber(c.bestSyncRttMs)} ms</span></td>
       <td>${fmtNumber(c.clockOffsetMs)} ms</td>

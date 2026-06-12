@@ -44,6 +44,7 @@ class PlayerClient:
         config_path: Optional[Path],
         save_config: bool,
         window_title: str,
+        window_exe: str,
     ) -> None:
         self.server = server
         self.client_id = client_id
@@ -57,6 +58,7 @@ class PlayerClient:
         self.config_path = config_path
         self.save_config_enabled = save_config
         self.window_title = window_title
+        self.window_exe = window_exe
         self.state = "DISCONNECTED"
         self.loaded_project: Optional[Dict[str, object]] = None
         self.loaded_tracks: List[str] = []
@@ -83,15 +85,17 @@ class PlayerClient:
                 "inputDelayOffsetMs": self.input_delay_offset_ms,
                 "manualReady": not self.auto_ready,
                 "windowTitle": self.window_title,
+                "windowExe": self.window_exe,
             },
         )
 
     async def ensure_target_window(self) -> bool:
-        if self.backend_name != "windows" or not self.window_title.strip():
+        if self.backend_name == "dry-run" or (not self.window_title.strip() and not self.window_exe.strip()):
             return True
         try:
-            target = activate_window(self.window_title)
-            print(f"Activated target window: {target.title}")
+            target = activate_window(self.window_title, self.window_exe)
+            process = f" ({target.process_name})" if target.process_name else ""
+            print(f"Activated target window: {target.title}{process}")
             return True
         except Exception as exc:
             await self.send_state("ERROR", f"target window focus failed: {exc}")
@@ -115,6 +119,7 @@ class PlayerClient:
                     "progressMs": self.progress_ms,
                     "durationMs": self.duration_ms,
                     "windowTitle": self.window_title,
+                    "windowExe": self.window_exe,
                     "error": error,
                 },
                 ensure_ascii=False,
@@ -143,6 +148,26 @@ class PlayerClient:
         self.progress_ms = progress_ms
         self.duration_ms = duration_ms
         asyncio.run_coroutine_threadsafe(self.send_state(), loop)
+
+    def _play_on_thread(
+        self,
+        loop: asyncio.AbstractEventLoop,
+        actions: List[PlaybackAction],
+        start_monotonic_ms: float,
+        position_offset_ms: int = 0,
+        total_duration_ms: int | None = None,
+    ) -> None:
+        try:
+            self.engine.play(
+                actions,
+                start_monotonic_ms,
+                lambda s: self._state_callback(loop, s),
+                lambda p, d: self._progress_callback(loop, p, d),
+                position_offset_ms,
+                total_duration_ms,
+            )
+        except Exception as exc:
+            asyncio.run_coroutine_threadsafe(self.send_state("ERROR", f"playback failed: {exc}"), loop)
 
     async def handle_load_project(self, msg: Dict[str, object]) -> None:
         project = msg.get("project")
@@ -186,12 +211,11 @@ class PlayerClient:
         loop = asyncio.get_running_loop()
         self.engine.stop()
         self.play_thread = threading.Thread(
-            target=self.engine.play,
+            target=self._play_on_thread,
             args=(
+                loop,
                 actions,
                 local_start,
-                lambda s: self._state_callback(loop, s),
-                lambda p, d: self._progress_callback(loop, p, d),
                 start_position_ms,
                 total_duration_ms,
             ),
@@ -223,12 +247,11 @@ class PlayerClient:
         loop = asyncio.get_running_loop()
         self.engine.stop()
         self.play_thread = threading.Thread(
-            target=self.engine.play,
+            target=self._play_on_thread,
             args=(
+                loop,
                 actions,
                 monotonic_ms() + 250,
-                lambda s: self._state_callback(loop, s),
-                lambda p, d: self._progress_callback(loop, p, d),
             ),
             daemon=True,
         )
@@ -288,6 +311,7 @@ class PlayerClient:
                                 "layout": self.layout,
                                 "inputDelayOffsetMs": self.input_delay_offset_ms,
                                 "windowTitle": self.window_title,
+                                "windowExe": self.window_exe,
                             },
                             ensure_ascii=False,
                         )
@@ -314,12 +338,13 @@ def main() -> None:
     ap.add_argument("--client-id", default="")
     ap.add_argument("--name", default="")
     ap.add_argument("--layout", default="")
-    ap.add_argument("--backend", choices=["dry-run", "windows", "windows-event", "windows-input"], default="")
+    ap.add_argument("--backend", choices=["dry-run", "windows", "windows-event", "windows-input", "ahk"], default="")
     ap.add_argument("--delay-offset-ms", type=int, default=None)
     ap.add_argument("--manual-ready", action="store_true")
     ap.add_argument("--config", default="")
     ap.add_argument("--no-save-config", action="store_true")
     ap.add_argument("--window-title", default="")
+    ap.add_argument("--window-exe", default="")
     ap.add_argument("--list-windows", action="store_true")
     ap.add_argument("--local-pulse", action="store_true")
     ap.add_argument("--local-pulse-key", default="y")
@@ -332,8 +357,9 @@ def main() -> None:
     args = ap.parse_args()
     if args.list_windows:
         try:
-            for window in list_windows(args.window_title):
-                print(f"{window.hwnd}: {window.title}")
+            for window in list_windows(args.window_title, args.window_exe):
+                process = f" [{window.process_name}]" if window.process_name else ""
+                print(f"{window.hwnd}: {window.title}{process}")
         except Exception as exc:
             raise SystemExit(str(exc)) from exc
         return
@@ -370,8 +396,13 @@ def main() -> None:
     if args.local_pulse:
         try:
             if args.window_title:
-                target = activate_window(args.window_title)
-                print(f"Activated target window: {target.title}")
+                target = activate_window(args.window_title, args.window_exe)
+                process = f" ({target.process_name})" if target.process_name else ""
+                print(f"Activated target window: {target.title}{process}")
+            elif args.window_exe:
+                target = activate_window(process_name=args.window_exe)
+                process = f" ({target.process_name})" if target.process_name else ""
+                print(f"Activated target window: {target.title}{process}")
             backend = DryRunBackend(echo=True) if (args.backend or cfg_str("backend", "dry-run")) == "dry-run" else make_backend(args.backend or cfg_str("backend", "dry-run"))
             engine = PlaybackEngine(backend, time_scale=args.time_scale)
             key = args.local_pulse_key
@@ -398,6 +429,7 @@ def main() -> None:
         config_path=config_path,
         save_config=not args.no_save_config,
         window_title=args.window_title or cfg_str("windowTitle", ""),
+        window_exe=args.window_exe or cfg_str("windowExe", ""),
     )
     asyncio.run(client.run())
 

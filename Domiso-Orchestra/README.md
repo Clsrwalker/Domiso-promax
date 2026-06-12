@@ -116,12 +116,13 @@ python -m domiso_orchestra.player_client --server ws://CONDUCTOR_IP:8765/ws/play
 Real Windows key injection:
 
 ```powershell
-python -m domiso_orchestra.player_client --server ws://CONDUCTOR_IP:8765/ws/player --client-id PC-A --backend windows --window-title "Sky"
+python -m domiso_orchestra.player_client --server ws://CONDUCTOR_IP:8765/ws/player --client-id PC-A --backend ahk --window-exe Sky.exe
 ```
 
-`windows` uses the Domiso-compatible event-style keyboard backend. `windows-input` is also available as a SendInput fallback if a specific game accepts that better.
+`ahk` is the recommended backend for Sky because it uses the bundled `Domiso/ahk_compiler/AutoHotkeyU64.exe` and sends keys like the original Domiso app. `windows` and `windows-input` are available as fallback Python-only backends.
 
 If `--window-title` is provided, the client tries to activate the first visible Windows window whose title contains that text before Start or Pulse. Without it, keep the target game window focused before pressing Start.
+For Sky, prefer `--window-exe Sky.exe`; it avoids Chinese window-title encoding issues.
 
 List matching Windows titles:
 
@@ -132,7 +133,7 @@ python -m domiso_orchestra.player_client --list-windows --window-title "Sky"
 Send a local test pulse without connecting to the Conductor:
 
 ```powershell
-python -m domiso_orchestra.player_client --local-pulse --backend windows --window-title "Sky" --local-pulse-key y
+python -m domiso_orchestra.player_client --local-pulse --backend ahk --window-exe Sky.exe --local-pulse-key y
 ```
 
 Client settings are saved by default to:

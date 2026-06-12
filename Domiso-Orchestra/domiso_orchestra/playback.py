@@ -1,10 +1,15 @@
 from __future__ import annotations
 
+import os
 import ctypes
 import platform
+import shutil
+import subprocess
+import tempfile
 import threading
 import time
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Callable, Dict, Iterable, List, Mapping, Tuple
 
 from .keymaps import KeyStroke
@@ -295,9 +300,157 @@ class WindowsKeybdEventBackend(WindowsSendInputBackend):
         ctypes.windll.user32.keybd_event(vk, scan, flags, 0)
 
 
+class AutoHotkeyEventBackend(KeyBackend):
+    AHK_KEY_NAMES: Dict[str, str] = {
+        ";": "vkBA",
+        "=": "vkBB",
+        ",": "vkBC",
+        "-": "vkBD",
+        ".": "vkBE",
+        "/": "vkBF",
+        "`": "vkC0",
+        "[": "vkDB",
+        "\\": "vkDC",
+        "]": "vkDD",
+        "'": "vkDE",
+        "space": "Space",
+        "enter": "Enter",
+        "tab": "Tab",
+        "esc": "Esc",
+    }
+    AHK_MOD_NAMES = {"shift": "Shift", "ctrl": "Ctrl", "alt": "Alt"}
+
+    def __init__(self) -> None:
+        if platform.system().lower() != "windows":
+            raise RuntimeError("AutoHotkeyEventBackend only works on Windows")
+        self._active_keys: set[str] = set()
+        self._lock = threading.Lock()
+        self._script_path = self._write_bridge_script()
+        self._proc = self._start_bridge()
+
+    def _find_ahk_exe(self) -> str:
+        env_path = os.environ.get("DOMISO_AHK_EXE", "").strip()
+        candidates = []
+        if env_path:
+            candidates.append(Path(env_path))
+        package_root = Path(__file__).resolve().parents[2]
+        candidates.extend(
+            [
+                package_root / "Domiso" / "ahk_compiler" / "AutoHotkeyU64.exe",
+                package_root / "Domiso" / "ahk_compiler" / "AutoHotkey.exe",
+                package_root / "AutoHotkeyU64.exe",
+            ]
+        )
+        for candidate in candidates:
+            if candidate.is_file():
+                return str(candidate)
+        for name in ("AutoHotkeyU64.exe", "AutoHotkey64.exe", "AutoHotkey.exe", "AutoHotkey"):
+            found = shutil.which(name)
+            if found:
+                return found
+        raise RuntimeError("AutoHotkey executable not found; set DOMISO_AHK_EXE or keep Domiso/ahk_compiler/AutoHotkeyU64.exe")
+
+    def _write_bridge_script(self) -> Path:
+        script = """#NoEnv
+#SingleInstance Off
+SendMode Event
+SetKeyDelay, -1, -1
+stdin := FileOpen("*", "r", "UTF-8")
+Loop
+{
+    line := stdin.ReadLine()
+    line := RegExReplace(line, "[`r`n]+$")
+    if (line = "__EXIT__")
+        break
+    if (line != "")
+        Send, %line%
+}
+"""
+        path = Path(tempfile.gettempdir()) / "domiso_orchestra_ahk_bridge.ahk"
+        path.write_text(script, encoding="utf-8")
+        return path
+
+    def _start_bridge(self) -> subprocess.Popen:
+        startupinfo = subprocess.STARTUPINFO()
+        startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+        startupinfo.wShowWindow = 0
+        return subprocess.Popen(
+            [self._find_ahk_exe(), str(self._script_path)],
+            stdin=subprocess.PIPE,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            text=True,
+            encoding="utf-8",
+            startupinfo=startupinfo,
+        )
+
+    def _ahk_key_name(self, key: str) -> str:
+        normalized = key.lower()
+        return self.AHK_KEY_NAMES.get(normalized, normalized)
+
+    def _send_text_for(self, key: str, action: str) -> str:
+        stroke = KeyStroke.parse(key)
+        key_name = self._ahk_key_name(stroke.key)
+        modifiers = [self.AHK_MOD_NAMES[m] for m in stroke.modifiers if m in self.AHK_MOD_NAMES]
+        if modifiers:
+            prefix = "".join(f"{{{mod} down}}" for mod in modifiers)
+            suffix = "".join(f"{{{mod} up}}" for mod in reversed(modifiers))
+            if action == "down":
+                return f"{prefix}{{{key_name} down}}{suffix}"
+            if action == "up":
+                return f"{{{key_name} up}}"
+            return f"{prefix}{{{key_name}}}{suffix}"
+        if action == "down":
+            return f"{{{key_name} down}}"
+        if action == "up":
+            return f"{{{key_name} up}}"
+        return f"{{{key_name}}}"
+
+    def _write(self, text: str) -> None:
+        if self._proc.poll() is not None or self._proc.stdin is None:
+            raise RuntimeError("AutoHotkey bridge is not running")
+        self._proc.stdin.write(text + "\n")
+        self._proc.stdin.flush()
+
+    def key_down(self, key: str) -> None:
+        with self._lock:
+            self._write(self._send_text_for(key, "down"))
+            self._active_keys.add(KeyStroke.parse(key).key)
+
+    def key_up(self, key: str) -> None:
+        with self._lock:
+            self._write(self._send_text_for(key, "up"))
+            self._active_keys.discard(KeyStroke.parse(key).key)
+
+    def release_all(self) -> None:
+        with self._lock:
+            for key in list(self._active_keys):
+                try:
+                    self._write(self._send_text_for(key, "up"))
+                except Exception:
+                    pass
+            self._active_keys.clear()
+            try:
+                self._write("{Shift up}{Ctrl up}{Alt up}")
+            except Exception:
+                pass
+
+    def close(self) -> None:
+        try:
+            self._write("__EXIT__")
+        except Exception:
+            pass
+        try:
+            self._proc.terminate()
+        except Exception:
+            pass
+
+
 def make_backend(name: str) -> KeyBackend:
     if name == "dry-run":
         return DryRunBackend()
+    if name == "ahk":
+        return AutoHotkeyEventBackend()
     if name in {"windows", "windows-event"}:
         return WindowsKeybdEventBackend()
     if name == "windows-input":
