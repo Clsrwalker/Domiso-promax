@@ -314,7 +314,7 @@ def main() -> None:
     ap.add_argument("--client-id", default="")
     ap.add_argument("--name", default="")
     ap.add_argument("--layout", default="")
-    ap.add_argument("--backend", choices=["dry-run", "windows"], default="")
+    ap.add_argument("--backend", choices=["dry-run", "windows", "windows-event", "windows-input"], default="")
     ap.add_argument("--delay-offset-ms", type=int, default=None)
     ap.add_argument("--manual-ready", action="store_true")
     ap.add_argument("--config", default="")

@@ -119,6 +119,8 @@ Real Windows key injection:
 python -m domiso_orchestra.player_client --server ws://CONDUCTOR_IP:8765/ws/player --client-id PC-A --backend windows --window-title "Sky"
 ```
 
+`windows` uses the Domiso-compatible event-style keyboard backend. `windows-input` is also available as a SendInput fallback if a specific game accepts that better.
+
 If `--window-title` is provided, the client tries to activate the first visible Windows window whose title contains that text before Start or Pulse. Without it, keep the target game window focused before pressing Start.
 
 List matching Windows titles:

@@ -285,10 +285,22 @@ class WindowsSendInputBackend(KeyBackend):
                     pass
 
 
+class WindowsKeybdEventBackend(WindowsSendInputBackend):
+    KEYEVENTF_EXTENDEDKEY = 0x0001
+    MAPVK_VK_TO_VSC = 0
+
+    def _send_vk(self, vk: int, down: bool) -> None:
+        flags = 0 if down else self.KEYEVENTF_KEYUP
+        scan = ctypes.windll.user32.MapVirtualKeyW(vk, self.MAPVK_VK_TO_VSC)
+        ctypes.windll.user32.keybd_event(vk, scan, flags, 0)
+
+
 def make_backend(name: str) -> KeyBackend:
     if name == "dry-run":
         return DryRunBackend()
-    if name == "windows":
+    if name in {"windows", "windows-event"}:
+        return WindowsKeybdEventBackend()
+    if name == "windows-input":
         return WindowsSendInputBackend()
     raise ValueError(f"Unknown playback backend: {name}")
 

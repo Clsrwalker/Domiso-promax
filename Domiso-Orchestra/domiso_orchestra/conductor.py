@@ -164,8 +164,10 @@ class OrchestraRoom:
             if "loadedTracks" in payload and isinstance(payload["loadedTracks"], list):
                 session.loaded_tracks = [str(x) for x in payload["loadedTracks"]]
             if "error" in payload:
-                session.error = str(payload["error"])
-                if session.error:
+                error_text = str(payload["error"])
+                if error_text or session.state != "ERROR":
+                    session.error = error_text
+                if error_text:
                     session.state = "ERROR"
             if "inputDelayOffsetMs" in payload:
                 session.input_delay_offset_ms = int(payload["inputDelayOffsetMs"])
