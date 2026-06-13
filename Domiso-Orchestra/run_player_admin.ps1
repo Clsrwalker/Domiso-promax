@@ -17,6 +17,7 @@ function Test-IsAdmin {
 if (-not (Test-IsAdmin)) {
     $powershell = (Get-Process -Id $PID).Path
     $arguments = @(
+        "-NoExit",
         "-NoProfile",
         "-ExecutionPolicy", "Bypass",
         "-File", $PSCommandPath,
