@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import ctypes
 import json
+import platform
 import threading
 import time
 from pathlib import Path
@@ -26,6 +28,26 @@ from .window_focus import activate_window, list_windows
 
 def monotonic_ms() -> float:
     return time.monotonic() * 1000.0
+
+
+def is_windows_admin() -> bool:
+    if platform.system().lower() != "windows":
+        return True
+    try:
+        return bool(ctypes.windll.shell32.IsUserAnAdmin())
+    except Exception:
+        return False
+
+
+def require_admin_for_input_backend(backend_name: str, allow_non_admin: bool = False) -> None:
+    if allow_non_admin or backend_name == "dry-run" or platform.system().lower() != "windows":
+        return
+    if is_windows_admin():
+        return
+    raise SystemExit(
+        "Real input backend requires Administrator on Windows. "
+        "Open PowerShell as Administrator, or run run_player_admin.ps1 / run_local_pulse_admin.ps1."
+    )
 
 
 class PlayerClient:
@@ -338,7 +360,7 @@ def main() -> None:
     ap.add_argument("--client-id", default="")
     ap.add_argument("--name", default="")
     ap.add_argument("--layout", default="")
-    ap.add_argument("--backend", choices=["dry-run", "windows", "windows-event", "windows-input", "ahk"], default="")
+    ap.add_argument("--backend", choices=["dry-run", "windows", "windows-event", "windows-input", "ahk", "ahk-tap"], default="")
     ap.add_argument("--delay-offset-ms", type=int, default=None)
     ap.add_argument("--manual-ready", action="store_true")
     ap.add_argument("--config", default="")
@@ -354,6 +376,7 @@ def main() -> None:
     ap.add_argument("--same-key-min-gap-ms", type=int, default=None)
     ap.add_argument("--tap-press-ms", type=int, default=None)
     ap.add_argument("--release-early-ms", type=int, default=None)
+    ap.add_argument("--allow-non-admin-input", action="store_true")
     args = ap.parse_args()
     if args.list_windows:
         try:
@@ -395,6 +418,8 @@ def main() -> None:
     override_payload = {k: v for k, v in override_payload.items() if v is not None}
     if args.local_pulse:
         try:
+            backend_name = args.backend or cfg_str("backend", "dry-run")
+            require_admin_for_input_backend(backend_name, args.allow_non_admin_input)
             if args.window_title:
                 target = activate_window(args.window_title, args.window_exe)
                 process = f" ({target.process_name})" if target.process_name else ""
@@ -403,7 +428,7 @@ def main() -> None:
                 target = activate_window(process_name=args.window_exe)
                 process = f" ({target.process_name})" if target.process_name else ""
                 print(f"Activated target window: {target.title}{process}")
-            backend = DryRunBackend(echo=True) if (args.backend or cfg_str("backend", "dry-run")) == "dry-run" else make_backend(args.backend or cfg_str("backend", "dry-run"))
+            backend = DryRunBackend(echo=True) if backend_name == "dry-run" else make_backend(backend_name)
             engine = PlaybackEngine(backend, time_scale=args.time_scale)
             key = args.local_pulse_key
             actions = []
@@ -416,12 +441,14 @@ def main() -> None:
             raise SystemExit(str(exc)) from exc
         return
 
+    backend_name = args.backend or cfg_str("backend", "dry-run")
+    require_admin_for_input_backend(backend_name, args.allow_non_admin_input)
     client = PlayerClient(
         server=args.server,
         client_id=client_id,
         name=args.name or cfg_str("name", client_id),
         layout=args.layout or cfg_str("layout", "sky15"),
-        backend_name=args.backend or cfg_str("backend", "dry-run"),
+        backend_name=backend_name,
         input_delay_offset_ms=args.delay_offset_ms if args.delay_offset_ms is not None else cfg_int("inputDelayOffsetMs", 0),
         auto_ready=not (args.manual_ready or bool(loaded_config.get("manualReady", False))),
         time_scale=args.time_scale,

@@ -446,11 +446,29 @@ Loop
             pass
 
 
+class AutoHotkeyTapBackend(AutoHotkeyEventBackend):
+    def key_down(self, key: str) -> None:
+        with self._lock:
+            self._write(self._send_text_for(key, "tap"))
+
+    def key_up(self, key: str) -> None:
+        return
+
+    def release_all(self) -> None:
+        with self._lock:
+            try:
+                self._write("{Shift up}{Ctrl up}{Alt up}")
+            except Exception:
+                pass
+
+
 def make_backend(name: str) -> KeyBackend:
     if name == "dry-run":
         return DryRunBackend()
     if name == "ahk":
         return AutoHotkeyEventBackend()
+    if name == "ahk-tap":
+        return AutoHotkeyTapBackend()
     if name in {"windows", "windows-event"}:
         return WindowsKeybdEventBackend()
     if name == "windows-input":

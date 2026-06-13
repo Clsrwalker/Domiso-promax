@@ -116,10 +116,12 @@ python -m domiso_orchestra.player_client --server ws://CONDUCTOR_IP:8765/ws/play
 Real Windows key injection:
 
 ```powershell
-python -m domiso_orchestra.player_client --server ws://CONDUCTOR_IP:8765/ws/player --client-id PC-A --backend ahk --window-exe Sky.exe
+.\run_player_admin.ps1 -Server ws://CONDUCTOR_IP:8765/ws/player -ClientId PC-A -Backend ahk-tap -WindowExe Sky.exe
 ```
 
-`ahk` is the recommended backend for Sky because it uses the bundled `Domiso/ahk_compiler/AutoHotkeyU64.exe` and sends keys like the original Domiso app. `windows` and `windows-input` are available as fallback Python-only backends.
+Real input backends require Administrator on Windows. `run_player_admin.ps1` relaunches itself through UAC when needed, so the Python client and AutoHotkey child process run at the same integrity level as Sky.
+
+`ahk` uses the bundled `Domiso/ahk_compiler/AutoHotkeyU64.exe` and sends key down/up events like the original Domiso app. `ahk-tap` sends every note as a short Domiso-style tap and is the safer default for Sky. `windows` and `windows-input` are available as fallback Python-only backends.
 
 If `--window-title` is provided, the client tries to activate the first visible Windows window whose title contains that text before Start or Pulse. Without it, keep the target game window focused before pressing Start.
 For Sky, prefer `--window-exe Sky.exe`; it avoids Chinese window-title encoding issues.
@@ -127,13 +129,19 @@ For Sky, prefer `--window-exe Sky.exe`; it avoids Chinese window-title encoding 
 List matching Windows titles:
 
 ```powershell
-python -m domiso_orchestra.player_client --list-windows --window-title "Sky"
+python -m domiso_orchestra.player_client --list-windows --window-exe Sky.exe
 ```
 
 Send a local test pulse without connecting to the Conductor:
 
 ```powershell
-python -m domiso_orchestra.player_client --local-pulse --backend ahk --window-exe Sky.exe --local-pulse-key y
+.\run_local_pulse_admin.ps1 -Backend ahk-tap -WindowExe Sky.exe -Key y
+```
+
+Direct command, if the shell is already Administrator:
+
+```powershell
+python -m domiso_orchestra.player_client --local-pulse --backend ahk-tap --window-exe Sky.exe --local-pulse-key y
 ```
 
 Client settings are saved by default to:
