@@ -222,6 +222,18 @@ def main() -> None:
         ],
         [
             py,
+            os.path.join(tool_dir, "domiso_pipeline_sky_duet.py"),
+            "pipeline",
+            args.input_midi,
+            "--profile",
+            "auto",
+            "--out-dir",
+            args.out_dir,
+            "--report-dir",
+            args.report_dir,
+        ],
+        [
+            py,
             os.path.join(tool_dir, "domiso_pipeline_sky_melodylock_human.py"),
             "pipeline",
             args.input_midi,

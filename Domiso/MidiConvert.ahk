@@ -28,7 +28,7 @@ midi_convert_show()
 	Gui, midi:Add, Edit, x112 y48 w440 h28 ReadOnly vmidi_convert_file, %midi_convert_file%
 	Gui, midi:Add, Button, x562 y47 w90 h30 gmidi_select_file, Browse
 	Gui, midi:Add, Text, x18 y88 w90 h24, Target
-	Gui, midi:Add, DropDownList, x112 y84 w180 h120 vmidi_convert_target, yihuan|sky|genshin|all|other
+	Gui, midi:Add, DropDownList, x112 y84 w180 h140 vmidi_convert_target, yihuan|sky|genshin|all|other
 	GuiControl, midi:ChooseString, midi_convert_target, %midi_convert_target%
 	Gui, midi:Add, Text, x312 y88 w340 h24, Default follows the selected Game profile.
 	Gui, midi:Add, Text, x18 y124 w90 h24, Out Dir

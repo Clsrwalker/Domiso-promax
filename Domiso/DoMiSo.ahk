@@ -78,6 +78,31 @@ playback_pending_seek_ms:=0
 playback_slider_internal:=0
 playback_slider_dragging:=0
 playback_mode:=""
+live_playhead_ms:=0
+live_last_tick_ms:=0
+live_speed_offset_target_percent:=0
+live_speed_offset_current_percent:=0
+live_speed_step_percent:=2
+live_speed_max_offset_percent:=50
+live_speed_smoothing_ms:=120
+live_target_offset_ms:=0
+live_applied_offset_ms:=0
+live_phase_rate:=0
+live_phase_kp:=0.45
+live_phase_max_rate:=0.05
+live_phase_held_max_rate:=0.10
+live_phase_smoothing_ms:=60
+live_phase_deadband_ms:=1.5
+live_phase_hold_delay_ms:=300
+live_phase_held_interval_ms:=140
+live_phase_hold_key:=""
+live_phase_hold_direction:=0
+live_phase_hold_started_ms:=0
+live_phase_jog_rate:=0
+live_control_status_until_ms:=0
+live_control_status_last_ms:=0
+live_control_status_kind:=""
+beat_time_markers:=Array()
 
 _Instrument:=inst
 
@@ -156,13 +181,294 @@ analyseNotes(Notes)
 			statusTxt .= " | min " genshin_play_report.minGap "ms"
 		}
 		statusTxt .= " | " yihuan_play_speed_percent "% spd"
-		statusTxt .= " | hold≥" yihuan_play_hold_min_ms "ms"
+		statusTxt .= " | hold min " yihuan_play_hold_min_ms "ms"
 		if(genshin_play_report.merged > 0) {
 			statusTxt .= " | merge " genshin_play_report.merged
 		}
 	}
 	statubar_txt(statusTxt)
 }
+
+score_speed_format(value)
+{
+	value += 0
+	rounded := Round(value, 1)
+	if(Abs(rounded - Round(rounded)) < 0.05) {
+		return Round(rounded)
+	}
+	return rounded
+}
+
+score_speed_apply(value, update_control := 0)
+{
+	global yihuan_play_speed_percent, yihuan_play_time_scale
+	text := Trim(value)
+	if(!RegExMatch(text, "O)^\d+(?:\.\d+)?$")) {
+		text := "100"
+	}
+	speed := text + 0.0
+	if(speed < 50) {
+		speed := 50
+	} else if(speed > 150) {
+		speed := 150
+	}
+	yihuan_play_speed_percent := Round(speed, 1)
+	yihuan_play_time_scale := 100.0 / yihuan_play_speed_percent
+	if(update_control) {
+		GuiControl, main:, score_speed_input, % score_speed_format(yihuan_play_speed_percent)
+	}
+}
+
+score_speed_reset()
+{
+	score_speed_apply(100, 1)
+	live_speed_reset()
+	live_phase_reset()
+}
+
+live_speed_reset()
+{
+	global live_speed_offset_target_percent, live_speed_offset_current_percent
+	live_speed_offset_target_percent := 0
+	live_speed_offset_current_percent := 0
+}
+
+live_phase_reset()
+{
+	global live_target_offset_ms, live_applied_offset_ms, live_phase_rate
+	global live_phase_jog_rate, live_phase_hold_key, live_phase_hold_direction, live_phase_hold_started_ms
+	live_target_offset_ms := 0
+	live_applied_offset_ms := 0
+	live_phase_rate := 0
+	live_phase_jog_rate := 0
+	live_phase_hold_key := ""
+	live_phase_hold_direction := 0
+	live_phase_hold_started_ms := 0
+	SetTimer, live_phase_hold_tick, Off
+}
+
+live_clock_start(positionMs, resetSpeed := 1, startDelayMs := 0)
+{
+	global live_playhead_ms, live_last_tick_ms
+	live_playhead_ms := playback_clamp_ms(positionMs)
+	live_last_tick_ms := genshin_now_ms() + startDelayMs
+	if(resetSpeed) {
+		live_speed_reset()
+		live_phase_reset()
+	}
+}
+
+live_clock_tick(nowMs := "")
+{
+	global live_playhead_ms, live_last_tick_ms
+	global live_speed_offset_target_percent, live_speed_offset_current_percent
+	global live_speed_smoothing_ms, yihuan_play_speed_percent
+	global live_target_offset_ms, live_applied_offset_ms, live_phase_rate
+	global live_phase_kp, live_phase_max_rate, live_phase_held_max_rate
+	global live_phase_smoothing_ms, live_phase_deadband_ms, live_phase_jog_rate
+	global live_control_status_until_ms, live_control_status_last_ms, live_control_status_kind
+	if(nowMs = "") {
+		nowMs := genshin_now_ms()
+	}
+	if(live_last_tick_ms <= 0) {
+		live_last_tick_ms := nowMs
+	}
+	dtMs := nowMs - live_last_tick_ms
+	if(dtMs <= 0) {
+		return playback_clamp_ms(live_playhead_ms)
+	}
+	smoothTau := Max(1, live_speed_smoothing_ms)
+	alpha := 1 - Exp(-dtMs / smoothTau)
+	live_speed_offset_current_percent += (live_speed_offset_target_percent - live_speed_offset_current_percent) * alpha
+	baseSpeed := Max(1, yihuan_play_speed_percent + 0.0)
+	phaseBeatMs := live_current_beat_ms(live_playhead_ms)
+	if(live_phase_jog_rate != 0) {
+		live_target_offset_ms += live_phase_jog_rate * dtMs
+	}
+	phaseErrorMs := live_target_offset_ms - live_applied_offset_ms
+	desiredPhaseRate := live_phase_jog_rate + live_phase_kp * (phaseErrorMs / phaseBeatMs)
+	phaseLimit := live_phase_jog_rate != 0 ? live_phase_held_max_rate : live_phase_max_rate
+	if(desiredPhaseRate > phaseLimit) {
+		desiredPhaseRate := phaseLimit
+	} else if(desiredPhaseRate < -phaseLimit) {
+		desiredPhaseRate := -phaseLimit
+	}
+	phaseTau := Max(1, live_phase_smoothing_ms)
+	phaseAlpha := 1 - Exp(-dtMs / phaseTau)
+	live_phase_rate += (desiredPhaseRate - live_phase_rate) * phaseAlpha
+	live_applied_offset_ms += live_phase_rate * dtMs
+	if(Abs(phaseErrorMs) < live_phase_deadband_ms && Abs(live_phase_rate) < 0.001) {
+		live_applied_offset_ms := live_target_offset_ms
+		live_phase_rate := 0
+	}
+	rate := (baseSpeed + live_speed_offset_current_percent) / baseSpeed + live_phase_rate
+	if(rate < 0.1) {
+		rate := 0.1
+	}
+	live_playhead_ms += dtMs * rate
+	live_last_tick_ms := nowMs
+	if(live_control_status_until_ms > nowMs && nowMs - live_control_status_last_ms >= 200) {
+		live_control_status_last_ms := nowMs
+		live_control_status(live_control_status_kind, 0)
+	}
+	return playback_clamp_ms(live_playhead_ms)
+}
+
+live_speed_adjust(direction)
+{
+	global live_speed_offset_target_percent, live_speed_step_percent, live_speed_max_offset_percent
+	live_speed_offset_target_percent += direction * live_speed_step_percent
+	if(live_speed_offset_target_percent > live_speed_max_offset_percent) {
+		live_speed_offset_target_percent := live_speed_max_offset_percent
+	} else if(live_speed_offset_target_percent < -live_speed_max_offset_percent) {
+		live_speed_offset_target_percent := -live_speed_max_offset_percent
+	}
+	live_control_status("speed")
+}
+
+live_speed_home()
+{
+	global live_speed_offset_target_percent
+	live_speed_offset_target_percent := 0
+	live_control_status("speed")
+}
+
+live_format_signed(value, decimals := 1)
+{
+	value += 0
+	rounded := Round(value, decimals)
+	if(Abs(rounded - Round(rounded)) < 0.05) {
+		rounded := Round(rounded)
+	}
+	return (rounded > 0 ? "+" : "") rounded
+}
+
+live_control_status(kind := "", pinMs := 1600)
+{
+	global live_speed_offset_target_percent, live_speed_offset_current_percent, live_target_offset_ms, live_applied_offset_ms
+	global live_phase_rate, yihuan_play_speed_percent
+	global live_control_status_until_ms, live_control_status_last_ms, live_control_status_kind
+	if(pinMs > 0) {
+		nowMs := genshin_now_ms()
+		live_control_status_until_ms := nowMs + pinMs
+		live_control_status_last_ms := nowMs
+		live_control_status_kind := kind
+	}
+	if(kind="phase") {
+		statubar_txt("Live phase target " live_format_signed(live_target_offset_ms, 0) "ms | current " live_format_signed(live_applied_offset_ms, 0) "ms | rate " live_format_signed(live_phase_rate * 100, 1) "%")
+		return
+	}
+	baseSpeed := Max(1, yihuan_play_speed_percent + 0.0)
+	totalRate := ((baseSpeed + live_speed_offset_current_percent) / baseSpeed + live_phase_rate) * 100
+	statubar_txt("Live speed target " live_format_signed(live_speed_offset_target_percent, 1) "% | current " live_format_signed(live_speed_offset_current_percent, 1) "% | rate " Round(totalRate, 1) "%")
+}
+
+live_phase_step_ms(fine := 0)
+{
+	beatMs := live_current_beat_ms()
+	if(fine) {
+		stepMs := beatMs * 0.025
+		if(stepMs < 8) {
+			stepMs := 8
+		} else if(stepMs > 18) {
+			stepMs := 18
+		}
+	} else {
+		stepMs := beatMs * 0.08
+		if(stepMs < 20) {
+			stepMs := 20
+		} else if(stepMs > 50) {
+			stepMs := 50
+		}
+	}
+	return stepMs
+}
+
+live_current_beat_ms(positionMs := "")
+{
+	global beat_time_markers, yihuan_play_time_scale, live_playhead_ms
+	if(positionMs = "") {
+		positionMs := live_playhead_ms
+	}
+	scale := yihuan_play_time_scale + 0.0
+	if(scale <= 0) {
+		scale := 1.0
+	}
+	rawPositionMs := (positionMs + 0.0) / scale
+	currentBeatMs := 750.0
+	if(IsObject(beat_time_markers)) {
+		Loop, % beat_time_markers.Length()
+		{
+			marker := beat_time_markers[A_Index]
+			if(marker.delay <= rawPositionMs) {
+				currentBeatMs := marker.beatMs
+			}
+		}
+	}
+	return Max(1, currentBeatMs * scale)
+}
+
+live_phase_nudge(direction, fine := 0)
+{
+	global live_target_offset_ms
+	stepMs := live_phase_step_ms(fine)
+	live_target_offset_ms += direction * stepMs
+	live_control_status("phase")
+}
+
+live_phase_compute_jog_rate(direction)
+{
+	global live_phase_held_interval_ms, live_phase_held_max_rate
+	rawRate := live_phase_step_ms(1) / Max(1, live_phase_held_interval_ms)
+	if(rawRate > live_phase_held_max_rate) {
+		rawRate := live_phase_held_max_rate
+	}
+	return direction * rawRate
+}
+
+live_phase_key_down(direction, fine, keyName)
+{
+	global live_phase_hold_key, live_phase_hold_direction, live_phase_hold_started_ms, live_phase_jog_rate
+	if(live_phase_hold_key != "") {
+		return
+	}
+	live_phase_nudge(direction, fine)
+	live_phase_hold_key := keyName
+	live_phase_hold_direction := direction
+	live_phase_hold_started_ms := genshin_now_ms()
+	live_phase_jog_rate := 0
+	SetTimer, live_phase_hold_tick, 20
+}
+
+live_phase_hold_tick:
+if(!isBtn1Playing || live_phase_hold_key = "")
+{
+	live_phase_jog_rate := 0
+	live_phase_hold_key := ""
+	live_phase_hold_direction := 0
+	live_phase_hold_started_ms := 0
+	SetTimer, live_phase_hold_tick, Off
+	Return
+}
+if(!GetKeyState(live_phase_hold_key, "P"))
+{
+	live_phase_jog_rate := 0
+	live_phase_hold_key := ""
+	live_phase_hold_direction := 0
+	live_phase_hold_started_ms := 0
+	SetTimer, live_phase_hold_tick, Off
+	Return
+}
+if(genshin_now_ms() - live_phase_hold_started_ms >= live_phase_hold_delay_ms)
+{
+	if(live_phase_jog_rate = 0) {
+		live_phase_jog_rate := live_phase_compute_jog_rate(live_phase_hold_direction)
+		live_control_status("phase")
+	} else {
+		live_phase_jog_rate := live_phase_compute_jog_rate(live_phase_hold_direction)
+	}
+}
+Return
 
 playback_clamp_ms(ms)
 {
@@ -240,9 +546,9 @@ playback_slider_to_ms(sliderValue)
 
 playback_get_current_ms()
 {
-	global isBtn1Playing, isBtn1Paused, isBtn2Playing, startTime, genshin_pause_offset, Notes, playback_seek_ms
+	global isBtn1Playing, isBtn1Paused, isBtn2Playing, genshin_pause_offset, Notes, playback_seek_ms
 	if(isBtn1Playing) {
-		return playback_clamp_ms(genshin_now_ms() - startTime)
+		return playback_clamp_ms(live_clock_tick())
 	}
 	if(isBtn1Paused) {
 		return playback_clamp_ms(genshin_pause_offset)
@@ -305,7 +611,7 @@ playback_apply_seek(targetMs)
 	playback_pending_seek_ms := targetMs
 	if(isBtn1Playing) {
 		genshin_stop(0, 1)
-		genshin_play(targetMs)
+		genshin_play(targetMs, 0)
 		return
 	}
 	if(isBtn1Paused) {
@@ -324,18 +630,16 @@ playback_apply_seek(targetMs)
 	playback_update_labels(targetMs, 1)
 }
 
-load_yihuan_play_settings()
+load_yihuan_play_settings(update_speed_control := 0)
 {
-	global yihuan_play_speed_percent, yihuan_play_time_scale, yihuan_play_hold_min_ms
+	global score_speed_input, yihuan_play_speed_percent, yihuan_play_time_scale, yihuan_play_hold_min_ms
 	global yihuan_play_same_key_gap_ms, yihuan_play_key_delay_ms, yihuan_play_press_ms
 
-	IniRead, yihuan_play_speed_percent, setting.ini, yihuanplay, speedPercent, 95
-	IniWrite, % yihuan_play_speed_percent, setting.ini, yihuanplay, speedPercent
-	yihuan_play_speed_percent += 0
-	if(yihuan_play_speed_percent < 70 || yihuan_play_speed_percent > 120) {
-		yihuan_play_speed_percent := 95
+	if(score_speed_input != "") {
+		score_speed_apply(score_speed_input, update_speed_control)
+	} else {
+		score_speed_apply(100, update_speed_control)
 	}
-	yihuan_play_time_scale := 100.0 / yihuan_play_speed_percent
 
 	IniRead, yihuan_play_hold_min_ms, setting.ini, yihuanplay, holdMinMs, 150
 	IniWrite, % yihuan_play_hold_min_ms, setting.ini, yihuanplay, holdMinMs
@@ -616,7 +920,7 @@ genshin_pause()
 	{
 		Return
 	}
-	genshin_pause_offset := genshin_now_ms() - startTime
+	genshin_pause_offset := playback_get_current_ms()
 	if(genshin_pause_offset < 0) {
 		genshin_pause_offset := 0
 	}
@@ -667,6 +971,7 @@ genshin_resume()
 	isBtn1Paused:=0
 	btn1update()
 	startTime:=genshin_now_ms() + 250 - genshin_pause_offset
+	live_clock_start(genshin_pause_offset, 0, 250)
 	SetKeyDelay, % yihuan_play_key_delay_ms, % yihuan_play_press_ms
 	analyseNotes(Notes)
 	SetTimer, genshin_main, 1
@@ -688,7 +993,7 @@ if(genshin_pressed_p > genshin_play_array.Length() and genshin_pressed_array.Len
 }
 DllCall("QueryPerformanceCounter", "Int64P",  nowTime)
 ; genshin_window_active(genshin_window_exist())
-deltaMS:=nowTime//(freq/1000)-startTime
+deltaMS:=live_clock_tick(nowTime//(freq/1000))
 if(genshin_resume_array.Length() > 0 and deltaMS >= genshin_pause_offset)
 {
 	For _, elem in genshin_resume_array
@@ -789,13 +1094,14 @@ GuiDropFiles(GuiHwnd, FileArray, CtrlHwnd, X, Y) {
 		}
 		f.Close()
 		ControlSetText,, % plain_content, ahk_id %hEdit1%
+		score_speed_reset()
 		playback_seek_ms := 0
 		playback_pending_seek_ms := 0
 		Gosub, resolve
 	}
 }
 
-genshin_play(targetMs := 0)
+genshin_play(targetMs := 0, resetLive := 1)
 {
 	global sendHistory, gDebug, startTime, freq, genshin_pressed_p, genshin_pressed_array
 	global isBtn1Playing, global_mode, domiso_active_hwnd, gui_id
@@ -825,6 +1131,7 @@ genshin_play(targetMs := 0)
 	isBtn1Playing:=1
 	btn1update()
 	startTime:=nowTime//(freq/1000) + 500 - targetMs
+	live_clock_start(targetMs, resetLive, 500)
 	playback_seek_ms := targetMs
 	playback_pending_seek_ms := targetMs
 	SetKeyDelay, % yihuan_play_key_delay_ms, % yihuan_play_press_ms
@@ -845,6 +1152,8 @@ genshin_stop(clearPause := 1, keepPosition := 0)
 		isBtn1Paused:=0
 		genshin_pause_offset:=0
 		genshin_resume_array:=Array()
+		live_speed_reset()
+		live_phase_reset()
 	}
 	if(!keepPosition) {
 		playback_seek_ms := 0
@@ -1049,7 +1358,7 @@ Return
 
 resolve:
 Gui, main:Submit, NoHide
-load_yihuan_play_settings()
+load_yihuan_play_settings(1)
 _Instrument:=instrument_select-1
 if(sheet_mode=="normal")
 {
@@ -1070,6 +1379,7 @@ genshin_play_array:={}
 genshin_output:=""
 genshin_delay:=0
 genshin_play_report := {"count": 0, "merged": 0, "peak": 0, "minGap": 0}
+beat_time_markers:=Array()
 
 arpeggio_start:=0	;琶音起始
 ; NOTE: 由于存在变速的情况，无法简单的计算整首曲子的拍子数，此处处理了琶音产生的拍子计数错误
@@ -1085,6 +1395,7 @@ if(_Instrument<0 or _Instrument>127){
 Notes.Instrument(_Instrument)
 base:=60
 beatTime:=Round(60000/80, 2)
+beat_time_markers.Push({"delay":0, "beatMs":beatTime})
 Loop, Parse, parse_content, `n,`r%A_Space%%A_Tab%	;逐行解析
 {
 	chord:=0	;重置和弦标记
@@ -1145,7 +1456,10 @@ bpm_parser(obj)
 {
 	global
 	If(o.Value(1)>30 And o.Value(1)<600)
-	beatTime:=Round(60000/o.Value(1), 2)
+	{
+		beatTime:=Round(60000/o.Value(1), 2)
+		beat_time_markers.Push({"delay":Round(genshin_delay), "beatMs":beatTime})
+	}
 }
 
 tone_parser(obj)
@@ -1383,5 +1697,90 @@ F7::genshin_pause()
 F8::genshin_stop()
 F9::Gosub, func_hotkey_play
 F10::genshin_resume()
+
+#UseHook On
+#If (isBtn1Playing)
+Up::
+live_speed_adjust(1)
+Return
+
+NumpadUp::
+live_speed_adjust(1)
+Return
+
+Numpad8::
+live_speed_adjust(1)
+Return
+
+Down::
+live_speed_adjust(-1)
+Return
+
+NumpadDown::
+live_speed_adjust(-1)
+Return
+
+Numpad2::
+live_speed_adjust(-1)
+Return
+
+Home::
+live_speed_home()
+Return
+
+NumpadHome::
+live_speed_home()
+Return
+
+Left::
+live_phase_key_down(-1, 0, "Left")
+Return
+
+NumpadLeft::
+live_phase_key_down(-1, 0, "NumpadLeft")
+Return
+
+Numpad4::
+live_phase_key_down(-1, 0, "Numpad4")
+Return
+
+Right::
+live_phase_key_down(1, 0, "Right")
+Return
+
+NumpadRight::
+live_phase_key_down(1, 0, "NumpadRight")
+Return
+
+Numpad6::
+live_phase_key_down(1, 0, "Numpad6")
+Return
+
++Left::
+live_phase_key_down(-1, 1, "Left")
+Return
+
++NumpadLeft::
+live_phase_key_down(-1, 1, "NumpadLeft")
+Return
+
++Numpad4::
+live_phase_key_down(-1, 1, "Numpad4")
+Return
+
++Right::
+live_phase_key_down(1, 1, "Right")
+Return
+
++NumpadRight::
+live_phase_key_down(1, 1, "NumpadRight")
+Return
+
++Numpad6::
+live_phase_key_down(1, 1, "Numpad6")
+Return
+
+#If
+#UseHook Off
 
 #include menu.ahk

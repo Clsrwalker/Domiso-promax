@@ -2,7 +2,8 @@
 #Include lib/Gdip.ahk
 pToken := Gdip_Startup()
 FileCreateDir, % A_Temp "\domiso"
-FileInstall, .\changes.md, % A_Temp "\domiso\changes.md", 1
+if FileExist(A_ScriptDir "\changes.md")
+	FileCopy, % A_ScriptDir "\changes.md", % A_Temp "\domiso\changes.md", 1
 sample_sheet=
 (
 Domiso
@@ -98,6 +99,10 @@ ui.progress.label:={x:ui.card_x,y:ui.game.label.y-156,w:220,h:ui.label_text_h}
 ui.progress.time_y:=ui.progress.label.y+62
 ui.progress.pos:={x:ui.card_x,y:ui.progress.label.y+98}
 ui.progress.size:={w:ui.card_w,h:46}
+ui.speed:={}
+ui.speed.label:={x:ui.card_x+430,y:ui.progress.label.y+7,w:70,h:42}
+ui.speed.input:={x:ui.speed.label.x+ui.speed.label.w+10,y:ui.progress.label.y+6,w:92,h:38}
+ui.speed.unit:={x:ui.speed.input.x+ui.speed.input.w+8,y:ui.progress.label.y+7,w:28,h:42}
 ui.hotkey:={}
 ui.hotkey.pos:={x:ui.card_x,y:ui.buttonFile.pos.y+ui.buttonFile.size.h+4}
 ui.hotkey.size:={w:ui.card_w,h:28}
@@ -140,6 +145,12 @@ Gui, Font, % "s" ui.font_time " c163746", Consolas
 Gui, Add, Text, % "x" ui.progress.pos.x " y" ui.progress.time_y " w112 h48 +0x200 BackgroundTrans vplayback_elapsed_label", 00:00
 Gui, Add, Text, % "x" ui.progress.pos.x+ui.progress.size.w-112 " y" ui.progress.time_y " w112 h48 Right +0x200 BackgroundTrans vplayback_total_label", 00:00
 Gui, Add, Slider, % "x" ui.progress.pos.x " y" ui.progress.pos.y " w" ui.progress.size.w " h46 Range0-1000 AltSubmit vplayback_slider gfunc_playback_slider hwndhPlaybackSlider ToolTip", 0
+Gui, Font, % "s" ui.font_hint " c3F6C79", Segoe UI
+Gui, Add, Text, % "x" ui.speed.label.x " y" ui.speed.label.y " w" ui.speed.label.w " h" ui.speed.label.h " Right +0x200 BackgroundTrans", Speed
+Gui, Font, % "s" ui.font_field " c163746", Segoe UI
+Gui, Add, Edit, % "x" ui.speed.input.x " y" ui.speed.input.y " w" ui.speed.input.w " h" ui.speed.input.h " Center vscore_speed_input", % score_speed_format(yihuan_play_speed_percent)
+Gui, Font, % "s" ui.font_hint " c3F6C79", Segoe UI
+Gui, Add, Text, % "x" ui.speed.unit.x " y" ui.speed.unit.y " w" ui.speed.unit.w " h" ui.speed.unit.h " +0x200 BackgroundTrans", `%
 Gui, Font, % "s" ui.font_hint " c3F6C79", Segoe UI
 Gui, Add, Text, % "x" ui.hotkey.pos.x " y" ui.hotkey.pos.y " w" ui.hotkey.size.w " h" ui.hotkey.size.h " Center +0x200 BackgroundTrans", % playback_hint
 Gui, +Delimiter`n

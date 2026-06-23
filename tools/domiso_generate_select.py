@@ -71,6 +71,20 @@ def _registry(tool_dir: str, input_midi: str, out_dir: str, report_dir: str) -> 
             ],
         )
 
+    def direct_sky(script: str, name: str) -> ScriptSpec:
+        return ScriptSpec(
+            name=name,
+            target="sky",
+            args=[
+                os.path.join(tool_dir, script),
+                input_midi,
+                "--profile",
+                "auto",
+                "--out-dir",
+                out_dir,
+            ],
+        )
+
     return [
         ScriptSpec(
             "dense3layer",
@@ -88,8 +102,13 @@ def _registry(tool_dir: str, input_midi: str, out_dir: str, report_dir: str) -> 
         pipeline("domiso_pipeline_literal_human.py", "literal_human", "genshin"),
         pipeline("domiso_pipeline_highlight.py", "highlight", "genshin"),
         pipeline("domiso_pipeline_sky_melodylock.py", "sky_melodylock", "sky"),
+        pipeline("domiso_pipeline_sky_duet.py", "sky_duet", "sky"),
         pipeline("domiso_pipeline_sky_melodylock_human.py", "sky_melodylock_human", "sky"),
         pipeline("domiso_pipeline_sky_literal.py", "sky_literal", "sky"),
+        pipeline("domiso_pipeline_sky_handpan_melodylock.py", "sky_handpan_melodylock", "sky"),
+        direct_sky("domiso_pipeline_sky_violin_piano.py", "sky_violin_piano"),
+        direct_sky("domiso_pipeline_sky_violin_piano_smooth.py", "sky_violin_piano_smooth"),
+        direct_sky("domiso_pipeline_sky_violin_piano_interpreted.py", "sky_violin_piano_interpreted"),
         pipeline("domiso_pipeline_yihuan_melodylock.py", "yihuan_melodylock", "yihuan"),
         pipeline("domiso_pipeline_yihuan_restore36.py", "yihuan_restore36", "yihuan"),
         pipeline("domiso_pipeline_yihuan_noki_like.py", "yihuan_noki_like", "yihuan"),
@@ -160,7 +179,11 @@ def main() -> None:
 
     tool_dir = os.path.dirname(os.path.abspath(__file__))
     if args.list_scripts:
-        specs = _registry(tool_dir, args.input_midi or "input.mid", args.out_dir, args.report_dir)
+        specs = _select_specs(
+            _registry(tool_dir, args.input_midi or "input.mid", args.out_dir, args.report_dir),
+            args.target,
+            args.scripts,
+        )
         for spec in specs:
             print(f"{spec.target}\t{spec.name}")
         return

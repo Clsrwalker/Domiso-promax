@@ -2,6 +2,8 @@ game_profile_init()
 {
 	global current_game, current_game_name, genshin_note_map
 	IniRead, current_game, setting.ini, game, current, yihuan
+	if(current_game="sky_handpan")
+		current_game := "sky"
 	if(!game_profile_valid(current_game))
 		current_game := "yihuan"
 	game_profile_apply(current_game)
@@ -153,6 +155,20 @@ load_sky_note_map()
 			pitchIndex += 1
 		}
 	}
+	return noteMap
+}
+
+load_sky_handpan_note_map()
+{
+	noteMap := {}
+	noteMap[60] := "y"
+	noteMap[62] := "u"
+	noteMap[64] := "i"
+	noteMap[65] := "o"
+	noteMap[67] := "p"
+	noteMap[69] := "h"
+	noteMap[71] := "j"
+	noteMap[72] := "k"
 	return noteMap
 }
 
