@@ -74,15 +74,20 @@ ui.button3:={}
 ui.button3.pos:={x:ui.button2.pos.x+ui.button2.size.w+ui_gap,y:ui.button2.pos.y}
 ui.button3.size:={w:ui.button1.size.w,h:ui.button1.size.h}
 
+tool_button_count:=4
+ui.tool_button_w:=(ui.card_w-(tool_button_count-1)*ui_gap)//tool_button_count
 ui.buttonFile:={}
 ui.buttonFile.pos:={x:ui.button1.pos.x,y:ui.button1.pos.y+ui.button_h+ui_gap}
-ui.buttonFile.size:={w:ui.button1.size.w,h:ui.button1.size.h}
+ui.buttonFile.size:={w:ui.tool_button_w,h:ui.button1.size.h}
+ui.buttonList:={}
+ui.buttonList.pos:={x:ui.buttonFile.pos.x+ui.buttonFile.size.w+ui_gap,y:ui.buttonFile.pos.y}
+ui.buttonList.size:={w:ui.tool_button_w,h:ui.button1.size.h}
 ui.buttonMidi:={}
-ui.buttonMidi.pos:={x:ui.buttonFile.pos.x+ui.buttonFile.size.w+ui_gap,y:ui.buttonFile.pos.y}
-ui.buttonMidi.size:={w:ui.button1.size.w,h:ui.button1.size.h}
+ui.buttonMidi.pos:={x:ui.buttonList.pos.x+ui.buttonList.size.w+ui_gap,y:ui.buttonFile.pos.y}
+ui.buttonMidi.size:={w:ui.tool_button_w,h:ui.button1.size.h}
 ui.buttonPub:={}
 ui.buttonPub.pos:={x:ui.buttonMidi.pos.x+ui.buttonMidi.size.w+ui_gap,y:ui.buttonFile.pos.y}
-ui.buttonPub.size:={w:ui.button1.size.w,h:ui.button1.size.h}
+ui.buttonPub.size:={w:ui.tool_button_w,h:ui.button1.size.h}
 
 ui.instrument:={}
 ui.instrument.label:={x:ui.card_x,y:ui.button1.pos.y-132,w:220,h:Round(ui.label_text_h*1.33)}
@@ -160,6 +165,7 @@ Gui, Add, pic, % "x" ui.button2.pos.x " y" ui.button2.pos.y " w" ui.button2.size
 Gui, Add, pic, % "x" ui.button3.pos.x " y" ui.button3.pos.y " w" ui.button3.size.w " h" ui.button3.size.h " 0xE hwndhBtn3 gfunc_btn_exit", 
 
 Gui, Add, pic, % "x" ui.buttonFile.pos.x " y" ui.buttonFile.pos.y " w" ui.buttonFile.size.w " h" ui.buttonFile.size.h " 0xE hwndhBtnFile gfunc_btn_file", 
+Gui, Add, pic, % "x" ui.buttonList.pos.x " y" ui.buttonList.pos.y " w" ui.buttonList.size.w " h" ui.buttonList.size.h " 0xE hwndhBtnList gfunc_btn_list",
 Gui, Add, pic, % "x" ui.buttonMidi.pos.x " y" ui.buttonMidi.pos.y " w" ui.buttonMidi.size.w " h" ui.buttonMidi.size.h " 0xE hwndhBtnMidi gfunc_btn_midi", 
 Gui, Add, pic, % "x" ui.buttonPub.pos.x " y" ui.buttonPub.pos.y " w" ui.buttonPub.size.w " h" ui.buttonPub.size.h " 0xE hwndhBtnPub gfunc_btn_publish", 
 
@@ -184,6 +190,9 @@ hBitmap.button3Hover:=hBitmapByBorderHatchAndText(ui.button3.size.w,ui.button3.s
 hBitmap.buttonFile:=hBitmapByBorderHatchAndText(ui.buttonFile.size.w,ui.buttonFile.size.h, 0xff2a8c9f,1,0xffeffcff,0xffeffcff,0,"File")
 hBitmap.buttonFileHover:=hBitmapByBorderHatchAndText(ui.buttonFile.size.w,ui.buttonFile.size.h, 0xff197b8e,2,0xffe1f7fb,0xffe1f7fb,0,"File")
 
+hBitmap.buttonList:=hBitmapByBorderHatchAndText(ui.buttonList.size.w,ui.buttonList.size.h, 0xff4f91ad,1,0xffeffbff,0xffeffbff,0,"List")
+hBitmap.buttonListHover:=hBitmapByBorderHatchAndText(ui.buttonList.size.w,ui.buttonList.size.h, 0xff387d99,2,0xffe2f6fc,0xffe2f6fc,0,"List")
+
 hBitmap.buttonMidi:=hBitmapByBorderHatchAndText(ui.buttonMidi.size.w,ui.buttonMidi.size.h, 0xff6d73c9,1,0xfff4f5ff,0xfff4f5ff,0,"MIDI")
 hBitmap.buttonMidiHover:=hBitmapByBorderHatchAndText(ui.buttonMidi.size.w,ui.buttonMidi.size.h, 0xff575eb3,2,0xffeceeff,0xffeceeff,0,"MIDI")
 
@@ -198,6 +207,7 @@ SetImage(hBtn1,hBitmap.button1)
 SetImage(hBtn2,hBitmap.button2)
 SetImage(hBtn3,hBitmap.button3)
 SetImage(hBtnFile,hBitmap.buttonFile)
+SetImage(hBtnList,hBitmap.buttonList)
 SetImage(hBtnMidi,hBitmap.buttonMidi)
 SetImage(hBtnPub,hBitmap.buttonPub)
 statubar_txt("v" version)
@@ -336,6 +346,10 @@ btn_release(hwnd)
 	{
 		SetImage(hBtnFile,hBitmap.buttonFile)
 	}
+	if(hwnd==hBtnList)
+	{
+		SetImage(hBtnList,hBitmap.buttonList)
+	}
 	if(hwnd==hBtnMidi)
 	{
 		SetImage(hBtnMidi,hBitmap.buttonMidi)
@@ -386,6 +400,10 @@ MouseMove(wParam, lParam, msg, hwnd)
 		if(mhwnd==hBtnFile)
 		{
 			SetImage(hBtnFile,hBitmap.buttonFileHover)
+		}
+		if(mhwnd==hBtnList)
+		{
+			SetImage(hBtnList,hBitmap.buttonListHover)
 		}
 		if(mhwnd==hBtnMidi)
 		{

@@ -103,6 +103,18 @@ live_control_status_until_ms:=0
 live_control_status_last_ms:=0
 live_control_status_kind:=""
 beat_time_markers:=Array()
+sky_play_hold_min_ms:=100
+sky_play_same_key_gap_ms:=75
+sky_play_key_delay_ms:=8
+sky_play_press_ms:=40
+sky_play_release_lead_min_ms:=20
+sky_play_release_lead_max_ms:=50
+sky_play_release_lead_ratio:=0.25
+txt_list_paths:=Array()
+txt_list_index:=0
+hTxtListGui:=0
+hTxtListBox:=0
+txt_list_main_hidden:=0
 
 _Instrument:=inst
 
@@ -123,6 +135,7 @@ IniRead, global_mode, setting.ini, setup, globalMode, 0
 load_yihuan_play_settings()
 #Include GameProfiles.ahk
 game_profile_init()
+txt_list_load_settings()
 
 #Include gui.ahk
 Gosub resolve
@@ -181,7 +194,7 @@ analyseNotes(Notes)
 			statusTxt .= " | min " genshin_play_report.minGap "ms"
 		}
 		statusTxt .= " | " yihuan_play_speed_percent "% spd"
-		statusTxt .= " | hold min " yihuan_play_hold_min_ms "ms"
+		statusTxt .= " | hold min " play_hold_min_ms() "ms"
 		if(genshin_play_report.merged > 0) {
 			statusTxt .= " | merge " genshin_play_report.merged
 		}
@@ -670,12 +683,60 @@ load_yihuan_play_settings(update_speed_control := 0)
 	}
 }
 
+play_hold_min_ms()
+{
+	global current_game, yihuan_play_hold_min_ms, sky_play_hold_min_ms
+	if(current_game="sky")
+		return sky_play_hold_min_ms
+	return yihuan_play_hold_min_ms
+}
+
+play_same_key_gap_ms()
+{
+	global current_game, yihuan_play_same_key_gap_ms, sky_play_same_key_gap_ms
+	if(current_game="sky")
+		return sky_play_same_key_gap_ms
+	return yihuan_play_same_key_gap_ms
+}
+
+play_key_delay_ms()
+{
+	global current_game, yihuan_play_key_delay_ms, sky_play_key_delay_ms
+	if(current_game="sky")
+		return sky_play_key_delay_ms
+	return yihuan_play_key_delay_ms
+}
+
+play_key_press_ms()
+{
+	global current_game, yihuan_play_press_ms, sky_play_press_ms
+	if(current_game="sky")
+		return sky_play_press_ms
+	return yihuan_play_press_ms
+}
+
+play_release_lead_ms(noteTime)
+{
+	global current_game, sky_play_release_lead_min_ms, sky_play_release_lead_max_ms, sky_play_release_lead_ratio
+	if(current_game!="sky")
+		return 80
+	lead := Round(noteTime * sky_play_release_lead_ratio)
+	if(lead < sky_play_release_lead_min_ms)
+		lead := sky_play_release_lead_min_ms
+	if(lead > sky_play_release_lead_max_ms)
+		lead := sky_play_release_lead_max_ms
+	if(noteTime > 30 && lead > noteTime - 20)
+		lead := Max(0, noteTime - 20)
+	return lead
+}
+
 optimize_genshin_play_array(ByRef array)
 {
-	global yihuan_play_time_scale, yihuan_play_same_key_gap_ms
+	global yihuan_play_time_scale
 	out := Array()
 	lastByKey := {}
 	merged := 0
+	sameKeyGapMs := play_same_key_gap_ms()
 
 	Loop, % array.Length()
 	{
@@ -691,7 +752,7 @@ optimize_genshin_play_array(ByRef array)
 			prevIndex := lastByKey[note]
 			prev := out[prevIndex]
 			gap := delay - prev.delay
-			if(gap >= 0 && gap < yihuan_play_same_key_gap_ms)
+			if(gap >= 0 && gap < sameKeyGapMs)
 			{
 				prevEnd := prev.delay + prev.time
 				currEnd := delay + time
@@ -820,9 +881,10 @@ note_release(elem)
 }
 note_play(elem)
 {
-	global sendHistory, deltaMS, genshin_pressed_array, gDebug, yihuan_play_hold_min_ms
+	global sendHistory, deltaMS, genshin_pressed_array, gDebug
 	send_key:=""
-	if (elem.HasKey("resume") || elem.time >= yihuan_play_hold_min_ms)
+	holdMinMs := play_hold_min_ms()
+	if (elem.HasKey("resume") || elem.time >= holdMinMs)
 	{
 		send_key:=game_note_send_text(elem.note, "down")
 		game_note_send(elem.note, "down")
@@ -890,17 +952,18 @@ genshin_release_all_notes()
 
 genshin_build_resume_from_offset(targetMs)
 {
-	global genshin_play_array, genshin_resume_array, yihuan_play_hold_min_ms
+	global genshin_play_array, genshin_resume_array
 	targetMs := playback_clamp_ms(targetMs)
 	genshin_resume_array := Array()
 	nextIndex := 1
+	holdMinMs := play_hold_min_ms()
 	Loop, % genshin_play_array.Length()
 	{
 		ev := genshin_play_array[A_Index]
 		if(ev.delay < targetMs)
 		{
 			remainingTime := Round(ev.delay + ev.time - targetMs)
-			if(ev.time >= yihuan_play_hold_min_ms && remainingTime > 40)
+			if(ev.time >= holdMinMs && remainingTime > 40)
 			{
 				genshin_resume_array.Push({"delay":Round(targetMs), "time":remainingTime, "note":ev.note, "resume":1})
 			}
@@ -947,7 +1010,7 @@ genshin_pause()
 genshin_resume()
 {
 	global startTime, isBtn1Playing, isBtn1Paused, global_mode, domiso_active_hwnd, gui_id
-	global yihuan_play_key_delay_ms, yihuan_play_press_ms, genshin_pause_offset, Notes
+	global genshin_pause_offset, Notes
 	if(!isBtn1Paused || isBtn1Playing)
 	{
 		Return
@@ -972,7 +1035,9 @@ genshin_resume()
 	btn1update()
 	startTime:=genshin_now_ms() + 250 - genshin_pause_offset
 	live_clock_start(genshin_pause_offset, 0, 250)
-	SetKeyDelay, % yihuan_play_key_delay_ms, % yihuan_play_press_ms
+	keyDelayMs := play_key_delay_ms()
+	keyPressMs := play_key_press_ms()
+	SetKeyDelay, %keyDelayMs%, %keyPressMs%
 	analyseNotes(Notes)
 	SetTimer, genshin_main, 1
 	playback_start_progress("auto")
@@ -1015,7 +1080,8 @@ if(genshin_resume_array.Length() > 0 and deltaMS >= genshin_pause_offset)
 Loop, % genshin_pressed_array.Length()
 {
 	elem := genshin_pressed_array[A_Index]
-	if(deltaMS >= elem.delay+elem.time - 80) {
+	releaseLeadMs := play_release_lead_ms(elem.time)
+	if(deltaMS >= elem.delay+elem.time - releaseLeadMs) {
 		if(global_mode) {
 			if WinActive("ahk_id " domiso_active_hwnd)
 			{
@@ -1060,52 +1126,414 @@ Return
 
 ; 管理员权限下，无法直接使用拖入文件的功能，改由文件选择器调用此方法
 GuiDropFiles(GuiHwnd, FileArray, CtrlHwnd, X, Y) {
-	global hEdit1, editer, sheet_mode, plain_content, sheet_content, playback_seek_ms, playback_pending_seek_ms
-	if FileArray.MaxIndex() > 1
-	{
-		MsgBox, 0x41010, ERROR, More than 1 file detected.
-		Return
-	}
+	global hEdit1, hTxtListGui, hTxtListBox
 	if CtrlHwnd+0=hEdit1+0
 	{
-		FileGetSize, size, % FileArray[1], K
-		if size >= 256
+		if FileArray.MaxIndex() > 1
 		{
-			MsgBox, 0x41010, ERROR, The file is too LARGE.
+			MsgBox, 0x41010, ERROR, More than 1 file detected.
 			Return
 		}
-		f:=FileOpen(FileArray[1], "r")
-		if(is_dms_file(f))
-		{
-			sheet_mode:="cipher"
-			GuiControl, +ReadOnly +Disabled, editer
-			f.Seek(0)
-			_temp:=Decrypt_file(f)
-			plain_content:=_temp[1]
-			sheet_content:=_temp[2]
-		}
-		Else
-		{
-			sheet_mode:="normal"
-			GuiControl, -ReadOnly -Disabled, editer
-			f.Seek(0)
-			plain_content:=f.Read()
-			sheet_content:=plain_content
-		}
-		f.Close()
-		ControlSetText,, % plain_content, ahk_id %hEdit1%
-		score_speed_reset()
-		playback_seek_ms := 0
-		playback_pending_seek_ms := 0
-		Gosub, resolve
+		score_load_file(FileArray[1])
+		Return
 	}
+	if((hTxtListGui && GuiHwnd+0=hTxtListGui+0) || (hTxtListBox && CtrlHwnd+0=hTxtListBox+0))
+	{
+		added := txt_list_add_dropped(FileArray)
+		statubar_txt("TXT List: added " added)
+		Return
+	}
+}
+
+score_load_file(path)
+{
+	global hEdit1, editer, sheet_mode, plain_content, sheet_content, playback_seek_ms, playback_pending_seek_ms
+	if(!FileExist(path))
+	{
+		MsgBox, 0x41010, ERROR, Sheet file not found.
+		Return 0
+	}
+	FileGetSize, size, %path%, K
+	if size >= 256
+	{
+		MsgBox, 0x41010, ERROR, The file is too LARGE.
+		Return 0
+	}
+	f:=FileOpen(path, "r")
+	if(!IsObject(f))
+	{
+		MsgBox, 0x41010, ERROR, Can not open sheet file.
+		Return 0
+	}
+	if(is_dms_file(f))
+	{
+		sheet_mode:="cipher"
+		GuiControl, +ReadOnly +Disabled, editer
+		f.Seek(0)
+		_temp:=Decrypt_file(f)
+		plain_content:=_temp[1]
+		sheet_content:=_temp[2]
+	}
+	Else
+	{
+		sheet_mode:="normal"
+		GuiControl, -ReadOnly -Disabled, editer
+		f.Seek(0)
+		plain_content:=f.Read()
+		sheet_content:=plain_content
+	}
+	f.Close()
+	ControlSetText,, % plain_content, ahk_id %hEdit1%
+	score_speed_reset()
+	playback_seek_ms := 0
+	playback_pending_seek_ms := 0
+	Gosub, resolve
+	Return 1
+}
+
+txt_list_load_settings()
+{
+	global txt_list_paths, txt_list_index
+	txt_list_paths:=Array()
+	IniRead, count, setting.ini, txtlist, count, 0
+	count += 0
+	Loop, %count%
+	{
+		key := "item" A_Index
+		IniRead, p, setting.ini, txtlist, %key%,
+		if(p!="" && FileExist(p))
+			txt_list_add_path(p, 0)
+	}
+	IniRead, idx, setting.ini, txtlist, index, 0
+	txt_list_index := idx + 0
+	if(txt_list_index < 1 || txt_list_index > txt_list_paths.Length())
+		txt_list_index := txt_list_paths.Length() ? 1 : 0
+}
+
+txt_list_save_settings()
+{
+	global txt_list_paths, txt_list_index
+	IniDelete, setting.ini, txtlist
+	IniWrite, % txt_list_paths.Length(), setting.ini, txtlist, count
+	IniWrite, % txt_list_index, setting.ini, txtlist, index
+	Loop, % txt_list_paths.Length()
+	{
+		key := "item" A_Index
+		IniWrite, % txt_list_paths[A_Index], setting.ini, txtlist, %key%
+	}
+}
+
+txt_list_show()
+{
+	global hTxtListGui, hTxtListBox, txt_list_box, txt_list_status
+	txt_list_hide_main()
+	if(hTxtListGui)
+	{
+		Gui, txtlist:Show
+		txt_list_refresh(0)
+		Return
+	}
+	Gui, txtlist:New, +Resize +MinSize700x460 +HwndhTxtListGui, TXT List
+	Gui, txtlist:+Delimiter|
+	Gui, txtlist:Color, F7F1E6
+	Gui, txtlist:Font, s9 c4B3827, Segoe UI
+	Gui, txtlist:Add, Text, x18 y14 w180 h32 +0x200, TXT List
+	Gui, txtlist:Add, Text, x220 y14 w462 h32 Right +0x200 vtxt_list_status
+	Gui, txtlist:Font, s9 c163746, Segoe UI
+	Gui, txtlist:Add, ListBox, x18 y56 w664 h284 AltSubmit vtxt_list_box gtxt_list_select hwndhTxtListBox
+	Gui, txtlist:Add, Button, x18 y358 w108 h42 gtxt_list_add_files, Add
+	Gui, txtlist:Add, Button, x136 y358 w108 h42 gtxt_list_add_folder, Folder
+	Gui, txtlist:Add, Button, x254 y358 w108 h42 gtxt_list_prev, Prev
+	Gui, txtlist:Add, Button, x372 y358 w108 h42 gtxt_list_next, Next
+	Gui, txtlist:Add, Button, x490 y358 w108 h42 gtxt_list_load, Load
+	Gui, txtlist:Add, Button, x18 y410 w108 h42 gtxt_list_remove, Remove
+	Gui, txtlist:Add, Button, x136 y410 w108 h42 gtxt_list_clear, Clear
+	Gui, txtlist:Add, Button, x574 y410 w108 h42 gtxt_list_close, Close
+	txt_list_refresh(0)
+	Gui, txtlist:Show, w700 h470 Center
+}
+
+txt_list_hide_main()
+{
+	global gui_id, txt_list_main_hidden
+	if(!gui_id)
+		Return
+	WinSet, AlwaysOnTop, Off, ahk_id %gui_id%
+	Gui, main:Hide
+	txt_list_main_hidden := 1
+}
+
+txt_list_restore_main(restoreTopmost := 1, activateGame := 0)
+{
+	global gui_id, txt_list_main_hidden
+	if(!txt_list_main_hidden)
+		Return
+	Gui, main:Show, NoActivate
+	if(gui_id)
+	{
+		mode := restoreTopmost ? "On" : "Off"
+		WinSet, AlwaysOnTop, %mode%, ahk_id %gui_id%
+	}
+	txt_list_main_hidden := 0
+	if(activateGame)
+	{
+		gameHwnd := game_profile_window_exist()
+		if(gameHwnd)
+			WinActivate, ahk_id %gameHwnd%
+	}
+}
+
+main_show()
+{
+	global gui_id, txt_list_main_hidden
+	Gui, main:Show
+	if(gui_id)
+		WinSet, AlwaysOnTop, On, ahk_id %gui_id%
+	txt_list_main_hidden := 0
+}
+
+txt_list_hide()
+{
+	Gui, txtlist:Hide
+	txt_list_restore_main(0, 1)
+}
+
+txt_list_current_dir()
+{
+	IniRead, lastDir, setting.ini, txtlist, lastDir, % A_ScriptDir "\..\txt"
+	if(!InStr(FileExist(lastDir), "D"))
+		lastDir := "D:\domiso\txt"
+	if(!InStr(FileExist(lastDir), "D"))
+		lastDir := A_ScriptDir
+	Return lastDir
+}
+
+txt_list_add_path(path, save := 1)
+{
+	global txt_list_paths, txt_list_index
+	if(path="" || !FileExist(path))
+		Return 0
+	SplitPath, path,,, ext
+	StringLower, ext, ext
+	if(ext!="txt" && ext!="dms")
+		Return 0
+	pathKey := path
+	StringLower, pathKey, pathKey
+	Loop, % txt_list_paths.Length()
+	{
+		existing := txt_list_paths[A_Index]
+		StringLower, existing, existing
+		if(existing=pathKey)
+			Return 0
+	}
+	txt_list_paths.Push(path)
+	if(txt_list_index=0)
+		txt_list_index := 1
+	if(save)
+		txt_list_save_settings()
+	Return 1
+}
+
+txt_list_add_paths(paths)
+{
+	added := 0
+	for _, p in paths
+		added += txt_list_add_path(p, 0)
+	txt_list_save_settings()
+	txt_list_refresh(0)
+	Return added
+}
+
+txt_list_add_dropped(fileArray)
+{
+	added := 0
+	Loop, % fileArray.MaxIndex()
+	{
+		p := fileArray[A_Index]
+		if(InStr(FileExist(p), "D"))
+			added += txt_list_add_folder_path(p)
+		else
+			added += txt_list_add_path(p, 0)
+	}
+	txt_list_save_settings()
+	txt_list_refresh(0)
+	Return added
+}
+
+txt_list_parse_file_selection(selected)
+{
+	files:=Array()
+	lines:=Array()
+	Loop, Parse, selected, `n, `r
+	{
+		if(A_LoopField!="")
+			lines.Push(A_LoopField)
+	}
+	if(lines.Length()=0)
+		Return files
+	if(lines.Length()>1 && InStr(FileExist(lines[1]), "D"))
+	{
+		baseDir := lines[1]
+		Loop, % lines.Length()-1
+			files.Push(baseDir "\" lines[A_Index+1])
+	}
+	Else
+	{
+		Loop, % lines.Length()
+			files.Push(lines[A_Index])
+	}
+	Return files
+}
+
+txt_list_add_folder_path(folder)
+{
+	paths := ""
+	pattern := folder "\*.txt"
+	Loop, Files, %pattern%, F
+		paths .= A_LoopFileFullPath "`n"
+	pattern := folder "\*.dms"
+	Loop, Files, %pattern%, F
+		paths .= A_LoopFileFullPath "`n"
+	Sort, paths
+	files:=Array()
+	Loop, Parse, paths, `n, `r
+	{
+		if(A_LoopField!="")
+			files.Push(A_LoopField)
+	}
+	Return txt_list_add_paths(files)
+}
+
+txt_list_display_name(path, index)
+{
+	SplitPath, path, name
+	if(name="")
+		name := path
+	prefix := FileExist(path) ? "" : "[missing] "
+	line := index ". " prefix name
+	StringReplace, line, line, |, /, All
+	Return line
+}
+
+txt_list_refresh(save := 1)
+{
+	global txt_list_paths, txt_list_index, hTxtListGui
+	if(txt_list_index < 1 || txt_list_index > txt_list_paths.Length())
+		txt_list_index := txt_list_paths.Length() ? 1 : 0
+	if(hTxtListGui)
+	{
+		items := "|"
+		Loop, % txt_list_paths.Length()
+			items .= txt_list_display_name(txt_list_paths[A_Index], A_Index) "|"
+		GuiControl, txtlist:, txt_list_box, %items%
+		if(txt_list_index>0)
+			GuiControl, txtlist:Choose, txt_list_box, %txt_list_index%
+		txt_list_update_status()
+	}
+	if(save)
+		txt_list_save_settings()
+}
+
+txt_list_update_status()
+{
+	global txt_list_paths, txt_list_index, hTxtListGui
+	if(!hTxtListGui)
+		Return
+	count := txt_list_paths.Length()
+	if(count=0)
+		txt := "No files"
+	else
+		txt := txt_list_index "/" count
+	GuiControl, txtlist:, txt_list_status, %txt%
+}
+
+txt_list_get_selected_index()
+{
+	global txt_list_paths, txt_list_index, hTxtListGui
+	idx := 0
+	if(hTxtListGui && WinExist("ahk_id " hTxtListGui))
+	{
+		GuiControlGet, idx, txtlist:, txt_list_box
+		idx += 0
+	}
+	if(idx < 1)
+		idx := txt_list_index + 0
+	if(idx < 1 && txt_list_paths.Length())
+		idx := 1
+	if(idx > txt_list_paths.Length())
+		idx := txt_list_paths.Length()
+	Return idx
+}
+
+txt_list_stop_for_load()
+{
+	global isBtn1Playing, isBtn1Paused, isBtn2Playing, Notes, playback_seek_ms, playback_pending_seek_ms
+	if(isBtn1Playing || isBtn1Paused)
+		genshin_stop(1, 0)
+	if(isBtn2Playing)
+	{
+		Notes.Stop()
+		isBtn2Playing:=0
+		btn2update()
+		SetTimer, midi_playing_check, Off
+		playback_stop_progress()
+	}
+	playback_seek_ms := 0
+	playback_pending_seek_ms := 0
+}
+
+txt_list_load_index(idx)
+{
+	global txt_list_paths, txt_list_index
+	if(idx < 1 || idx > txt_list_paths.Length())
+	{
+		statubar_txt("TXT List: no file selected")
+		Return 0
+	}
+	path := txt_list_paths[idx]
+	if(!FileExist(path))
+	{
+		statubar_txt("TXT List: missing file")
+		Return 0
+	}
+	txt_list_index := idx
+	txt_list_save_settings()
+	txt_list_refresh(0)
+	txt_list_stop_for_load()
+	if(score_load_file(path))
+	{
+		SplitPath, path, name
+		statubar_txt("Loaded: " name)
+		Return 1
+	}
+	Return 0
+}
+
+txt_list_step(direction)
+{
+	global txt_list_paths
+	count := txt_list_paths.Length()
+	if(count=0)
+	{
+		statubar_txt("TXT List is empty")
+		Return
+	}
+	idx := txt_list_get_selected_index()
+	if(idx < 1)
+		idx := 1
+	idx += direction
+	if(idx > count)
+		idx := 1
+	else if(idx < 1)
+		idx := count
+	txt_list_load_index(idx)
 }
 
 genshin_play(targetMs := 0, resetLive := 1)
 {
 	global sendHistory, gDebug, startTime, freq, genshin_pressed_p, genshin_pressed_array
 	global isBtn1Playing, global_mode, domiso_active_hwnd, gui_id
-	global yihuan_play_key_delay_ms, yihuan_play_press_ms, isBtn1Paused, genshin_pause_offset, genshin_resume_array
+	global isBtn1Paused, genshin_pause_offset, genshin_resume_array
 	global playback_seek_ms, playback_pending_seek_ms
 	targetMs := playback_clamp_ms(targetMs)
 	genshin_pressed_array := Array()
@@ -1134,7 +1562,9 @@ genshin_play(targetMs := 0, resetLive := 1)
 	live_clock_start(targetMs, resetLive, 500)
 	playback_seek_ms := targetMs
 	playback_pending_seek_ms := targetMs
-	SetKeyDelay, % yihuan_play_key_delay_ms, % yihuan_play_press_ms
+	keyDelayMs := play_key_delay_ms()
+	keyPressMs := play_key_press_ms()
+	SetKeyDelay, %keyDelayMs%, %keyPressMs%
 	if(gDebug) {
 		sendHistory:=""
 	}
@@ -1330,6 +1760,90 @@ if select_file
 {
 	GuiDropFiles(0, [select_file], hEdit1, 0, 0)
 }
+Return
+
+func_btn_list:
+txt_list_show()
+Return
+
+txt_list_select:
+GuiControlGet, idx, txtlist:, txt_list_box
+if(idx)
+{
+	txt_list_index := idx + 0
+	txt_list_save_settings()
+	txt_list_update_status()
+}
+Return
+
+txt_list_add_files:
+Thread, NoTimers
+lastDir := txt_list_current_dir()
+FileSelectFile, selectedFiles, M3, %lastDir%, Add TXT/DMS, DoMiSo Sheet (*.txt; *.dms)
+Thread, NoTimers, false
+if(selectedFiles!="")
+{
+	files := txt_list_parse_file_selection(selectedFiles)
+	added := txt_list_add_paths(files)
+	if(files.Length())
+	{
+		firstFile := files[1]
+		SplitPath, firstFile,, lastDir
+		if(lastDir!="")
+			IniWrite, %lastDir%, setting.ini, txtlist, lastDir
+	}
+	statubar_txt("TXT List: added " added)
+}
+Return
+
+txt_list_add_folder:
+Thread, NoTimers
+lastDir := txt_list_current_dir()
+FileSelectFolder, selectedDir, *%lastDir%, 3, Add TXT/DMS Folder
+Thread, NoTimers, false
+if(selectedDir!="")
+{
+	added := txt_list_add_folder_path(selectedDir)
+	IniWrite, %selectedDir%, setting.ini, txtlist, lastDir
+	statubar_txt("TXT List: added " added)
+}
+Return
+
+txt_list_load:
+txt_list_load_index(txt_list_get_selected_index())
+Return
+
+txt_list_prev:
+txt_list_step(-1)
+Return
+
+txt_list_next:
+txt_list_step(1)
+Return
+
+txt_list_remove:
+idx := txt_list_get_selected_index()
+if(idx > 0 && idx <= txt_list_paths.Length())
+{
+	txt_list_paths.RemoveAt(idx)
+	if(txt_list_index > txt_list_paths.Length())
+		txt_list_index := txt_list_paths.Length()
+	if(txt_list_index < 1 && txt_list_paths.Length())
+		txt_list_index := 1
+	txt_list_refresh()
+}
+Return
+
+txt_list_clear:
+txt_list_paths:=Array()
+txt_list_index:=0
+txt_list_refresh()
+Return
+
+txt_list_close:
+txtlistGuiClose:
+txtlistGuiEscape:
+txt_list_hide()
 Return
 
 func_btn_publish:

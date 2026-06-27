@@ -4,6 +4,8 @@ menu()
 	Menu, Tray, NoStandard
 	Menu, Tray, Add, % "v" version,donothing
 	Menu, Tray, Add
+	Menu, Tray, Add, Show Domiso, showmain
+	Menu, Tray, Default, Show Domiso
 	Menu, Tray, Add, Setup, setup
 	Menu, Tray, Add, Convert MIDI, func_btn_midi
 	Menu, Tray, Add
@@ -19,6 +21,9 @@ _func_001()
 	global
 setup:
 setup_gui_show()
+Return
+showmain:
+main_show()
 Return
 gamefolder:
 game_profile_open_folder()
