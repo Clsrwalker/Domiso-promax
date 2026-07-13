@@ -46,6 +46,7 @@ ui.font_field:=Max(9,Round(9*ui.dpi_scale))
 ui.font_time:=Max(9,Round(10*ui.dpi_scale))
 ui.font_hint:=Max(8,Round(8*ui.dpi_scale))
 ui.font_button:=Max(20,Round(26*ui.dpi_scale))
+ui.font_toggle:=Max(10,Round(11*ui.dpi_scale))
 ui.font_status:=Max(11,Round(12*ui.dpi_scale))
 ui.size:={w:740,h:1200}
 ui.card_x:=20
@@ -100,14 +101,20 @@ ui.game.label:={x:ui.card_x,y:ui.instrument.label.y-156,w:180,h:ui.label_text_h}
 ui.game.pos:={x:ui.card_x,y:ui.game.label.y+62}
 ui.game.size:={w:ui.card_w,h:46}
 
-ui.progress.label:={x:ui.card_x,y:ui.game.label.y-156,w:220,h:ui.label_text_h}
+ui.progress.label:={x:ui.card_x,y:ui.game.label.y-156,w:120,h:ui.label_text_h}
 ui.progress.time_y:=ui.progress.label.y+62
 ui.progress.pos:={x:ui.card_x,y:ui.progress.label.y+98}
 ui.progress.size:={w:ui.card_w,h:46}
 ui.speed:={}
-ui.speed.label:={x:ui.card_x+430,y:ui.progress.label.y+7,w:70,h:42}
+ui.speed.label:={x:ui.card_x+410,y:ui.progress.label.y+7,w:60,h:42}
 ui.speed.input:={x:ui.speed.label.x+ui.speed.label.w+10,y:ui.progress.label.y+6,w:92,h:38}
 ui.speed.unit:={x:ui.speed.input.x+ui.speed.input.w+8,y:ui.progress.label.y+7,w:28,h:42}
+ui.struggle:={}
+ui.struggle.pos:={x:ui.card_x+130,y:ui.progress.label.y+6}
+ui.struggle.size:={w:125,h:38}
+ui.chord:={}
+ui.chord.pos:={x:ui.struggle.pos.x+ui.struggle.size.w+10,y:ui.progress.label.y+6}
+ui.chord.size:={w:125,h:38}
 ui.hotkey:={}
 ui.hotkey.pos:={x:ui.card_x,y:ui.buttonFile.pos.y+ui.buttonFile.size.h+4}
 ui.hotkey.size:={w:ui.card_w,h:28}
@@ -124,7 +131,7 @@ ui.headercolor:=0xffc9edf2
 ui.bordercolor:=0xff2a8c9f
 playback_hint=
 (
-F7 Pause   F8 Stop   F9 Start   F10 Resume
+F7 Pause   F8 Stop   F9 Start   F10 Resume   F11 Struggle   F12 Chord
 )
 Gui, main:New, -Caption -DPIScale -AlwaysOnTop -Owner +OwnDialogs hwndgui_id
 Gui, Color, % ui.fgcolor, % ui.bgcolor
@@ -150,6 +157,8 @@ Gui, Font, % "s" ui.font_time " c163746", Consolas
 Gui, Add, Text, % "x" ui.progress.pos.x " y" ui.progress.time_y " w112 h48 +0x200 BackgroundTrans vplayback_elapsed_label", 00:00
 Gui, Add, Text, % "x" ui.progress.pos.x+ui.progress.size.w-112 " y" ui.progress.time_y " w112 h48 Right +0x200 BackgroundTrans vplayback_total_label", 00:00
 Gui, Add, Slider, % "x" ui.progress.pos.x " y" ui.progress.pos.y " w" ui.progress.size.w " h46 Range0-1000 AltSubmit vplayback_slider gfunc_playback_slider hwndhPlaybackSlider ToolTip", 0
+Gui, Add, pic, % "x" ui.struggle.pos.x " y" ui.struggle.pos.y " w" ui.struggle.size.w " h" ui.struggle.size.h " 0xE hwndhBtnStruggle gfunc_btn_struggle",
+Gui, Add, pic, % "x" ui.chord.pos.x " y" ui.chord.pos.y " w" ui.chord.size.w " h" ui.chord.size.h " 0xE hwndhBtnChord gfunc_btn_chord_humanize",
 Gui, Font, % "s" ui.font_hint " c3F6C79", Segoe UI
 Gui, Add, Text, % "x" ui.speed.label.x " y" ui.speed.label.y " w" ui.speed.label.w " h" ui.speed.label.h " Right +0x200 BackgroundTrans", Speed
 Gui, Font, % "s" ui.font_field " c163746", Segoe UI
@@ -199,6 +208,17 @@ hBitmap.buttonMidiHover:=hBitmapByBorderHatchAndText(ui.buttonMidi.size.w,ui.but
 hBitmap.buttonPub:=hBitmapByBorderHatchAndText(ui.buttonPub.size.w,ui.buttonPub.size.h, 0xff5a9b85,1,0xfff0fbf8,0xfff0fbf8,0,"Encrypt")
 hBitmap.buttonPubHover:=hBitmapByBorderHatchAndText(ui.buttonPub.size.w,ui.buttonPub.size.h, 0xff43856e,2,0xffe5f7f1,0xffe5f7f1,0,"Encrypt")
 
+chordTextOption := "cFF526674 S" ui.font_toggle " Center vCenter"
+chordOnTextOption := "cFFF7FFFB S" ui.font_toggle " Center vCenter"
+hBitmap.struggleOff:=hBitmapByBorderHatchAndText(ui.struggle.size.w,ui.struggle.size.h, 0xff9a7b67,1,0xfffffaf6,0xfffffaf6,0,"Struggle OFF  F11",chordTextOption)
+hBitmap.struggleOffHover:=hBitmapByBorderHatchAndText(ui.struggle.size.w,ui.struggle.size.h, 0xff7f6251,2,0xfffff4ec,0xfffff4ec,0,"Struggle OFF  F11",chordTextOption)
+hBitmap.struggleOn:=hBitmapByBorderHatchAndText(ui.struggle.size.w,ui.struggle.size.h, 0xffb85b45,1,0xffb85b45,0xffb85b45,0,"Struggle ON  F11",chordOnTextOption)
+hBitmap.struggleOnHover:=hBitmapByBorderHatchAndText(ui.struggle.size.w,ui.struggle.size.h, 0xff934533,2,0xff934533,0xff934533,0,"Struggle ON  F11",chordOnTextOption)
+hBitmap.chordOff:=hBitmapByBorderHatchAndText(ui.chord.size.w,ui.chord.size.h, 0xff7d91a1,1,0xfff7fbff,0xfff7fbff,0,"Chord OFF  F12",chordTextOption)
+hBitmap.chordOffHover:=hBitmapByBorderHatchAndText(ui.chord.size.w,ui.chord.size.h, 0xff5f7586,2,0xffeef6fb,0xffeef6fb,0,"Chord OFF  F12",chordTextOption)
+hBitmap.chordOn:=hBitmapByBorderHatchAndText(ui.chord.size.w,ui.chord.size.h, 0xff2f8a70,1,0xff2f8a70,0xff2f8a70,0,"Chord ON  F12",chordOnTextOption)
+hBitmap.chordOnHover:=hBitmapByBorderHatchAndText(ui.chord.size.w,ui.chord.size.h, 0xff216b57,2,0xff216b57,0xff216b57,0,"Chord ON  F12",chordOnTextOption)
+
 hBitmap.bg:=hBitmapByBorderHatchAndText(ui.size.w,ui.size.h, ui.bgcolor,0,ui.bgcolor,ui.bgcolor,0)
 
 SetImage(hBg,hBitmap.bg)
@@ -210,6 +230,8 @@ SetImage(hBtnFile,hBitmap.buttonFile)
 SetImage(hBtnList,hBitmap.buttonList)
 SetImage(hBtnMidi,hBitmap.buttonMidi)
 SetImage(hBtnPub,hBitmap.buttonPub)
+struggle_update_button()
+chord_humanize_update_button()
 statubar_txt("v" version)
 Gui, main:Show, % "w" ui.size.w " h" ui.size.h
 
@@ -309,6 +331,28 @@ btn2update()
 	}
 }
 
+chord_humanize_update_button()
+{
+	global
+	if(!hBtnChord)
+		return
+	if(chord_humanize_enabled)
+		SetImage(hBtnChord,hBitmap.chordOn)
+	else
+		SetImage(hBtnChord,hBitmap.chordOff)
+}
+
+struggle_update_button()
+{
+	global
+	if(!hBtnStruggle)
+		return
+	if(struggle_enabled)
+		SetImage(hBtnStruggle,hBitmap.struggleOn)
+	else
+		SetImage(hBtnStruggle,hBitmap.struggleOff)
+}
+
 btn_release(hwnd)
 {
 	global
@@ -353,6 +397,14 @@ btn_release(hwnd)
 	if(hwnd==hBtnMidi)
 	{
 		SetImage(hBtnMidi,hBitmap.buttonMidi)
+	}
+	if(hwnd==hBtnChord)
+	{
+		chord_humanize_update_button()
+	}
+	if(hwnd==hBtnStruggle)
+	{
+		struggle_update_button()
 	}
 }
 
@@ -408,6 +460,20 @@ MouseMove(wParam, lParam, msg, hwnd)
 		if(mhwnd==hBtnMidi)
 		{
 			SetImage(hBtnMidi,hBitmap.buttonMidiHover)
+		}
+		if(mhwnd==hBtnChord)
+		{
+			if(chord_humanize_enabled)
+				SetImage(hBtnChord,hBitmap.chordOnHover)
+			else
+				SetImage(hBtnChord,hBitmap.chordOffHover)
+		}
+		if(mhwnd==hBtnStruggle)
+		{
+			if(struggle_enabled)
+				SetImage(hBtnStruggle,hBitmap.struggleOnHover)
+			else
+				SetImage(hBtnStruggle,hBitmap.struggleOffHover)
 		}
 	}
 	_LastButtonData := mhwnd

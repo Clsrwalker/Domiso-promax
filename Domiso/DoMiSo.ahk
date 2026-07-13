@@ -103,6 +103,28 @@ live_control_status_until_ms:=0
 live_control_status_last_ms:=0
 live_control_status_kind:=""
 beat_time_markers:=Array()
+chord_humanize_enabled:=0
+chord_humanize_pending_array:=Array()
+chord_humanize_last_order:=""
+chord_humanize_last_hand_mode:=""
+chord_humanize_last_two_hand_delay:=-999999
+chord_humanize_min_hold_ms:=30
+chord_humanize_min_gap_ms:=14
+chord_humanize_max_gap_ms:=22
+chord_humanize_min_spread_ms:=32
+chord_humanize_max_spread_ms:=55
+struggle_enabled:=0
+struggle_pause_until_ms:=0
+struggle_next_event_ms:=0
+struggle_handled_index:=0
+struggle_last_lead_pitch:=""
+struggle_last_event_delay:=-999999
+struggle_replay_active:=0
+struggle_replay_start_ms:=0
+struggle_replay_end_ms:=0
+struggle_replay_pass:=0
+struggle_replay_max_passes:=0
+struggle_direction_bias:=0
 sky_play_hold_min_ms:=100
 sky_play_same_key_gap_ms:=75
 sky_play_key_delay_ms:=8
@@ -155,15 +177,16 @@ genshin_array_sort(ByRef array)
 	array_string:=""
 	For index, v in array
 	{
-		array_string .= v.delay "," v.note "," v.time "`n"
+		pitch := v.HasKey("pitch") ? v.pitch : 0
+		array_string .= v.delay "," pitch "," v.note "," v.time "`n"
 	}
 	Sort, array_string, N
 	array:={}
 	Loop, Parse, array_string, `n
 	{
-		if(RegExMatch(A_LoopField, "O)(\d+),([^,]+),(\d+)", note))
+		if(RegExMatch(A_LoopField, "O)(\d+),(-?\d+),([^,]+),(\d+)", note))
 		{
-			array.Push({"delay":note[1], "note":note[2], "time":note[3]})
+			array.Push({"delay":note[1], "pitch":note[2], "note":note[3], "time":note[4]})
 		}
 	}
 }
@@ -280,8 +303,16 @@ live_clock_tick(nowMs := "")
 	global live_phase_kp, live_phase_max_rate, live_phase_held_max_rate
 	global live_phase_smoothing_ms, live_phase_deadband_ms, live_phase_jog_rate
 	global live_control_status_until_ms, live_control_status_last_ms, live_control_status_kind
+	global struggle_pause_until_ms
 	if(nowMs = "") {
 		nowMs := genshin_now_ms()
+	}
+	if(struggle_pause_until_ms > nowMs) {
+		live_last_tick_ms := nowMs
+		return playback_clamp_ms(live_playhead_ms)
+	}
+	if(struggle_pause_until_ms > 0) {
+		struggle_pause_until_ms := 0
 	}
 	if(live_last_tick_ms <= 0) {
 		live_last_tick_ms := nowMs
@@ -764,11 +795,910 @@ optimize_genshin_play_array(ByRef array)
 				Continue
 			}
 		}
-		out.Push({"delay":delay, "time":time, "note":note})
+		pitch := ev.HasKey("pitch") ? ev.pitch : 0
+		out.Push({"delay":delay, "time":time, "note":note, "pitch":pitch})
 		lastByKey[note] := out.Length()
 	}
 	array := out
 	return build_genshin_play_report(array, merged)
+}
+
+struggle_clamp(value, minimum, maximum)
+{
+	if(value < minimum)
+		return minimum
+	if(value > maximum)
+		return maximum
+	return value
+}
+
+struggle_reset_runtime(clearLead := 1)
+{
+	global struggle_pause_until_ms, struggle_next_event_ms, struggle_handled_index
+	global struggle_last_lead_pitch, struggle_last_event_delay
+	global struggle_replay_active, struggle_replay_start_ms, struggle_replay_end_ms
+	global struggle_replay_pass, struggle_replay_max_passes
+	struggle_pause_until_ms := 0
+	struggle_next_event_ms := 0
+	struggle_handled_index := 0
+	struggle_last_event_delay := -999999
+	struggle_replay_active := 0
+	struggle_replay_start_ms := 0
+	struggle_replay_end_ms := 0
+	struggle_replay_pass := 0
+	struggle_replay_max_passes := 0
+	if(clearLead)
+		struggle_last_lead_pitch := ""
+}
+
+struggle_arm(positionMs, initial := 0)
+{
+	global struggle_next_event_ms, struggle_direction_bias
+	beatMs := live_current_beat_ms(positionMs)
+	if(initial)
+		Random, waitRatio, 80, 180
+	else
+		Random, waitRatio, 400, 900
+	struggle_next_event_ms := positionMs + beatMs * waitRatio / 100.0
+	if(struggle_direction_bias = 0)
+	{
+		Random, directionRoll, 0, 1
+		struggle_direction_bias := directionRoll ? 1 : -1
+	}
+}
+
+struggle_toggle(source := "")
+{
+	global struggle_enabled, struggle_pause_until_ms, struggle_replay_active
+	global struggle_handled_index, isBtn1Playing
+	struggle_enabled := !struggle_enabled
+	if(struggle_enabled)
+	{
+		struggle_reset_runtime(1)
+		struggle_arm(playback_get_current_ms(), 1)
+		message := "Struggle ON"
+		if(isBtn1Playing)
+			message .= " | mistakes begin in the next few beats"
+	} else {
+		; Stop creating errors immediately and continue from the current score position.
+		struggle_pause_until_ms := 0
+		struggle_replay_active := 0
+		struggle_handled_index := 0
+		message := "Struggle OFF | normal playback continues"
+	}
+	struggle_update_button()
+	statubar_txt(message)
+}
+
+struggle_group_metrics(startIndex, count, nextDelay := 0)
+{
+	global genshin_play_array, struggle_last_lead_pitch
+	group := Array()
+	lowest := 9999
+	highest := -9999
+	Loop, %count%
+	{
+		elem := genshin_play_array[startIndex + A_Index - 1]
+		group.Push(elem)
+		pitch := elem.HasKey("pitch") ? elem.pitch + 0 : 0
+		if(pitch < lowest)
+			lowest := pitch
+		if(pitch > highest)
+			highest := pitch
+	}
+	baseDelay := genshin_play_array[startIndex].delay
+	beatMs := live_current_beat_ms(baseDelay)
+	leap := struggle_last_lead_pitch = "" ? 0 : Abs(highest - struggle_last_lead_pitch)
+	span := count > 1 ? highest - lowest : 0
+	nextGap := nextDelay > baseDelay ? nextDelay - baseDelay : beatMs
+	hands := chord_humanize_classify_hands(group)
+	score := Min(42, leap * 3.5)
+	score += Max(0, count - 1) * 11
+	score += Max(0, span - 7) * 1.8
+	if(nextGap < beatMs * 0.35)
+		score += 18
+	else if(nextGap < beatMs * 0.60)
+		score += 8
+	if(hands.twoHand)
+		score += 14
+	score := struggle_clamp(score, 0, 100)
+	return {"group":group, "baseDelay":baseDelay, "beatMs":beatMs, "lead":highest
+		, "leap":leap, "span":span, "score":score, "twoHand":hands.twoHand}
+}
+
+struggle_group_contains_note(startIndex, count, note)
+{
+	global genshin_play_array
+	Loop, %count%
+	{
+		if(genshin_play_array[startIndex + A_Index - 1].note = note)
+			return 1
+	}
+	return 0
+}
+
+struggle_note_is_pressed(note)
+{
+	global genshin_pressed_array
+	Loop, % genshin_pressed_array.Length()
+	{
+		if(genshin_pressed_array[A_Index].note = note)
+			return 1
+	}
+	return 0
+}
+
+struggle_play_wrong_note(startIndex, count, metrics)
+{
+	global genshin_note_map, struggle_last_lead_pitch, struggle_direction_bias
+	targetPitch := metrics.lead + 0
+	lowerPitch := -9999
+	upperPitch := 9999
+	lowerNote := ""
+	upperNote := ""
+	For pitchKey, mappedNote in genshin_note_map
+	{
+		pitch := pitchKey + 0
+		if(struggle_group_contains_note(startIndex, count, mappedNote) || struggle_note_is_pressed(mappedNote))
+			Continue
+		if(pitch < targetPitch && pitch > lowerPitch)
+		{
+			lowerPitch := pitch
+			lowerNote := mappedNote
+		}
+		if(pitch > targetPitch && pitch < upperPitch)
+		{
+			upperPitch := pitch
+			upperNote := mappedNote
+		}
+	}
+	preferredDirection := struggle_direction_bias
+	if(struggle_last_lead_pitch != "")
+	{
+		if(targetPitch > struggle_last_lead_pitch)
+			preferredDirection := -1
+		else if(targetPitch < struggle_last_lead_pitch)
+			preferredDirection := 1
+	}
+	Random, preferenceRoll, 1, 100
+	if(preferenceRoll > 78)
+		preferredDirection *= -1
+	wrongNote := preferredDirection < 0 ? lowerNote : upperNote
+	if(wrongNote = "")
+		wrongNote := preferredDirection < 0 ? upperNote : lowerNote
+	if(wrongNote = "" || !chord_humanize_target_active())
+		return 0
+	game_note_send_fast(wrongNote, "tap")
+	return 1
+}
+
+struggle_hold(pauseMs, releaseNotes := 0)
+{
+	global struggle_pause_until_ms
+	pauseMs := struggle_clamp(Round(pauseMs), 1, 700)
+	if(releaseNotes)
+		genshin_release_all_notes()
+	struggle_pause_until_ms := genshin_now_ms() + pauseMs
+}
+
+struggle_find_event_index(targetMs)
+{
+	global genshin_play_array
+	Loop, % genshin_play_array.Length()
+	{
+		if(genshin_play_array[A_Index].delay >= targetMs)
+			return A_Index
+	}
+	return genshin_play_array.Length() + 1
+}
+
+struggle_begin_replay(failureMs, beatMs)
+{
+	global genshin_pressed_p, genshin_resume_array, live_playhead_ms, live_last_tick_ms
+	global playback_seek_ms, playback_pending_seek_ms, startTime
+	global struggle_replay_active, struggle_replay_start_ms, struggle_replay_end_ms
+	global struggle_replay_pass, struggle_replay_max_passes, struggle_handled_index
+	if(failureMs < beatMs * 1.25)
+		return 0
+	Random, rewindRatio, 200, 340
+	targetMs := Max(0, Round(failureMs - beatMs * rewindRatio / 100.0))
+	targetIndex := struggle_find_event_index(targetMs)
+	if(targetIndex >= genshin_pressed_p)
+		return 0
+	if(!struggle_replay_active)
+	{
+		struggle_replay_pass := 1
+		Random, repeatRoll, 1, 100
+		struggle_replay_max_passes := repeatRoll <= 28 ? 2 : 1
+		struggle_replay_end_ms := failureMs
+	} else {
+		struggle_replay_pass += 1
+	}
+	struggle_replay_active := 1
+	struggle_replay_start_ms := targetMs
+	struggle_handled_index := 0
+	genshin_release_all_notes()
+	chord_humanize_clear_pending()
+	genshin_resume_array := Array()
+	genshin_pressed_p := targetIndex
+	live_playhead_ms := targetMs
+	live_last_tick_ms := genshin_now_ms()
+	startTime := live_last_tick_ms - targetMs
+	playback_seek_ms := targetMs
+	playback_pending_seek_ms := targetMs
+	if(struggle_replay_pass = 1)
+		Random, stopMs, 320, 650
+	else
+		Random, stopMs, 180, 360
+	struggle_hold(stopMs)
+	return 1
+}
+
+struggle_schedule_chord(startIndex, count, nextDelay, metrics)
+{
+	global genshin_play_array
+	if(count < 2)
+		return 0
+	group := chord_humanize_sort_by_pitch(metrics.group)
+	anchor := group[group.Length()]
+	group.RemoveAt(group.Length())
+	group.InsertAt(1, anchor)
+	baseDelay := metrics.baseDelay
+	maxSpread := Min(120, Round(metrics.beatMs * 0.22))
+	if(nextDelay > baseDelay)
+		maxSpread := Min(maxSpread, Round((nextDelay - baseDelay) * 0.42))
+	Loop, %count%
+	{
+		elem := group[A_Index]
+		releaseAt := baseDelay + elem.time - play_release_lead_ms(elem.time)
+		maxSpread := Min(maxSpread, Floor(releaseAt - baseDelay - 20))
+	}
+	if(maxSpread < 28)
+		return 0
+	Random, spreadRatio, 78, 100
+	totalSpread := Round(maxSpread * spreadRatio / 100.0)
+	Loop, %count%
+	{
+		elem := group[A_Index]
+		offset := count > 1 ? Round(totalSpread * (A_Index - 1) / (count - 1)) : 0
+		releaseAt := baseDelay + elem.time - play_release_lead_ms(elem.time)
+		played := {"delay":baseDelay + offset, "time":Max(1, elem.time - offset)
+			, "note":elem.note, "pitch":elem.HasKey("pitch") ? elem.pitch : 0
+			, "releaseAt":releaseAt, "humanized":1, "struggle":1}
+		chord_humanize_pending_push(played)
+	}
+	return 1
+}
+
+struggle_prepare_group(startIndex, count, nextDelay := 0)
+{
+	global struggle_enabled, struggle_next_event_ms, struggle_handled_index
+	global struggle_last_event_delay, struggle_replay_active, struggle_replay_end_ms
+	global struggle_replay_pass, struggle_replay_max_passes
+	if(!struggle_enabled)
+		return 0
+	metrics := struggle_group_metrics(startIndex, count, nextDelay)
+	baseDelay := metrics.baseDelay
+	beatMs := metrics.beatMs
+	if(struggle_replay_active)
+	{
+		if(baseDelay >= struggle_replay_end_ms)
+		{
+			if(struggle_replay_pass < struggle_replay_max_passes)
+			{
+				if(struggle_begin_replay(struggle_replay_end_ms, beatMs))
+				{
+					statubar_txt("Struggle: repeating the difficult phrase")
+					return 1
+				}
+			}
+			struggle_replay_active := 0
+			struggle_handled_index := startIndex
+			struggle_arm(baseDelay)
+			statubar_txt("Struggle: phrase recovered")
+		}
+		return 0
+	}
+	if(struggle_handled_index = startIndex)
+	{
+		struggle_handled_index := 0
+		return 0
+	}
+	if(baseDelay < struggle_next_event_ms)
+		return 0
+	if(metrics.score < 15 && baseDelay < struggle_next_event_ms + beatMs * 3)
+		return 0
+
+	Random, actionRoll, 1, 100
+	struggle_last_event_delay := baseDelay
+	struggle_arm(baseDelay)
+	if(actionRoll <= 18 && baseDelay >= beatMs * 1.25)
+	{
+		wrongPlayed := struggle_play_wrong_note(startIndex, count, metrics)
+		if(struggle_begin_replay(baseDelay, beatMs))
+		{
+			statubar_txt("Struggle: wrong note | replaying recent phrase")
+			return 1
+		}
+	}
+	if(actionRoll <= 48)
+	{
+		if(wrongPlayed || struggle_play_wrong_note(startIndex, count, metrics))
+		{
+			pauseMs := beatMs * (0.16 + metrics.score / 700.0)
+			Random, correctionRatio, 85, 125
+			pauseMs := struggle_clamp(pauseMs * correctionRatio / 100.0, 90, 280)
+			struggle_handled_index := startIndex
+			struggle_hold(pauseMs, pauseMs >= 150)
+			statubar_txt("Struggle: wrong note | correcting")
+			return 1
+		}
+	}
+	if(actionRoll <= 68 && count >= 2)
+	{
+		if(struggle_schedule_chord(startIndex, count, nextDelay, metrics))
+		{
+			statubar_txt("Struggle: chord assembled late")
+			return 2
+		}
+	}
+	pauseMs := beatMs * (0.10 + metrics.score / 500.0)
+	Random, hesitationRatio, 82, 128
+	pauseMs := pauseMs * hesitationRatio / 100.0
+	Random, severeRoll, 1, 100
+	if(severeRoll <= 14 && metrics.score >= 35)
+		pauseMs += beatMs * 0.32
+	pauseMs := struggle_clamp(pauseMs, 55, 450)
+	struggle_handled_index := startIndex
+	struggle_hold(pauseMs, pauseMs >= 170)
+	statubar_txt("Struggle: hesitating " Round(pauseMs) "ms")
+	return 1
+}
+
+struggle_record_group(startIndex, count)
+{
+	global genshin_play_array, struggle_last_lead_pitch
+	highest := -9999
+	Loop, %count%
+	{
+		elem := genshin_play_array[startIndex + A_Index - 1]
+		pitch := elem.HasKey("pitch") ? elem.pitch + 0 : 0
+		if(pitch > highest)
+			highest := pitch
+	}
+	if(highest > -9999)
+		struggle_last_lead_pitch := highest
+}
+
+chord_humanize_group_count(startIndex)
+{
+	global genshin_play_array
+	if(startIndex < 1 || startIndex > genshin_play_array.Length())
+		return 0
+	baseDelay := genshin_play_array[startIndex].delay
+	count := 0
+	index := startIndex
+	while(index <= genshin_play_array.Length() && genshin_play_array[index].delay = baseDelay)
+	{
+		if(!genshin_play_array[index].note)
+			return 0
+		count += 1
+		index += 1
+	}
+	return count
+}
+
+chord_humanize_adjacent_chord_gap(startIndex, count)
+{
+	global genshin_play_array
+	baseDelay := genshin_play_array[startIndex].delay
+	nearestGap := 0
+
+	nextIndex := startIndex + count
+	if(nextIndex <= genshin_play_array.Length() && chord_humanize_group_count(nextIndex) >= 2)
+	{
+		gap := genshin_play_array[nextIndex].delay - baseDelay
+		if(gap > 0)
+			nearestGap := gap
+	}
+
+	previousIndex := startIndex - 1
+	if(previousIndex >= 1)
+	{
+		previousDelay := genshin_play_array[previousIndex].delay
+		previousStart := previousIndex
+		while(previousStart > 1 && genshin_play_array[previousStart - 1].delay = previousDelay)
+			previousStart -= 1
+		previousCount := previousIndex - previousStart + 1
+		if(previousCount >= 2)
+		{
+			gap := baseDelay - previousDelay
+			if(gap > 0 && (nearestGap = 0 || gap < nearestGap))
+				nearestGap := gap
+		}
+	}
+	return nearestGap
+}
+
+chord_humanize_shuffle(ByRef group)
+{
+	global chord_humanize_last_order
+	count := group.Length()
+	if(count <= 1)
+		return
+
+	Loop, 4
+	{
+		attempt := A_Index
+		Loop, % count - 1
+		{
+			index := count - A_Index + 1
+			Random, swapIndex, 1, %index%
+			if(swapIndex != index)
+			{
+				temp := group[index]
+				group[index] := group[swapIndex]
+				group[swapIndex] := temp
+			}
+		}
+
+		highestPitch := -9999
+		lowestPitch := 9999
+		highestIndex := 1
+		lowestIndex := 1
+		Loop, %count%
+		{
+			pitch := group[A_Index].HasKey("pitch") ? group[A_Index].pitch : 0
+			if(pitch > highestPitch)
+			{
+				highestPitch := pitch
+				highestIndex := A_Index
+			}
+			if(pitch < lowestPitch)
+			{
+				lowestPitch := pitch
+				lowestIndex := A_Index
+			}
+		}
+
+		; Human block chords favor melody lead, with occasional bass/inner anticipation.
+		Random, leadRoll, 1, 100
+		if(leadRoll <= 70 || count = 1)
+		{
+			firstIndex := highestIndex
+		} else if(leadRoll <= 90 || count = 2) {
+			firstIndex := lowestIndex
+		} else {
+			innerIndexes := Array()
+			Loop, %count%
+			{
+				if(A_Index != highestIndex && A_Index != lowestIndex)
+					innerIndexes.Push(A_Index)
+			}
+			if(innerIndexes.Length() > 0)
+			{
+				Random, innerChoice, 1, % innerIndexes.Length()
+				firstIndex := innerIndexes[innerChoice]
+			} else {
+				firstIndex := lowestIndex
+			}
+		}
+		if(firstIndex != 1)
+		{
+			temp := group[1]
+			group[1] := group[firstIndex]
+			group[firstIndex] := temp
+		}
+
+		; When another voice anticipates, keep the melody second to protect recognition.
+		if(group[1].pitch != highestPitch && count >= 2)
+		{
+			highestIndex := 0
+			Loop, %count%
+			{
+				if(group[A_Index].pitch = highestPitch)
+				{
+					highestIndex := A_Index
+					break
+				}
+			}
+			if(highestIndex > 0 && highestIndex != 2)
+			{
+				temp := group[2]
+				group[2] := group[highestIndex]
+				group[highestIndex] := temp
+			}
+		}
+
+		signature := ""
+		Loop, %count%
+			signature .= (A_Index > 1 ? "|" : "") group[A_Index].note
+		if(signature != chord_humanize_last_order || attempt >= 4)
+			break
+	}
+	chord_humanize_last_order := signature
+}
+
+chord_humanize_sort_by_pitch(group)
+{
+	sorted := Array()
+	Loop, % group.Length()
+	{
+		elem := group[A_Index]
+		insertIndex := sorted.Length() + 1
+		Loop, % sorted.Length()
+		{
+			if(elem.pitch < sorted[A_Index].pitch)
+			{
+				insertIndex := A_Index
+				break
+			}
+		}
+		sorted.InsertAt(insertIndex, elem)
+	}
+	return sorted
+}
+
+chord_humanize_classify_hands(group)
+{
+	sorted := chord_humanize_sort_by_pitch(group)
+	count := sorted.Length()
+	result := {"twoHand":0, "single":sorted, "left":Array(), "right":Array(), "split":0}
+	if(count < 2)
+		return result
+
+	span := sorted[count].pitch - sorted[1].pitch
+	largestGap := 0
+	Loop, % count - 1
+	{
+		gap := sorted[A_Index + 1].pitch - sorted[A_Index].pitch
+		if(gap > largestGap)
+			largestGap := gap
+	}
+
+	if(count = 2 && span < 10)
+		return result
+	if(count <= 3 && span <= 9 && largestGap < 7)
+		return result
+	if(count = 4 && span <= 12 && largestGap < 7)
+		return result
+
+	bestScore := -99999
+	bestSplit := 0
+	Loop, % count - 1
+	{
+		split := A_Index
+		leftCount := split
+		rightCount := count - split
+		boundaryGap := sorted[split + 1].pitch - sorted[split].pitch
+		leftSpan := sorted[split].pitch - sorted[1].pitch
+		rightSpan := sorted[count].pitch - sorted[split + 1].pitch
+		score := boundaryGap * 3.0
+		score -= Max(0, leftSpan - 12) * 4.0
+		score -= Max(0, rightSpan - 12) * 4.0
+		score -= Abs(leftCount - rightCount) * 1.5
+		if(leftCount = 1 && boundaryGap >= 7)
+			score += 4
+		if(rightCount = 1 && boundaryGap >= 7)
+			score += 2
+		if(score > bestScore)
+		{
+			bestScore := score
+			bestSplit := split
+		}
+	}
+	if(bestSplit <= 0)
+		return result
+
+	Loop, %count%
+	{
+		if(A_Index <= bestSplit)
+			result.left.Push(sorted[A_Index])
+		else
+			result.right.Push(sorted[A_Index])
+	}
+	result.twoHand := 1
+	result.split := bestSplit
+	return result
+}
+
+chord_humanize_order_hand(ByRef hand, anchor)
+{
+	count := hand.Length()
+	if(count <= 1)
+		return
+	Loop, % count - 1
+	{
+		index := count - A_Index + 1
+		Random, swapIndex, 1, %index%
+		if(swapIndex != index)
+		{
+			temp := hand[index]
+			hand[index] := hand[swapIndex]
+			hand[swapIndex] := temp
+		}
+	}
+
+	anchorPitch := hand[1].pitch
+	anchorIndex := 1
+	Loop, %count%
+	{
+		if((anchor = "high" && hand[A_Index].pitch > anchorPitch)
+			|| (anchor = "low" && hand[A_Index].pitch < anchorPitch))
+		{
+			anchorPitch := hand[A_Index].pitch
+			anchorIndex := A_Index
+		}
+	}
+	Random, anchorRoll, 1, 100
+	anchorSlot := anchorRoll <= 80 ? 1 : 2
+	if(anchorIndex != anchorSlot)
+	{
+		temp := hand[anchorSlot]
+		hand[anchorSlot] := hand[anchorIndex]
+		hand[anchorIndex] := temp
+	}
+}
+
+chord_humanize_append_hand(ByRef ordered, ByRef offsets, hand, startOffset, innerGap)
+{
+	currentOffset := startOffset
+	Loop, % hand.Length()
+	{
+		ordered.Push(hand[A_Index])
+		offsets.Push(Round(currentOffset))
+		if(A_Index < hand.Length())
+		{
+			gapMin := Max(3, Round(innerGap * 0.70))
+			gapMax := Max(gapMin, Round(innerGap * 1.30))
+			Random, handGap, %gapMin%, %gapMax%
+			currentOffset += handGap
+		}
+	}
+	return currentOffset
+}
+
+chord_humanize_build_two_hand(ByRef ordered, ByRef offsets, hands, beatMs, maxSpread, baseDelay)
+{
+	global chord_humanize_last_hand_mode, chord_humanize_last_two_hand_delay
+	if(!hands.twoHand || maxSpread < 18)
+		return 0
+	left := hands.left
+	right := hands.right
+	chord_humanize_order_hand(left, "low")
+	chord_humanize_order_hand(right, "high")
+
+	innerGap := Round(beatMs * 0.014)
+	if(innerGap < 4)
+		innerGap := 4
+	else if(innerGap > 10)
+		innerGap := 10
+
+	handMode := ""
+	reuseMode := chord_humanize_last_hand_mode != "" && baseDelay - chord_humanize_last_two_hand_delay <= beatMs * 0.60
+	if(reuseMode)
+	{
+		Random, reuseRoll, 1, 100
+		if(reuseRoll <= 80)
+			handMode := chord_humanize_last_hand_mode
+	}
+	if(handMode = "")
+	{
+		Random, handRoll, 1, 100
+		if(handRoll <= 60)
+			handMode := "right"
+		else if(handRoll <= 85)
+			handMode := "left"
+		else {
+			Random, nearSide, 0, 1
+			handMode := nearSide ? "nearRight" : "nearLeft"
+		}
+	}
+	nearTogether := InStr(handMode, "near") = 1
+	rightLeads := InStr(handMode, "Right") || handMode = "right"
+	if(nearTogether)
+	{
+		nearMin := Max(8, Round(beatMs * 0.018))
+		if(nearMin > 18)
+			nearMin := 18
+		nearMax := Min(18, Max(nearMin, Round(beatMs * 0.036)))
+		Random, secondStart, %nearMin%, %nearMax%
+	} else {
+		handGapMin := Round(beatMs * 0.05)
+		handGapMax := Round(beatMs * 0.08)
+		if(handGapMin < 18)
+			handGapMin := 18
+		else if(handGapMin > 55)
+			handGapMin := 55
+		if(handGapMax < handGapMin)
+			handGapMax := handGapMin
+		else if(handGapMax > 55)
+			handGapMax := 55
+		Random, secondStart, %handGapMin%, %handGapMax%
+	}
+	chord_humanize_last_hand_mode := handMode
+	chord_humanize_last_two_hand_delay := baseDelay
+
+	if(rightLeads)
+	{
+		chord_humanize_append_hand(ordered, offsets, right, 0, innerGap)
+		chord_humanize_append_hand(ordered, offsets, left, secondStart, innerGap)
+	} else {
+		chord_humanize_append_hand(ordered, offsets, left, 0, innerGap)
+		chord_humanize_append_hand(ordered, offsets, right, secondStart, innerGap)
+	}
+
+	totalOffset := 0
+	Loop, % offsets.Length()
+	{
+		if(offsets[A_Index] > totalOffset)
+			totalOffset := offsets[A_Index]
+	}
+	if(totalOffset > maxSpread)
+	{
+		scale := maxSpread / totalOffset
+		Loop, % offsets.Length()
+			offsets[A_Index] := Round(offsets[A_Index] * scale)
+	}
+	return 1
+}
+
+chord_humanize_pending_push(elem)
+{
+	global chord_humanize_pending_array
+	insertIndex := chord_humanize_pending_array.Length() + 1
+	Loop, % chord_humanize_pending_array.Length()
+	{
+		if(elem.delay < chord_humanize_pending_array[A_Index].delay)
+		{
+			insertIndex := A_Index
+			break
+		}
+	}
+	chord_humanize_pending_array.InsertAt(insertIndex, elem)
+}
+
+chord_humanize_schedule_group(startIndex, count, nextDelay := 0)
+{
+	global genshin_play_array
+	global chord_humanize_min_hold_ms, chord_humanize_min_gap_ms, chord_humanize_max_gap_ms
+	global chord_humanize_min_spread_ms, chord_humanize_max_spread_ms
+	if(count < 2)
+		return 0
+
+	group := Array()
+	baseDelay := genshin_play_array[startIndex].delay
+	maxSpread := chord_humanize_max_spread_ms
+	Loop, %count%
+	{
+		elem := genshin_play_array[startIndex + A_Index - 1]
+		group.Push(elem)
+		releaseAt := baseDelay + elem.time - play_release_lead_ms(elem.time)
+		available := Floor(releaseAt - baseDelay - chord_humanize_min_hold_ms)
+		if(available < maxSpread)
+			maxSpread := available
+	}
+
+	beatMs := live_current_beat_ms(baseDelay)
+	spreadCap := Round(beatMs * 0.09)
+	if(spreadCap < chord_humanize_min_spread_ms)
+		spreadCap := chord_humanize_min_spread_ms
+	else if(spreadCap > chord_humanize_max_spread_ms)
+		spreadCap := chord_humanize_max_spread_ms
+	if(spreadCap < maxSpread)
+		maxSpread := spreadCap
+	if(nextDelay > baseDelay)
+	{
+		nextAvailable := Floor(nextDelay - baseDelay - 2)
+		if(nextAvailable < maxSpread)
+			maxSpread := nextAvailable
+	}
+	adjacentChordGap := chord_humanize_adjacent_chord_gap(startIndex, count)
+	if(adjacentChordGap > 0 && adjacentChordGap < beatMs * 0.75)
+	{
+		rapidChordCap := Round(adjacentChordGap * 0.25)
+		if(rapidChordCap < maxSpread)
+			maxSpread := rapidChordCap
+	}
+	if(maxSpread < chord_humanize_min_gap_ms)
+		return 0
+
+	baseGap := Round(beatMs * 0.032)
+	if(baseGap < chord_humanize_min_gap_ms)
+		baseGap := chord_humanize_min_gap_ms
+	else if(baseGap > chord_humanize_max_gap_ms)
+		baseGap := chord_humanize_max_gap_ms
+
+	hands := chord_humanize_classify_hands(group)
+	ordered := Array()
+	offsets := Array()
+	isTwoHand := chord_humanize_build_two_hand(ordered, offsets, hands, beatMs, maxSpread, baseDelay)
+	if(isTwoHand)
+	{
+		group := ordered
+	} else {
+		chord_humanize_shuffle(group)
+		offsets := Array(0)
+		totalOffset := 0
+		Loop, % count - 1
+		{
+			gapMin := Max(chord_humanize_min_gap_ms, Round(baseGap * 0.75))
+			gapMax := Max(gapMin, Round(baseGap * 1.25))
+			Random, randomGap, %gapMin%, %gapMax%
+			totalOffset += randomGap
+			offsets.Push(totalOffset)
+		}
+		if(totalOffset > maxSpread)
+		{
+			scale := maxSpread / totalOffset
+			Loop, % offsets.Length()
+				offsets[A_Index] := Round(offsets[A_Index] * scale)
+		}
+	}
+
+	Loop, %count%
+	{
+		elem := group[A_Index]
+		offset := offsets[A_Index]
+		releaseAt := baseDelay + elem.time - play_release_lead_ms(elem.time)
+		humanized := {"delay":baseDelay + offset
+			, "time":Max(1, elem.time - offset)
+			, "note":elem.note
+			, "pitch":elem.HasKey("pitch") ? elem.pitch : 0
+			, "releaseAt":releaseAt
+			, "twoHand":isTwoHand
+			, "humanized":1}
+		chord_humanize_pending_push(humanized)
+	}
+	return 1
+}
+
+chord_humanize_target_active()
+{
+	global global_mode, domiso_active_hwnd, genshin_win_hwnd
+	if(global_mode)
+		return WinActive("ahk_id " domiso_active_hwnd)
+	return WinActive("ahk_id " genshin_win_hwnd)
+}
+
+chord_humanize_play_pending(deltaMs)
+{
+	global chord_humanize_pending_array
+	while(chord_humanize_pending_array.Length() > 0 && deltaMs >= chord_humanize_pending_array[1].delay)
+	{
+		elem := chord_humanize_pending_array[1]
+		chord_humanize_pending_array.RemoveAt(1)
+		if(chord_humanize_target_active())
+		{
+			note_release(elem)
+			note_play(elem)
+		}
+	}
+}
+
+chord_humanize_clear_pending(resetOrder := 0)
+{
+	global chord_humanize_pending_array, chord_humanize_last_order
+	global chord_humanize_last_hand_mode, chord_humanize_last_two_hand_delay
+	chord_humanize_pending_array := Array()
+	if(resetOrder)
+	{
+		chord_humanize_last_order := ""
+		chord_humanize_last_hand_mode := ""
+		chord_humanize_last_two_hand_delay := -999999
+	}
+}
+
+chord_humanize_toggle(source := "")
+{
+	global chord_humanize_enabled, isBtn1Playing
+	chord_humanize_enabled := !chord_humanize_enabled
+	chord_humanize_update_button()
+	state := chord_humanize_enabled ? "ON" : "OFF"
+	message := "Human Chord " state
+	if(isBtn1Playing)
+		message .= " | applies next chord"
+	statubar_txt(message)
 }
 
 build_genshin_play_report(array, merged := 0)
@@ -856,7 +1786,7 @@ queue_game_note(noteTune, noteTime)
 	}
 	mappedKey := genshin_note_map[noteTune]
 	genshin_output.="[" Round(genshin_delay) "]-(" mappedKey ")-{" Round(noteTime) "}`n"
-	genshin_play_array.Push({"delay":Round(genshin_delay),"time":Round(noteTime),"note":mappedKey})
+	genshin_play_array.Push({"delay":Round(genshin_delay),"time":Round(noteTime),"note":mappedKey,"pitch":noteTune})
 }
 
 note_release(elem)
@@ -864,10 +1794,13 @@ note_release(elem)
 	global sendHistory, deltaMS, genshin_pressed_array, gDebug
 	note := elem.note
 	newArray := Array()
+	fastRelease := elem.HasKey("humanized") ? 1 : 0
 	Loop, % genshin_pressed_array.Length()
 	{
 		if genshin_pressed_array[A_Index].note != note {
 			newArray.Push(genshin_pressed_array[A_Index])
+		} else if(genshin_pressed_array[A_Index].HasKey("humanized")) {
+			fastRelease := 1
 		}
 	}
 	if genshin_pressed_array.Length() != newArray.Length() {
@@ -876,7 +1809,10 @@ note_release(elem)
 		if(gDebug) {
 			sendHistory.=Round(deltaMS) "ms " send_key "`n"
 		}
-		game_note_send(note, "up")
+		if(fastRelease)
+			game_note_send_fast(note, "up")
+		else
+			game_note_send(note, "up")
 	}
 }
 note_play(elem)
@@ -884,10 +1820,13 @@ note_play(elem)
 	global sendHistory, deltaMS, genshin_pressed_array, gDebug
 	send_key:=""
 	holdMinMs := play_hold_min_ms()
-	if (elem.HasKey("resume") || elem.time >= holdMinMs)
+	if (elem.HasKey("humanized") || elem.HasKey("resume") || elem.time >= holdMinMs)
 	{
 		send_key:=game_note_send_text(elem.note, "down")
-		game_note_send(elem.note, "down")
+		if(elem.HasKey("humanized"))
+			game_note_send_fast(elem.note, "down")
+		else
+			game_note_send(elem.note, "down")
 		genshin_pressed_array.Push(elem)
 	} else {
 		send_key:=game_note_send_text(elem.note, "tap")
@@ -930,6 +1869,16 @@ game_note_send(note, action)
 {
 	send_key := game_note_send_text(note, action)
 	Send, % send_key
+}
+
+game_note_send_fast(note, action)
+{
+	send_key := game_note_send_text(note, action)
+	SetKeyDelay, 1, -1
+	Send, % send_key
+	keyDelayMs := play_key_delay_ms()
+	keyPressMs := play_key_press_ms()
+	SetKeyDelay, %keyDelayMs%, %keyPressMs%
 }
 
 genshin_now_ms()
@@ -1000,6 +1949,7 @@ genshin_pause()
 	isBtn1Paused:=1
 	btn1update()
 	SetTimer, genshin_main, Off
+	chord_humanize_clear_pending()
 	SetKeyDelay, -1, -1
 	genshin_release_all_notes()
 	playback_stop_progress()
@@ -1047,7 +1997,7 @@ genshin_main:
 if(!global_mode) {
 	genshin_win_hwnd:=genshin_window_exist()
 }
-if(genshin_pressed_p > genshin_play_array.Length() and genshin_pressed_array.Length() == 0 or (!global_mode && !genshin_win_hwnd))
+if((genshin_pressed_p > genshin_play_array.Length() and genshin_pressed_array.Length() == 0 and chord_humanize_pending_array.Length() == 0) or (!global_mode && !genshin_win_hwnd))
 {
 	playback_seek_ms := playback_get_current_ms()
 	if(playback_total_ms > 0 && playback_seek_ms >= playback_total_ms - 50) {
@@ -1080,8 +2030,8 @@ if(genshin_resume_array.Length() > 0 and deltaMS >= genshin_pause_offset)
 Loop, % genshin_pressed_array.Length()
 {
 	elem := genshin_pressed_array[A_Index]
-	releaseLeadMs := play_release_lead_ms(elem.time)
-	if(deltaMS >= elem.delay+elem.time - releaseLeadMs) {
+	releaseAt := elem.HasKey("releaseAt") ? elem.releaseAt : elem.delay + elem.time - play_release_lead_ms(elem.time)
+	if(deltaMS >= releaseAt) {
 		if(global_mode) {
 			if WinActive("ahk_id " domiso_active_hwnd)
 			{
@@ -1096,6 +2046,8 @@ Loop, % genshin_pressed_array.Length()
 	}
 }
 
+chord_humanize_play_pending(deltaMS)
+
 genshin_prepare_p:=genshin_pressed_p
 While(genshin_prepare_p <= genshin_play_array.Length() and deltaMS + 40 >= genshin_play_array[genshin_prepare_p].delay)
 {
@@ -1108,6 +2060,34 @@ While(genshin_pressed_p <= genshin_play_array.Length() and deltaMS >= genshin_pl
 	{
 		genshin_pressed_p += 1
 		Break
+	}
+	isGroupStart := genshin_pressed_p = 1 || genshin_play_array[genshin_pressed_p - 1].delay != genshin_play_array[genshin_pressed_p].delay
+	if(isGroupStart)
+	{
+		groupCount := chord_humanize_group_count(genshin_pressed_p)
+		nextIndex := genshin_pressed_p + groupCount
+		nextDelay := nextIndex <= genshin_play_array.Length() ? genshin_play_array[nextIndex].delay : 0
+		struggleAction := struggle_prepare_group(genshin_pressed_p, groupCount, nextDelay)
+		if(struggleAction = 1)
+			Break
+		if(struggleAction = 2)
+		{
+			struggle_record_group(genshin_pressed_p, groupCount)
+			genshin_pressed_p := nextIndex
+			chord_humanize_play_pending(deltaMS)
+			Continue
+		}
+		if(chord_humanize_enabled && groupCount >= 2)
+		{
+			if(chord_humanize_schedule_group(genshin_pressed_p, groupCount, nextDelay))
+			{
+				struggle_record_group(genshin_pressed_p, groupCount)
+				genshin_pressed_p := nextIndex
+				chord_humanize_play_pending(deltaMS)
+				Continue
+			}
+		}
+		struggle_record_group(genshin_pressed_p, groupCount)
 	}
 	if(global_mode) {
 		if WinActive("ahk_id " domiso_active_hwnd)
@@ -1122,6 +2102,7 @@ While(genshin_pressed_p <= genshin_play_array.Length() and deltaMS >= genshin_pl
 	}
 	genshin_pressed_p += 1
 }
+chord_humanize_play_pending(deltaMS)
 Return
 
 ; 管理员权限下，无法直接使用拖入文件的功能，改由文件选择器调用此方法
@@ -1534,9 +2515,13 @@ genshin_play(targetMs := 0, resetLive := 1)
 	global sendHistory, gDebug, startTime, freq, genshin_pressed_p, genshin_pressed_array
 	global isBtn1Playing, global_mode, domiso_active_hwnd, gui_id
 	global isBtn1Paused, genshin_pause_offset, genshin_resume_array
-	global playback_seek_ms, playback_pending_seek_ms
+	global playback_seek_ms, playback_pending_seek_ms, struggle_enabled
 	targetMs := playback_clamp_ms(targetMs)
 	genshin_pressed_array := Array()
+	chord_humanize_clear_pending(1)
+	struggle_reset_runtime(1)
+	if(struggle_enabled)
+		struggle_arm(targetMs, 1)
 	genshin_pressed_p := genshin_build_resume_from_offset(targetMs)
 	genshin_pause_offset := targetMs
 	isBtn1Paused := 0
@@ -1591,6 +2576,8 @@ genshin_stop(clearPause := 1, keepPosition := 0)
 	}
 	btn1update()
 	SetTimer, genshin_main, Off
+	chord_humanize_clear_pending(1)
+	struggle_reset_runtime(1)
 	SetKeyDelay, -1, -1
 	if(gDebug) {
 		Clipboard:=sendHistory
@@ -1766,6 +2753,32 @@ func_btn_list:
 txt_list_show()
 Return
 
+func_btn_chord_humanize:
+Thread, NoTimers
+wasPlaying := isBtn1Playing
+chord_humanize_toggle("ui")
+if(wasPlaying)
+{
+	targetHwnd := global_mode ? domiso_active_hwnd : game_profile_window_exist()
+	if(targetHwnd)
+		WinActivate, ahk_id %targetHwnd%
+}
+Thread, NoTimers, false
+Return
+
+func_btn_struggle:
+Thread, NoTimers
+wasPlaying := isBtn1Playing
+struggle_toggle("ui")
+if(wasPlaying)
+{
+	targetHwnd := global_mode ? domiso_active_hwnd : game_profile_window_exist()
+	if(targetHwnd)
+		WinActivate, ahk_id %targetHwnd%
+}
+Thread, NoTimers, false
+Return
+
 txt_list_select:
 GuiControlGet, idx, txtlist:, txt_list_box
 if(idx)
@@ -1872,6 +2885,7 @@ Return
 
 resolve:
 Gui, main:Submit, NoHide
+struggle_reset_runtime(1)
 load_yihuan_play_settings(1)
 _Instrument:=instrument_select-1
 if(sheet_mode=="normal")
@@ -2211,6 +3225,12 @@ F7::genshin_pause()
 F8::genshin_stop()
 F9::Gosub, func_hotkey_play
 F10::genshin_resume()
+F11::
+struggle_toggle("F11")
+Return
+F12::
+chord_humanize_toggle("F12")
+Return
 
 #UseHook On
 #If (isBtn1Playing)
