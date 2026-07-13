@@ -138,6 +138,15 @@ def main() -> None:
         ],
         [
             py,
+            os.path.join(tool_dir, "domiso_pipeline_literal_melodylock_ensemble.py"),
+            args.input_midi,
+            "--profile",
+            "auto",
+            "--out-dir",
+            args.out_dir,
+        ],
+        [
+            py,
             os.path.join(tool_dir, "domiso_pipeline_yihuan_melodylock.py"),
             "pipeline",
             args.input_midi,

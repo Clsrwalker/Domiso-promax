@@ -71,10 +71,10 @@ def _registry(tool_dir: str, input_midi: str, out_dir: str, report_dir: str) -> 
             ],
         )
 
-    def direct_sky(script: str, name: str) -> ScriptSpec:
+    def direct(script: str, name: str, target: str) -> ScriptSpec:
         return ScriptSpec(
             name=name,
-            target="sky",
+            target=target,
             args=[
                 os.path.join(tool_dir, script),
                 input_midi,
@@ -84,6 +84,9 @@ def _registry(tool_dir: str, input_midi: str, out_dir: str, report_dir: str) -> 
                 out_dir,
             ],
         )
+
+    def direct_sky(script: str, name: str) -> ScriptSpec:
+        return direct(script, name, "sky")
 
     return [
         ScriptSpec(
@@ -98,6 +101,11 @@ def _registry(tool_dir: str, input_midi: str, out_dir: str, report_dir: str) -> 
         pipeline("domiso_pipeline_restore.py", "restore", "genshin"),
         pipeline("domiso_pipeline_literal.py", "literal", "genshin"),
         pipeline("domiso_pipeline_literal_melodylock.py", "literal_melodylock", "genshin"),
+        direct(
+            "domiso_pipeline_literal_melodylock_ensemble.py",
+            "literal_melodylock_ensemble",
+            "genshin",
+        ),
         pipeline("domiso_pipeline_literal_transcription.py", "literal_transcription", "genshin"),
         pipeline("domiso_pipeline_literal_human.py", "literal_human", "genshin"),
         pipeline("domiso_pipeline_highlight.py", "highlight", "genshin"),
